@@ -10,3 +10,18 @@
 .amarillo{
   color: #CDD589;
 }
+
+
+.menuActivo{
+  height: 62px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: ease-in all 500ms;
+
+}
+
+.menuOff{
+  height: 360px;
+  overflow: hidden;
+  transition: ease-in all 500ms;
+}
