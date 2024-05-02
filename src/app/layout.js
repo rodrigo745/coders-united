@@ -1,3 +1,4 @@
+import { Provider } from "./Providers";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -12,7 +13,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body className={`w-screen h-screen ${poppins.className}`}>{children}</body>
+      <body className={`w-screen h-screen ${poppins.className}`}>
+        <Provider>
+          {children}
+        </Provider>
+      </body>
     </html>
   );
 }

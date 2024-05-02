@@ -1,6 +1,6 @@
 // componentes
-import Dashboard from "@/components/dashboard/dashboard";
-import DashboardMovil from "@/components/dashboard/dashboardMovil";
+import Dashboard from "../../../../components/dashboard/dashboard";
+import DashboardMovil from "../../../../components/dashboard/dashboardMovil";
 
 export default function RootLayout({ children, params}) {
 

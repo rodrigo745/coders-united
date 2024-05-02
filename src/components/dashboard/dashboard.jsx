@@ -1,7 +1,9 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link"
 import "./dash.css";
 import { Icodigo, Ihuracan, Iproyecto, Iusuario, Iayuda, Iidea, IhuracanAmarillo } from "../../../public/iconos";
+import { signOut } from "next-auth/react";
 
 export default function Dashboard(props){
 
@@ -32,6 +34,9 @@ export default function Dashboard(props){
                     </Link>
                 ))
             }
+            <div className="text-neutral-500 text-center mt-3">
+                <button onClick={async ()=> await signOut({callbackUrl:"/"})}>Cerrar sesión</button>
+            </div>
             </div>
         </div>
     )
