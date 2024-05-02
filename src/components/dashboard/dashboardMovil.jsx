@@ -1,6 +1,7 @@
 "use client";
 import { IhuracanAmarillo } from "../../../public/iconos"
 import { useState } from "react"
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { Icodigo, Ihuracan, Iproyecto, Iusuario, Iayuda, Iidea } from "../../../public/iconos";
 
@@ -33,6 +34,8 @@ export default function DashboardMovil(props){
             </div>
             <div className="pl-4 transition">
             <div className="flex flex-col">
+                <div>
+
             {
                 titulos.map((e, index)=> (
                     <Link key={index} href={`/pages/${index}/${enlaces[index]}`} className={`flex p-2 space-x-3 text-slate-600 ${ruta == index && "fondo liston"}`}>
@@ -45,6 +48,10 @@ export default function DashboardMovil(props){
                     </Link>
                 ))
             }
+                </div>
+                <div className="text-neutral-500 ml-16 mt-3 text-sm">
+                    <button className="ml-3" onClick={async ()=> await signOut({callbackUrl:"/"})}>Cerrar sesión</button>
+                </div>
             </div>
             </div>
         </div>
