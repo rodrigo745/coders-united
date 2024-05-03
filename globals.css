@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/*Esto es del login*/
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;    
+}
+
+body {
+  font-family: "poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("./pages/img/logo.jpg" ) no-repeat;
+  background-size: cover;
+  background-position: center;
+  
+}
+
+body{
+  background-color: #181A1E;
+  color: #DFDADA;
+}
+/*  dashboard  */
+.cuadro{
+  background-color: #2C333A;
+}

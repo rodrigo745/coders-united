@@ -1,0 +1,130 @@
+.Login {
+    position: relative;
+    width: 500px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid rgba(151, 135, 135, 0.404);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2) ;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    color: #DFDADA;
+    transition: height 2.s ease;
+}
+
+.Create {
+    position: relative;
+    width: 700px;
+    height: 400px;
+    justify-content: center;
+    background: transparent;
+    border: 2px solid rgba(151, 135, 135, 0.404);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2) ;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    color: #DFDADA;
+    transition: height 2.s ease;
+}
+
+.Title {
+    font-size: 36px;
+    text-align: center;
+    font-weight: 600;
+    color: #CDD589;
+}
+
+.Login .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+form h1 {
+    font-size: 36px;
+    text-align: center;
+    font-weight: 600;
+    color: #CDD589;
+}
+
+form .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    background: #DB6767;
+    border-radius: 40px;;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid #2C333A;
+    border-radius: 30px;
+    font-size: 16px;
+    color: #DFDADA;
+    padding: 20px 45px 20px 20px;
+    font-weight: 500;
+}
+
+.input-box input::placeholder {
+    color: #DFDADA;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    translate: 0 -50%;
+    font-size: 16px;
+}
+
+form .Remenber {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.Remenber label input {
+    accent-color: #DFDADA;
+    text-decoration: none;
+}
+
+.Remenber a:hover {
+    text-decoration: underline;
+}
+
+form button {
+    width: 100%;
+    height: 45px;
+    background: #DB6767;
+    border: 2px solid #2C333A;
+    border-radius: 40px;
+    box-shadow: 0 0 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+form .Registro-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.Registro-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+
+
