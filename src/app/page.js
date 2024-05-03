@@ -9,13 +9,13 @@ export default function Home() {
 
   const router = useRouter();
 
-  router.push("/pages/auth/signin");
 
   // se redirecciona al login por defecto pages/auth/signin
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 w-screen h-screen content-center">
 
+    <button onClick={()=>signIn()}>Google</button>
 
     </main>
   );

@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link"
 import "./dash.css";
 import { Icodigo, Ihuracan, Iproyecto, Iusuario, Iayuda, Iidea, IhuracanAmarillo } from "../../../public/iconos";
+import { BiHomeAlt2 , BiFolder, BiCodeAlt, BiUser,  BiHelpCircle, BiLogOut } from "react-icons/bi";
+
 import { signOut } from "next-auth/react";
 
 export default function Dashboard(props){

@@ -11,7 +11,6 @@ export default function SignIn(){
 
   }
 
-
   return(
     <div className="flex justify-center w-screen h-screen">
        <button onClick={() => signIn("google",{callbackUrl:"/pages/0/inicio"})}>
