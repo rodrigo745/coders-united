@@ -35,7 +35,7 @@ export default function Dashboard(props){
                 ))
             }
             <div className="text-neutral-500 text-center mt-3">
-                <button onClick={async ()=> await signOut({callbackUrl:"/"})}>Cerrar sesión</button>
+                <button onClick={async ()=> await signOut({callbackUrl:"/"})}>Cerrar sesiónss</button>
             </div>
             </div>
         </div>
