@@ -27,7 +27,20 @@ export function DaBio(){
 }
 
 
+export function DaSegundaColumna(){
+    return(
+        <div className="flex flex-col md:w-fit justify-center items-center md:ml-12 md:mt-[105px] mt-10">
+            {inputText("Url del portafólio personal", "texto")}
 
+            { inputText("Dato adicional", "text") }
+
+            <h4 className="md:mt-[102px] mb-4 mr-24 mt-4">Datos académicos</h4>
+            { inputText("Nivel de estudios", "text") }
+            { inputText("Carrera", "text") }
+            { inputText("Institución académica", "text") }
+        </div>
+    )
+}
 
 
 
