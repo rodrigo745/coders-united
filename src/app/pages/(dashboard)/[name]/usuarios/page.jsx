@@ -12,9 +12,9 @@ export default async function Usuarios(){
         <div className=" lg:w-[65vw] xl:w-[73vw] 2xl:w-[77vw]">
 
             <div className="w-full flex flex-col lg:block items-center justify-center content-center">
-                <div className="flex mb-3 ml-4">
-                    <h2 className="text-lg">Usuario sin identificar</h2>
-                    <BiHelpCircle color="#CDD589" className="scale-150 ml-20 mt-2"/>
+                <div className="flex mb-3 ml-2 md:ml-4">
+                    <h2 className="text-lg">Usuarios sin identificar</h2>
+                    <BiHelpCircle color="#CDD589" className="scale-150 ml-16 mt-2 mr-2"/>
                 </div>
                 <div className="grid gap-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                 {
