@@ -2,11 +2,17 @@ import { BiHelpCircle } from "react-icons/bi"
 
 export default function DaPersonales(){
     return(
-        <div className="flex flex-col content-center justify-center items-center mt-10">
-            <h4 className="mt-4 mb-2 mr-24">Datos Personales</h4>
+        <div className="flex flex-col content-center justify-center items-center mt-4 md:mt-10">
+            <h4 className="mt-4 mb-4 mr-28">Datos Personales</h4>
             { inputText("Nombre de usuario", "text") }
             { inputText("Edad", "number") }
             { inputText("Ubicación", "text") }
+
+            <h4 className="mt-4 md:mt-10 mb-4 mr-20">Datos profesionales</h4>
+            { inputText("Rama a la que pertenece", "text") }
+            { inputText("Puesto", "text") }
+            { inputText("Disponibilidad", "text") }
+
         </div>
     )
 }
@@ -14,9 +20,9 @@ export default function DaPersonales(){
 
 function inputText(texto, tipo){
     return (
-        <div className="flex mb-4">
-            <input className="p-2 px-4 cuadro w-64 placeholder:text-neutral-500 rounded-full text-xs" placeholder={texto} type={tipo}/>
-            <BiHelpCircle color="#CDD589" className="absolute ml-[230px] mt-2"/>
+        <div className="flex mb-5">
+            <input className="p-3 px-5 cuadro w-72 placeholder:text-neutral-500 rounded-full text-xs pr-12" placeholder={texto} type={tipo}/>
+            <BiHelpCircle color="#CDD589" className="absolute scale-150 ml-[255px] mt-3"/>
         </div>
     )
 }
