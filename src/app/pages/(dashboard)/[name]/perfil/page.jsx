@@ -38,10 +38,11 @@ export default function Perfil(){
             }
             <DaPersonales/>
             </div>
-            <div>
+            <div >
                 <DaBio/>
                 <DaSegundaColumna/>
             </div>
+            
         </div>
     )
 }

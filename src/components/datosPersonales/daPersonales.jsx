@@ -29,6 +29,8 @@ export function DaBio(){
 
 export function DaSegundaColumna(){
     return(
+        <div className="flex flex-col md:flex md:flex-row justify-center md:justify-start">
+
         <div className="flex flex-col md:w-fit justify-center items-center md:ml-12 md:mt-[105px] mt-10">
             {inputText("Url del portafólio personal", "texto")}
 
@@ -38,6 +40,16 @@ export function DaSegundaColumna(){
             { inputText("Nivel de estudios", "text") }
             { inputText("Carrera", "text") }
             { inputText("Institución académica", "text") }
+        </div>
+        <div className="flex justify-center mt-4 md:mt-0">
+            <div className="md:mt-[330px] md:ml-12">
+                <h4 className="mb-3 ml-5">Datos de contacto</h4>
+                { inputText("Teléfono", "number") }
+                { inputText("Linkedin", "text") }
+                { inputText("GitHub", "text") }
+
+            </div>
+        </div>
         </div>
     )
 }
