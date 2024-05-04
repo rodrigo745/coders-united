@@ -6,21 +6,19 @@ export default function Perfil(){
     const { data: session } = useSession();
 
     return(
-        <div className="mx-2">
+        <div className="">
             {
                 session?.user ?
-                <div className="w-full cuadro p-4 py-7 px-5 flex flex-col justify-center items-center rounded-lg">
+                <div className="w-full cuadro py-4 px-8 flex flex-col justify-center items-center rounded-lg">
                     <img className="rounded-full border-2 border-yellow-300" 
-                    src={session.user.image} width={70} height={70} alt="foto de perfil" />
+                    src={session.user.image} width={60} height={60} alt="foto de perfil" />
                     <div className="mt-4">
 
-                    <p className="font-bold text-xs md:text-sm amarillo">
-                        Usuario: 
-                        <span className="font-light ml-2 text-white">{session.user.name}</span>    
+                    <p className="font-bold text-center text-xs md:text-sm amarillo">
+                        {session.user.name}    
                     </p>
-                    <p className="font-bold text-xs md:text-sm amarillo mt-2">
-                        Correo: 
-                        <span className="font-light ml-2 text-white">{session.user.email}</span>    
+                    <p className=" text-center text-neutral-500 text-xs scale-100 mt-2">
+                        {session.user.email}    
                     </p>
                     </div>
                 </div>
