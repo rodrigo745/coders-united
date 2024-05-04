@@ -1,10 +1,14 @@
-// componentes
+import VerificarUser from "../../../../../components/verificarUser/verificarUser"
+import { GET } from "../../../../api/usuarioGoogle/[id]/route";
 
+export default async function Inicio() {
+    
+    const datos = await GET();
 
-export default function Inicio(){
-    return(
+    return (
         <div>
-            Inicio
+            <VerificarUser datos={datos} />
         </div>
-    )
+    );
 }
+
