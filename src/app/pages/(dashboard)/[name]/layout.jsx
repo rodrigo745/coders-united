@@ -12,7 +12,7 @@ export default function RootLayout({ children, params}) {
             <div className="block md:hidden">
                 <DashboardMovil ruta={params.name}/>
             </div>
-            <div className="md:p-10 md:py-20 mx-4 mt-8 md:mt-0">
+            <div className="md:p-10 md:py-20 mt-8 md:mt-0">
                 {children}
             </div>
         </div>

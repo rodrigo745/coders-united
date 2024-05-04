@@ -9,7 +9,8 @@ export default function Perfil(){
         <div className="">
             {
                 session?.user ?
-                <div className="w-full cuadro py-4 px-8 flex flex-col justify-center items-center rounded-lg">
+                <div className="flex justify-center">
+                <div className="w-fit cuadro py-4 px-8 flex flex-col justify-center items-center rounded-lg">
                     <img className="rounded-full border-2 border-yellow-300" 
                     src={session.user.image} width={60} height={60} alt="foto de perfil" />
                     <div className="mt-4">
@@ -21,6 +22,7 @@ export default function Perfil(){
                         {session.user.email}    
                     </p>
                     </div>
+                </div>
                 </div>
                 :
                 <div>
