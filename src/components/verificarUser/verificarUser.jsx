@@ -34,6 +34,6 @@ export default function VerificarUser(props){
 
     
     return(
-        <div>asdegg</div>
+        <div>Inicio</div>
     )
 }
