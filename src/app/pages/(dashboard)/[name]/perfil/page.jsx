@@ -2,7 +2,7 @@
 import { useSession } from "next-auth/react"
 
 // Componentes
-import { DaPersonales } from "../../../../../components/datosPersonales/daPersonales.jsx";
+import { DaPersonales, DaBio } from "../../../../../components/datosPersonales/daPersonales.jsx";
 import Dashboard from "../../../../../components/dashboard/dashboard";
 
 export default function Perfil(){
@@ -39,7 +39,7 @@ export default function Perfil(){
             <DaPersonales/>
             </div>
             <div>
-                asd
+                <DaBio/>
             </div>
         </div>
     )
