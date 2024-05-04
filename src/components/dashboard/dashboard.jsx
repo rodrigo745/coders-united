@@ -1,17 +1,16 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link"
 import "./dash.css";
-import { Icodigo, Ihuracan, Iproyecto, Iusuario, Iayuda, Iidea, IhuracanAmarillo } from "../../../public/iconos";
+import { IhuracanAmarillo } from "../../../public/iconos";
 import { BiHomeAlt2 , BiFolder, BiCodeAlt, BiUser,  BiHelpCircle, BiLogOut } from "react-icons/bi";
-
+import { PiCubeFocusLight } from "react-icons/pi";
 import { signOut } from "next-auth/react";
 
 export default function Dashboard(props){
 
-    const titulos = [ "Inicio", "Proyectos", "Ideas", "Desarrolladores", "Perfil", "Ayuda"];
-    const enlaces = [ "inicio", "proyectos", "ideas", "desarrolladores", "perfil", "ayuda"];
-    const imagenes = [ Ihuracan, Iproyecto, Iidea, Icodigo,  Iusuario, Iayuda];
+    const titulos = [ "Inicio", "Proyectos", "Ideas", "Usuarios", "Perfil", "Ayuda"];
+    const enlaces = [ "inicio", "proyectos", "ideas", "usuarios", "perfil", "ayuda"];
+    const imagenes = [ <BiHomeAlt2 key="home"/>, <BiFolder key="Folder"/>,<PiCubeFocusLight key="FocusLight"/>, <BiCodeAlt key="CodeAlt"/>, <BiUser key="User"/>,  <BiHelpCircle key="HelpCircle"/>, <BiCodeAlt key="CodeAlt"/>];
 
     const ruta = props.ruta;
 
@@ -27,17 +26,19 @@ export default function Dashboard(props){
             {
                 titulos.map((e, index)=> (
                     <Link key={index} href={`/pages/${index}/${enlaces[index]}`} className={`flex p-3 space-x-4 text-neutral-500 ${ruta == index && "fondo liston"}`}>
-                        <div className="scale-75">
+                        <div className="scale-125 mt-2 ml-2">
                             {imagenes[index]}     
                         </div>
-                        <span className={`${index == 2 || index == 0 ? "mt-2" : "mt-1" }`}>
+                        <span className={`${index == 2 || index == 0 ? "mt-1" : "mt-1" }`}>
                             {e}
                         </span>
                     </Link>
                 ))
             }
-            <div className="text-neutral-500 text-center mt-3">
-                <button onClick={async ()=> await signOut({callbackUrl:"/"})}>Cerrar sesión</button>
+            <div className="text-neutral-500 ml-5 mt-4">
+                <button className="flex" onClick={async ()=> await signOut({callbackUrl:"/"})}>
+                    <BiLogOut className="scale-150 mr-5"/> Cerrar sesión
+                </button>
             </div>
             </div>
         </div>
