@@ -1,6 +1,6 @@
 import { BiHelpCircle } from "react-icons/bi"
 
-export default function DaPersonales(){
+export function DaPersonales(){
     return(
         <div className="flex flex-col content-center justify-center items-center mt-4 md:mt-10">
             <h4 className="mt-4 mb-4 mr-28">Datos Personales</h4>
