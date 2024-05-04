@@ -1,6 +1,10 @@
 "use client";
 import { useSession } from "next-auth/react"
 
+// Componentes
+import DaPersonales from "../../../../../components/datosPersonales/daPersonales.jsx";
+import Dashboard from "../../../../../components/dashboard/dashboard";
+
 export default function Perfil(){
 
     const { data: session } = useSession();
@@ -23,12 +27,14 @@ export default function Perfil(){
                     </p>
                     </div>
                 </div>
+
                 </div>
                 :
                 <div>
                     <p>No esta registrado</p>
                 </div>
             }
+            <DaPersonales/>
         </div>
     )
 }

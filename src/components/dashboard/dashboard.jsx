@@ -16,14 +16,14 @@ export default function Dashboard(props){
     const ruta = props.ruta;
 
     return(
-        <div className="ml-10  mt-4 h-[82vh] text-sm">
+        <div className="ml-10  mt-6 h-[85vh] text-sm">
             <div className="flex mb-2 scale-100">
-                <div className="scale-50">
+                <div className="ml-5 scale-50">
                     {IhuracanAmarillo}
                 </div>
                 <h2 className="mt-3 text-lg font-bold amarillo">Coders United</h2>
             </div>
-            <div className="flex flex-col h-full  cuadro rounded-3xl py-7 w-48 shadow-md shadow-neutral-900">
+            <div className="flex flex-col h-full  cuadro rounded-3xl py-7 w-56 shadow-md shadow-neutral-900">
             {
                 titulos.map((e, index)=> (
                     <Link key={index} href={`/pages/${index}/${enlaces[index]}`} className={`flex p-3 space-x-4 text-neutral-500 ${ruta == index && "fondo liston"}`}>
