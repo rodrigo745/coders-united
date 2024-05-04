@@ -1,5 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react"
+import Image from "next/image.js";
 
 // Componentes
 import { DaPersonales, DaBio, DaSegundaColumna } from "../../../../../components/datosPersonales/daPersonales.jsx";
@@ -17,7 +18,7 @@ export default function Perfil(){
                 session?.user ?
                 <div className="flex justify-center">
                 <div className="w-fit cuadro py-6 px-10 flex flex-col justify-center items-center rounded-lg">
-                    <img className="rounded-full border-2 border-yellow-300" 
+                    <Image className="rounded-full border-2 border-yellow-300" 
                     src={session.user.image} width={60} height={60} alt="foto de perfil" />
                     <div className="mt-4">
 

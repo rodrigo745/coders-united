@@ -7,10 +7,11 @@ export default function VerificarUser(props){
     const { data: session } = useSession();
     const datos = props.datos;
 
+    // Verifico si el usuario actual ya esta registrado, si no lo esta se registra 
     useEffect(()=>{
         if(session?.user){
             let encontrado = false;
-            encontrado = datos.some(item => item.nombre === session.user.name);
+            encontrado = datos.some(item => item.correo === session.user.email);
             if(!encontrado){
                 const objetos = {
                     nombre: session.user.name,
@@ -30,10 +31,8 @@ export default function VerificarUser(props){
             }
         }
     },[session?.user, datos])
-
-
     
     return(
-        <div>Inicio</div>
+        <></>
     )
 }

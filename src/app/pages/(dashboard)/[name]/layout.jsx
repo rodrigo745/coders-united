@@ -2,11 +2,8 @@
 // componentes
 import Dashboard from "../../../../components/dashboard/dashboard";
 import DashboardMovil from "../../../../components/dashboard/dashboardMovil";
-import { GET } from "../../../api/usuarioGoogle/[id]/route";
 
 export default async function RootLayout({ children, params}) {
-
-    const datos = await GET();
 
     return (
         <div className="flex flex-col md:flex md:flex-row">
