@@ -8,7 +8,7 @@ export default function DaPersonales(){
             { inputText("Edad", "number") }
             { inputText("Ubicación", "text") }
 
-            <h4 className="mt-4 md:mt-10 mb-4 mr-20">Datos profesionales</h4>
+            <h4 className="mt-4 md:mt-10 mb-4 mr-24">Datos profesionales</h4>
             { inputText("Rama a la que pertenece", "text") }
             { inputText("Puesto", "text") }
             { inputText("Disponibilidad", "text") }
