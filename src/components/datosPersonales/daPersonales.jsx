@@ -19,7 +19,7 @@ export function DaPersonales(){
 
 export function DaBio(){
     return (
-        <div className="flex flex-col content-center justify-center items-center mt-4 md:mt-0 md:ml-12">
+        <div className="flex flex-col content-center justify-center items-center mt-4 md:mt-0 md:mr-24">
             <textarea placeholder="Biografía"  className="resize-none h-40 p-4 placeholder:text-neutral-500 text-sm cuadro md:w-[800px] w-72 rounded-xl min-w-36 pr-8"/>
             <BiHelpCircle color="#CDD589" className="absolute scale-150 md:ml-[750px] md:mb-28 ml-[245px] mb-28"/>
         </div>
@@ -29,7 +29,7 @@ export function DaBio(){
 
 export function DaSegundaColumna(){
     return(
-        <div className="flex flex-col md:flex md:flex-row justify-center md:justify-start">
+        <div className="flex flex-col md:flex md:flex-row justify-center md:justify-start mb-10">
 
         <div className="flex flex-col md:w-fit justify-center items-center md:ml-12 md:mt-[105px] mt-10">
             {inputText("Url del portafólio personal", "texto")}
@@ -47,6 +47,15 @@ export function DaSegundaColumna(){
                 { inputText("Teléfono", "number") }
                 { inputText("Linkedin", "text") }
                 { inputText("GitHub", "text") }
+
+            </div>
+        </div>
+        <div className="flex justify-center mt-4 md:mt-0">
+            <div className="md:mt-[330px] md:ml-12">
+                <h4 className="mb-3 ml-5">Redes sociales</h4>
+                { inputText("Ej: Facebook", "text") }
+                { inputText("Ej: Instagram", "text") }
+                { inputText("Ej: X", "text") }
 
             </div>
         </div>
