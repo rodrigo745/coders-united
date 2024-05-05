@@ -2,7 +2,7 @@ import ActualizarDatos from "../../../../../components/datosPersonales/actualiza
 import connectDB from "../../../../../libs/mongoose";
 import datosPerfil from "../../../../../models/datosPerfil";
 
-export async function GETE(){
+async function LoadDatos(){
     await connectDB();
     const res = await datosPerfil.find();
     const data = await JSON.parse(JSON.stringify(res));
@@ -13,7 +13,7 @@ export async function GETE(){
 export default async function Perfil(){
 
 
-    const datos = await GETE();
+    const datos = await LoadDatos();
 
     return(
         <div>
