@@ -1,22 +1,29 @@
 "use client";
 import { useSession } from "next-auth/react"
 import Image from "next/image.js";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation.js";
 
 // Componentes
 import { DaPersonales, DaBio, DaSegundaColumna } from "./daPersonales.jsx";
-import { useEffect, useState } from "react";
+
+
 
 // obtencion y guardado de los datos obtenidos de los campos
 export default function ActualizarDatos(props){
 
-    const datosGet = props.datos
     const { data: session } = useSession();
+    const datosGet = props.datos;
+
+
+    const router = useRouter();
     // variables de valor y modificacion
-    const [ nombreReal, setNombreReal ] = useState("");
+    const [ nombreReal, setNombreReal ] = useState("");    
     const [ edad, setEdad ] = useState("");
     const [ ubicacion, setUbicacion ] = useState("");
     const [ datosMongo, setDatosMongo ] = useState({});
     let encontrado;
+
     // controlo que se actualicen los datos antes de subir, para que no se suba un objeto vacio
     useEffect(()=>{
         if(session?.user){
@@ -33,10 +40,10 @@ export default function ActualizarDatos(props){
     // Esta funcion sube los datos a mongo
     const prueba = async(e)=>{
         e.preventDefault();
-
-        // Crear o Actualizar
+        
         encontrado = datosGet.some(item => item.correo === session.user.email);
-
+        
+        // Crear o Actualizar
         if(!encontrado){ // si coincide el correo actual con uno de mongo, no se crea el registro
             // crear 
             const subir = await fetch(`/api/datosPerfil/as`, {
@@ -46,12 +53,26 @@ export default function ActualizarDatos(props){
                     "Content-Type": "application/json"
                 }
             })
+            router.refresh();
         } else {
             // actualizar
-            
+            encontrado = datosGet.find( item => item.correo === session.user.email);
+            const idEncontrada = encontrado._id;
+
+            if(encontrado){
+                const actualizar = await fetch(`/api/datosPerfil/${idEncontrada}`, 
+                {
+                    method: "PUT",
+                    body: JSON.stringify(datosMongo),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+            }
+
         }    
     }
-    
+
     // obtengo los cambios y modifico la variable base para ser subida luego
     const get_nombre_real = (e)=>{setNombreReal(e.target.value)}
     const get_edad = (e)=>{setEdad(e.target.value)}
