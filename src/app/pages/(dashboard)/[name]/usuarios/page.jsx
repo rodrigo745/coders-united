@@ -2,6 +2,7 @@ import Image from "next/image";
 import { GET } from "../../../../api/usuarioGoogle/[id]/route"
 import { BiHelpCircle } from "react-icons/bi"
 import { RxEyeOpen } from "react-icons/rx";
+import Link from "next/link";
 
 export default async function Usuarios(){
 
@@ -19,14 +20,14 @@ export default async function Usuarios(){
                 <div className="grid gap-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                 {
                     datosBD.map((e, index)=> (
-                        <div key={index} className="cuadro p-2 rounded-full flex w-[320px] mb-4 cursor-pointer">
+                        <Link href={`./usuarios/${e._id}/${index}`} key={index} className="cuadro p-2 rounded-full flex w-[320px] mb-4 cursor-pointer">
 
                             <Image src={e.imagen} width={30} height={30} alt="imagen" className="rounded-full border-2 border-yellow-300 ml-1" />
                             <div className="flex justify-between w-full">
                                 <p className="text-sm ml-4 mt-1">{e.nombre}</p>
                                 <RxEyeOpen color="#CDD589" className="scale-150 mt-2 mr-3"/>
                             </div>
-                        </div>
+                        </Link>
                     ))
                 }
                 <div className=" amarilloBack rounded-full h-11 w-[320px] cursor-pointer">
