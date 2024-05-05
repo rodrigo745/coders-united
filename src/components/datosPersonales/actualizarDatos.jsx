@@ -82,6 +82,7 @@ export default function ActualizarDatos(props){
                         "Content-Type": "application/json"
                     }
                 })
+                router.refresh();
             }
 
         }    
