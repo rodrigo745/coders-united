@@ -26,11 +26,15 @@ export default function ActualizarDatos(props){
 
     useEffect(()=>{
         let datos;
+        let encon;
         if(session?.user){
             datos = datosGet.find(item => item.correo === session.user.email);
-            setNombreReal(datos.nombre_real)
-            setEdad(datos.edad);
-            setUbicacion(datos.ubicacion)
+            encon = datosGet.some(item => item.correo === session.user.email);
+            if(encon){
+                setNombreReal(datos.nombre_real)
+                setEdad(datos.edad);
+                setUbicacion(datos.ubicacion)
+            }
         }
 
     },[session?.user, datosGet])
