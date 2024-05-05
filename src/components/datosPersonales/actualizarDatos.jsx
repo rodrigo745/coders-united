@@ -8,23 +8,33 @@ import { useRouter } from "next/navigation.js";
 import { DaPersonales, DaBio, DaSegundaColumna } from "./daPersonales.jsx";
 
 
-
 // obtencion y guardado de los datos obtenidos de los campos
 export default function ActualizarDatos(props){
 
     const { data: session } = useSession();
     const datosGet = props.datos;
 
-
     const router = useRouter();
     // variables de valor y modificacion
-    const [ nombreReal, setNombreReal ] = useState("");    
+    let [ nombreReal, setNombreReal ] = useState("");    
     const [ edad, setEdad ] = useState("");
     const [ ubicacion, setUbicacion ] = useState("");
     const [ datosMongo, setDatosMongo ] = useState({});
     let encontrado;
 
     // controlo que se actualicen los datos antes de subir, para que no se suba un objeto vacio
+
+    useEffect(()=>{
+        let datos;
+        if(session?.user){
+            datos = datosGet.find(item => item.correo === session.user.email);
+            setNombreReal(datos.nombre_real)
+            setEdad(datos.edad);
+            setUbicacion(datos.ubicacion)
+        }
+
+    },[session?.user, datosGet])
+
     useEffect(()=>{
         if(session?.user){
             setDatosMongo({

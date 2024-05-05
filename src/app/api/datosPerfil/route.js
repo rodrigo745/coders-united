@@ -7,5 +7,5 @@ export async function GET(){
     const res = await datosPerfil.find();
     const data = await JSON.parse(JSON.stringify(res));
 
-    return NextResponse.json(data);
+    return data;
 }

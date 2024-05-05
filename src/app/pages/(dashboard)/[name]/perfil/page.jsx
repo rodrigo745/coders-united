@@ -5,8 +5,7 @@ import { GET } from "../../../../api/datosPerfil/route";
 export default async function Perfil(){
 
 
-    const datos = await JSON.parse(JSON.stringify(GET()));
-
+    const datos = await GET();
 
     return(
         <div>
