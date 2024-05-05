@@ -4,10 +4,8 @@ export default async function IdUsuario({params}){
     
     const datosDB = await GET(); 
     
-    console.log(params.id[1])
-    
+    // obtengo el id y el numero de indexacion del usuario
     const filtro = datosDB[params.id[1]]
-    console.log(filtro)
 
     return (
         <div>
