@@ -31,7 +31,7 @@ export default async function Usuarios(){
                     ))
                 }
                 <div className=" amarilloBack rounded-full h-11 w-[320px] cursor-pointer">
-                    <p className="text-black font-bold text-center mt-2">Ver más usuarios</p>
+                    <p className="text-black font-bold text-center mt-3">Ver más usuarios</p>
                 </div>
                 </div>
             </div>
