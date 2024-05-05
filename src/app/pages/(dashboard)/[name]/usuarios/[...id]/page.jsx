@@ -7,6 +7,8 @@ export default async function IdUsuario({params}){
     // obtengo el id y el numero de indexacion del usuario
     const filtro = datosDB[params.id[1]]
 
+    //await new Promise((resolve) => setTimeout(resolve, 25000) )
+
     return (
         <div>
             <h3>Informacion del usuario</h3>
