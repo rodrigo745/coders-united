@@ -137,8 +137,6 @@ export function DaSegundaColumna(props){
 
 function inputText(texto, tipo, cambios, valor){
     
-    console.log(valor)
-    console.log(valor !== undefined)
     return (
         <div className="flex mb-5 ">
             <input onChange={cambios} value={valor} className="p-3 px-5 cuadro w-72 placeholder:text-neutral-500 rounded-full text-xs pr-12" placeholder={texto} type={tipo}/>

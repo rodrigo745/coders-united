@@ -3,6 +3,7 @@ import { GET } from "../../../../api/usuarioGoogle/[id]/route"
 import { BiHelpCircle } from "react-icons/bi"
 import { RxEyeOpen } from "react-icons/rx";
 import Link from "next/link";
+import Buscador from "../../../../../components/buscador/buscador";
 
 export default async function Usuarios(){
 
@@ -18,10 +19,7 @@ export default async function Usuarios(){
                         <h2 className="text-lg mt-2 mb-4 md:mb-0">Usuarios sin identificar</h2>
                         <BiHelpCircle color="#CDD589" className="scale-150 ml-16 mt-4 mr-2"/>
                     </div>
-                    <div className="mb-4">
-                        <input type="search" className="p-2 px-5 border border-1 active:border-yellow-300 rounded-full cuadro w-[320px]" 
-                            placeholder="Buscar usuario"/>
-                    </div>
+                    <Buscador datos={datosBD}/>
                 </div>
                 <div className="grid xl:gap-x-12 2xl:gap-x-16 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 ">
                 {
