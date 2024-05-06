@@ -1,5 +1,6 @@
 import { BiHelpCircle } from "react-icons/bi"
 
+
 export function DaPersonales(props){
     return(
         <div className="flex flex-col content-center justify-center items-center mt-4 md:mt-10">
@@ -43,6 +44,7 @@ export function DaBio(props){
 
 
 export function DaSegundaColumna(props){
+    
     return(
         <div className="flex flex-col md:flex md:flex-row justify-center md:justify-start mb-10">
 
@@ -51,13 +53,42 @@ export function DaSegundaColumna(props){
 
             { inputText("Dato adicional", "text", props.dato_adicional, props.valor_dato_dicional) }
 
-            <h4 className="md:mt-[102px] mb-4 mr-24 mt-4">Habilidades técnicas</h4>
-            { inputText("Herramientas", "text") }
-            { inputText("Carrera", "text") }
-            { inputText("Institución académica", "text") }
+            <h4 className="md:mt-[102px] mb-4 mr-40 mt-4">Habilidades</h4>
+            { inputText("Herramientas", "text", props.herramientas, props.valor_herramientas) }
+            { inputText("Idiomas", "text") }
+            { inputText("Adicional", "text") }
         </div>
-        <div className="flex justify-center mt-4 md:mt-0">
-            <div className="md:mt-[330px] md:ml-12">
+
+        <div className="flex flex-col justify-center mt-4 md:mt-0">
+
+            {/* Tablero de habilidades */}
+        <div className="ml-14 p-3 pb-7 cuadro rounded-md h-44 mt-24">
+            <h4 className="text-sm">Tablero de habilidades técnicas</h4>
+            <div className="text-sm h-full overflow-auto">
+                <div className="w-full h-fit p-1 flex flex-wrap justify-around">
+
+                    {   props.tablero_herramientas &&
+                        props.tablero_herramientas.herramientas.map((e, index) => 
+                            (e != "" &&
+                            <div key={index} className="block">
+                                <div className="relative">
+
+                                <p className="absolute rojoBack rounded-full font-bold text-center text-xs h-4 w-4 ml-[-10%] mt-4 z-10">x</p>
+                                </div>
+                                <div className="mt-4 pt-2">
+                                    <div className="amarilloBack rounded-md px-2 py-1 w-fit text-black font-bold">
+                                        <p>{e}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ) )
+                    }
+
+                </div>
+            </div>
+        </div>
+
+            <div className="md:mt-[50px] md:ml-12">
                 <h4 className="mb-3 ml-5">Datos de contacto</h4>
                 { inputText("Teléfono", "number", props.telefono, props.valor_telefono) }
                 { inputText("Linkedin", "text", props.linkedin, props.valor_linkedin) }

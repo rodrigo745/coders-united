@@ -1,7 +1,7 @@
 "use client";
 import { useSession } from "next-auth/react"
 import Image from "next/image.js";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation.js";
 
 // Componentes
@@ -10,10 +10,9 @@ import { DaPersonales, DaBio, DaSegundaColumna } from "./daPersonales.jsx";
 
 // obtencion y guardado de los datos obtenidos de los campos
 export default function ActualizarDatos(props){
-
+    
     const { data: session } = useSession();
     const datosGet = props.datos;
-
     const router = useRouter();
     // variables de valor y modificacion
     let [ nombreReal, setNombreReal ] = useState("");    
@@ -24,7 +23,7 @@ export default function ActualizarDatos(props){
     const [ disponibilidad, setDisponibilidad ] = useState("");
     const [ portafolio, setPortafolio ] = useState("");
     const [ datoAdicional, setDatoAdicional ] = useState("");
-    //const [ rama, setRama ] = useState("Diseño"); ESPACIO PARA HABILIDADES TECNICAS
+    const [ herramientas, setHerramientas ] = useState(""); 
     //const [ rama, setRama ] = useState("Diseño"); ESPACIO PARA HABILIDADES TECNICAS
     //const [ rama, setRama ] = useState("Diseño"); ESPACIO PARA HABILIDADES TECNICAS
     const [ telefono, setTelefono ] = useState("");
@@ -35,74 +34,109 @@ export default function ActualizarDatos(props){
     const [ social_tres, setSocialTres ] = useState("");
     const [ biografia, setBiografia ] = useState("");
     
-
+    
     // esta variable contendra el conjunto de nuevo datos para subir
     const [ datosMongo, setDatosMongo ] = useState({});
     let encontrado;
-
+    
     // controlo que se actualicen los datos para mostrarlos al usuario
     useEffect(()=>{
-        let datos;
+        let datosFind;
         let encon;
         if(session?.user){
-            datos = datosGet.find(item => item.correo === session.user.email);
+            datosFind = datosGet.find(item => item.correo === session.user.email);
             encon = datosGet.some(item => item.correo === session.user.email);
             if(encon){
-                setNombreReal(datos.nombre_real)
-                setEdad(datos.edad);
-                setUbicacion(datos.ubicacion);
-                setRama(datos.rama);
-                setPuesto(datos.puesto);
-                setDisponibilidad(datos.disponibilidad);
-                setPortafolio(datos.portafolio);
-                setDatoAdicional(datos.datos_adicionales);
+                setNombreReal(datosFind.nombre_real)
+                setEdad(datosFind.edad);
+                setUbicacion(datosFind.ubicacion);
+                setRama(datosFind.rama);
+                setPuesto(datosFind.puesto);
+                setDisponibilidad(datosFind.disponibilidad);
+                setPortafolio(datosFind.portafolio);
+                setDatoAdicional(datosFind.datos_adicionales);
+                
                 // ESPACIO PARA HABILIDADES TECNICAS
                 // ESPACIO PARA HABILIDADES TECNICAS
-                // ESPACIO PARA HABILIDADES TECNICAS
-                setTelefono(datos.telefono);
-                setLinkedin(datos.linkedin);
-                setGitHub(datos.github);
-                setSocialUno(datos.social_uno);
-                setSocialDos(datos.social_dos);
-                setSocialTres(datos.social_tres);
-                setBiografia(datos.biografia);
+                setTelefono(datosFind.telefono);
+                setLinkedin(datosFind.linkedin);
+                setGitHub(datosFind.github);
+                setSocialUno(datosFind.social_uno);
+                setSocialDos(datosFind.social_dos);
+                setSocialTres(datosFind.social_tres);
+                setBiografia(datosFind.biografia);
             }
         }
 
     },[session?.user, datosGet])
-
+    
     // guardo los datos modificados en la variable de conjunto
     useEffect(()=>{
         if(session?.user){
-            setDatosMongo({
-                correo: session.user.email,
-                nombre_real: nombreReal,
-                edad: edad,
-                ubicacion: ubicacion,
-                rama: rama,
-                puesto: puesto,
-                disponibilidad: disponibilidad,
-                portafolio: portafolio,
-                dato_adicional: datoAdicional,
-                // ESPACIO PARA HABILIDADES TECNICAS
-                // ESPACIO PARA HABILIDADES TECNICAS
-                // ESPACIO PARA HABILIDADES TECNICAS
-                telefono: telefono,
-                linkedin: linkedin,
-                github: github,
-                social_uno: social_uno,
-                social_dos: social_dos,
-                social_tres: social_tres,
-                biografia: biografia
-                // Crear espacions adicionales para un futuro campo/input
-            })
-        }
-    },[
-        edad, nombreReal, ubicacion, rama, puesto, disponibilidad, portafolio, datoAdicional,
-        telefono, linkedin, github, social_uno, social_dos, social_tres, session?.user, biografia
-    ])
+            let datos = datosGet.find((item)=> item.correo === session.user.email );
+            let nuevaHerramienta;
+            if(datos && datos.herramientas){
+                nuevaHerramienta = [...datos.herramientas, herramientas]
+            } else {
+                nuevaHerramienta = herramientas
+            }
+            if(herramientas === ""){
+                setDatosMongo({
+                    correo: session.user.email,
+                    nombre_real: nombreReal,
+                    edad: edad,
+                    ubicacion: ubicacion,
+                    rama: rama,
+                    puesto: puesto,
+                    disponibilidad: disponibilidad,
+                    portafolio: portafolio,
+                    dato_adicional: datoAdicional,
+                    // ESPACIO PARA HABILIDADES TECNICAS
+                    // ESPACIO PARA HABILIDADES TECNICAS
+                    telefono: telefono,
+                    linkedin: linkedin,
+                    github: github,
+                    social_uno: social_uno,
+                    social_dos: social_dos,
+                    social_tres: social_tres,
+                    biografia: biografia
+                    // Crear espacions adicionales para un futuro campo/input
+                })
+            } else {
+                setDatosMongo({
+                    correo: session.user.email,
+                    nombre_real: nombreReal,
+                    edad: edad,
+                    ubicacion: ubicacion,
+                    rama: rama,
+                    puesto: puesto,
+                    disponibilidad: disponibilidad,
+                    portafolio: portafolio,
+                    dato_adicional: datoAdicional,
+                    herramientas: nuevaHerramienta,
+                    // ESPACIO PARA HABILIDADES TECNICAS
+                    // ESPACIO PARA HABILIDADES TECNICAS
+                    telefono: telefono,
+                    linkedin: linkedin,
+                    github: github,
+                    social_uno: social_uno,
+                    social_dos: social_dos,
+                    social_tres: social_tres,
+                    biografia: biografia
+                    // Crear espacions adicionales para un futuro campo/input
+                })
+            }
+            }
+        },[
+            edad, nombreReal, ubicacion, rama, puesto, disponibilidad, portafolio, datoAdicional, herramientas,
+            telefono, linkedin, github, social_uno, social_dos, social_tres, session?.user, biografia, datosGet
+        ])
+        
+    
+    if(session?.user){
 
-
+    const datosFind = datosGet.find((item) => item.correo === session.user.email);
+        
     // Esta funcion sube los datos a mongo
     const prueba = async(e)=>{
         e.preventDefault();
@@ -122,8 +156,7 @@ export default function ActualizarDatos(props){
             router.refresh();
         } else {
             // actualizar
-            encontrado = datosGet.find( item => item.correo === session.user.email);
-            const idEncontrada = encontrado._id;
+            const idEncontrada = datosFind._id;
 
             if(encontrado){
                 const actualizar = await fetch(`/api/datosPerfil/${idEncontrada}`, 
@@ -134,6 +167,7 @@ export default function ActualizarDatos(props){
                         "Content-Type": "application/json"
                     }
                 })
+                setHerramientas("");
                 router.refresh();
             }
         }    
@@ -159,9 +193,7 @@ export default function ActualizarDatos(props){
     const get_social_dos = (e)=>{setSocialDos(e.target.value)}
     const get_social_tres = (e)=>{setSocialTres(e.target.value)}
     const get_biografia = (e)=>{setBiografia(e.target.value); console.log(e.target.value)}
-
-
-
+    const get_herramientas = (e)=>{setHerramientas(e.target.value)}
 
     return(
         <form onSubmit={prueba} className="flex flex-col md:flex md:flex-row">
@@ -208,8 +240,10 @@ export default function ActualizarDatos(props){
                 <DaSegundaColumna
                     portafolio={get_portafolio} valor_portafolio={portafolio}
                     dato_adicional={get_datoAdicional} valor_dato_adicional={datoAdicional}
-                    /* ESPACIO PARA HABILIDADES TECNICAS */
+                    herramientas={get_herramientas} valor_herramientas={herramientas
+                    }
                     /* ESPACIO PARA HABILIDADES TECNICAS */ 
+                    tablero_herramientas={datosFind} 
                     /* ESPACIO PARA HABILIDADES TECNICAS */ 
                     telefono={get_telefono} valor_telefono={telefono}
                     linkedin={get_linkedin} valor_linkedin={linkedin}
@@ -225,4 +259,5 @@ export default function ActualizarDatos(props){
             </div>
         </form>
     )
+}
 }
