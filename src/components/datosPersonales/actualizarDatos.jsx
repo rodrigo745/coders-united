@@ -33,7 +33,7 @@ export default function ActualizarDatos(props){
     const [ social_dos, setSocialDos ] = useState("");
     const [ social_tres, setSocialTres ] = useState("");
     const [ biografia, setBiografia ] = useState("");
-    
+    const [ datosGuardadosPop, setDatosGuardadosPop ] = useState(false);
     
     // esta variable contendra el conjunto de nuevo datos para subir
     const [ datosMongo, setDatosMongo ] = useState({});
@@ -179,6 +179,9 @@ export default function ActualizarDatos(props){
                 })
                 setHerramientas("");
                 router.refresh();
+                setDatosGuardadosPop(true);
+                await new Promise((resolve)=> setTimeout(resolve, 2000) )
+                setDatosGuardadosPop(false);
             }
         }    
     }
@@ -267,6 +270,12 @@ export default function ActualizarDatos(props){
             <div className="md:hidden mb-20 flex justify-center">
                 <button onSubmit={prueba} className="amarilloBack px-4 py-2 text-black font-bold rounded-full w-72">Guardar cambios</button>
             </div>
+            {
+                datosGuardadosPop &&
+                    <div className="animate-pulse p-2 px-4 bg-green-700 rounded-md font-bold fixed right-0 bottom-0 mr-20 mb-20">
+                        Guardando
+                    </div>
+            }
         </form>
     )
 }
