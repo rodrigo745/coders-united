@@ -18,7 +18,7 @@ export default function ActualizarDatos(props){
     let [ nombreReal, setNombreReal ] = useState("");    
     const [ edad, setEdad ] = useState("");
     const [ ubicacion, setUbicacion ] = useState("");
-    const [ rama, setRama ] = useState("Diseño");
+    const [ rama, setRama ] = useState("");
     const [ puesto, setPuesto ] = useState("");
     const [ disponibilidad, setDisponibilidad ] = useState("");
     const [ portafolio, setPortafolio ] = useState("");

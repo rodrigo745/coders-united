@@ -75,8 +75,8 @@ export function DaSegundaColumna(props){
 
             <h4 className="md:mt-[102px] mb-4 mr-40 mt-4">Habilidades</h4>
             { inputText("Herramientas", "text", props.herramientas, props.valor_herramientas) }
-            { inputText("Idiomas", "text") }
-            { inputText("Adicional", "text") }
+            { inputText("Campo en desarrollo", "text") }
+            { inputText("Campo en desarrollo", "text") }
         </div>
 
         <div className="flex flex-col items-center md:items-start justify-center mt-4 md:mt-0">
@@ -90,7 +90,7 @@ export function DaSegundaColumna(props){
                     {   props.tablero_herramientas &&
                         props.tablero_herramientas.herramientas.map((e, index) => 
                             (e != "" &&
-                            <div key={index} className="block mb-2" onClick={()=>deleteItem(props.tablero_herramientas, index)} >
+                            <div key={index} className="block mb-2 cursor-pointer" onClick={()=>deleteItem(props.tablero_herramientas, index)} >
                                 <div className="relative" >
                                 
                                 <p className="absolute rojoBack rounded-full font-bold text-center text-xs h-4 w-4 ml-[-8px] mt-1 z-10">x</p>
