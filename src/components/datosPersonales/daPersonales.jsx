@@ -10,17 +10,17 @@ export function DaPersonales(props){
 
             <h4 className="mt-4 md:mt-10 mb-4 mr-24">Datos profesionales</h4>
             <div className=" px-5 cuadro w-72 rounded-full text-xs pr-4 mb-5">
-                <select className="w-full cuadro py-3" id="opcionesRama" name="opcionesRama">
-                    <option value="none">Rama a la que pertenece</option>
+                <select value={props.valor_rama} onChange={props.rama} className="w-full cuadro py-3" id="opcionesRama" name="opcionesRama">
+                    <option className="text-neutral-500"  value="none">Rama a la que pertenece</option>
                     <option value="Desarrollo">Desarrollo</option>
                     <option value="Diseño">Diseño</option>
                     <option value="Marketing">Marketing</option>
                     <option value="Otro">Otro</option>
                 </select>
             </div>
-            { inputText("Puesto", "text") }
+            { inputText("Puesto", "text", props.puesto, props.valor_puesto) }
             <div className=" px-5 cuadro w-72 rounded-full text-xs pr-4 mb-5" >
-                <select className="w-full cuadro py-3" id="opcionesDisponibi" name="opcionesDisponi" >
+                <select value={props.valor_disponibilidad} onChange={props.disponibilidad} className="w-full cuadro py-3" id="opcionesDisponibi" name="opcionesDisponi" >
                     <option className="text-neutral-500" value="none">Disponibilidad</option>
                     <option value="Part-time">Part-time</option>
                     <option value="Full-time">Full-time</option>

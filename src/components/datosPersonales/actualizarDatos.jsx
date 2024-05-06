@@ -19,12 +19,15 @@ export default function ActualizarDatos(props){
     let [ nombreReal, setNombreReal ] = useState("");    
     const [ edad, setEdad ] = useState("");
     const [ ubicacion, setUbicacion ] = useState("");
+    const [ rama, setRama ] = useState("Diseño");
+    const [ puesto, setPuesto ] = useState("");
+    const [ disponibilidad, setDisponibilidad ] = useState("");
 
     // esta variable contendra el conjunto de nuevo datos para subir
     const [ datosMongo, setDatosMongo ] = useState({});
     let encontrado;
 
-    // controlo que se actualicen los datos antes de subir, para que no se suba un objeto vacio
+    // controlo que se actualicen los datos para mostrarlos al usuario
     useEffect(()=>{
         let datos;
         let encon;
@@ -34,7 +37,10 @@ export default function ActualizarDatos(props){
             if(encon){
                 setNombreReal(datos.nombre_real)
                 setEdad(datos.edad);
-                setUbicacion(datos.ubicacion)
+                setUbicacion(datos.ubicacion);
+                setRama(datos.rama);
+                setPuesto(datos.puesto);
+                setDisponibilidad(datos.disponibilidad);
             }
         }
 
@@ -47,10 +53,13 @@ export default function ActualizarDatos(props){
                 correo: session.user.email,
                 nombre_real: nombreReal,
                 edad: edad,
-                ubicacion: ubicacion
+                ubicacion: ubicacion,
+                rama: rama,
+                puesto: puesto,
+                disponibilidad: disponibilidad
             })
         }
-    },[edad, nombreReal, ubicacion])
+    },[edad, nombreReal, ubicacion, rama, puesto, disponibilidad])
 
 
     // Esta funcion sube los datos a mongo
@@ -94,6 +103,9 @@ export default function ActualizarDatos(props){
     const get_nombre_real = (e)=>{setNombreReal(e.target.value)}
     const get_edad = (e)=>{setEdad(e.target.value)}
     const get_ubicacion = (e)=>{setUbicacion(e.target.value)}
+    const get_rama = (e)=>{setRama(e.target.value)}
+    const get_puesto = (e)=>{setPuesto(e.target.value)}
+    const get_disponibilidad = (e)=>{setDisponibilidad(e.target.value)}
 
 
 
@@ -128,7 +140,10 @@ export default function ActualizarDatos(props){
                 nombre_real={get_nombre_real} valor_nombre_real={nombreReal}
                 edad={get_edad} valor_edad={edad}
                 ubicacion={get_ubicacion} valor_ubicacion={ubicacion}
-            
+                rama={get_rama}   valor_rama={rama}
+                puesto={get_puesto}  valor_puesto={puesto}
+                disponibilidad={get_disponibilidad} valor_disponibilidad={disponibilidad}
+
             />
   
             <div className="hidden md:block">
