@@ -1,5 +1,6 @@
 import { BiHelpCircle } from "react-icons/bi"
-
+import { useState } from "react"
+import { useRouter } from "next/navigation" 
 
 export function DaPersonales(props){
     return(
@@ -42,8 +43,27 @@ export function DaBio(props){
     )
 }
 
-
 export function DaSegundaColumna(props){
+    const router = useRouter();
+    const [ datosMongo, setDatosMongo ] = useState({});
+    
+    async function deleteItem(herramienta, indexItem){
+        const borrado = herramienta.herramientas.splice(indexItem, 1)
+        const idEncontrada = herramienta._id;
+
+         setDatosMongo({
+             herramientas: herramienta.herramientas
+         })
+         const actualizar = await fetch(`/api/datosPerfil/${idEncontrada}`,
+             {
+                method: "PUT",
+                body: JSON.stringify(datosMongo),
+                headers: {
+                    "Conten-Type": "application/json"
+                }
+            }
+        )
+    }
     
     return(
         <div className="flex flex-col md:flex md:flex-row justify-center md:justify-start mb-10">
@@ -65,14 +85,14 @@ export function DaSegundaColumna(props){
         <div className="md:ml-14  p-3 pb-7 cuadro rounded-md h-44 absolute mb-64 w-72 md:mb-40 md:w-[32%]">
             <h4 className="text-sm mb-1">Tablero de habilidades técnicas</h4>
             <div className="text-sm h-full overflow-auto ">
-                <div className="w-full h-fit p-1 space-x-5  flex flex-wrap justify-around px-2">
+                <div className="w-full h-fit p-1 space-x-5  flex flex-wrap px-2">
 
                     {   props.tablero_herramientas &&
                         props.tablero_herramientas.herramientas.map((e, index) => 
                             (e != "" &&
-                            <div key={index} className="block mb-2">
-                                <div className="relative">
-
+                            <div key={index} className="block mb-2" onClick={()=>deleteItem(props.tablero_herramientas, index)} >
+                                <div className="relative" >
+                                
                                 <p className="absolute rojoBack rounded-full font-bold text-center text-xs h-4 w-4 ml-[-8px] mt-1 z-10">x</p>
                                 </div>
                                 <div className="pt-2">
