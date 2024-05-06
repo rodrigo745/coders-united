@@ -13,11 +13,17 @@ export default async function Usuarios(){
         <div className=" lg:w-[65vw] xl:w-[73vw] 2xl:w-[77vw]">
 
             <div className="w-full flex flex-col lg:block items-center justify-center content-center">
-                <div className="flex mb-3 ml-2 md:ml-4">
-                    <h2 className="text-lg">Usuarios sin identificar</h2>
-                    <BiHelpCircle color="#CDD589" className="scale-150 ml-16 mt-2 mr-2"/>
+                <div className="flex flex-col-reverse md:flex md:flex-row md:justify-between mb-3 justify-center  items-center md:ml-4">
+                    <div className="flex">
+                        <h2 className="text-lg mt-2 mb-4 md:mb-0">Usuarios sin identificar</h2>
+                        <BiHelpCircle color="#CDD589" className="scale-150 ml-16 mt-4 mr-2"/>
+                    </div>
+                    <div className="mb-4">
+                        <input type="search" className="p-2 px-5 border border-1 active:border-yellow-300 rounded-full cuadro w-[320px]" 
+                            placeholder="Buscar usuario"/>
+                    </div>
                 </div>
-                <div className="grid gap-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+                <div className="grid xl:gap-x-12 2xl:gap-x-16 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 ">
                 {
                     datosBD.map((e, index)=> (
                         <Link href={`./usuarios/${e._id}/${index}`} key={index} className="cuadro p-2 rounded-full flex w-[320px] mb-4 cursor-pointer">
