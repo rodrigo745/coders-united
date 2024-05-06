@@ -9,9 +9,23 @@ export function DaPersonales(props){
             { inputText("Ubicación", "text", props.ubicacion, props.valor_ubicacion) }
 
             <h4 className="mt-4 md:mt-10 mb-4 mr-24">Datos profesionales</h4>
-            { inputText("Rama a la que pertenece", "text") }
+            <div className=" px-5 cuadro w-72 rounded-full text-xs pr-4 mb-5">
+                <select className="w-full cuadro py-3" id="opcionesRama" name="opcionesRama">
+                    <option value="none">Rama a la que pertenece</option>
+                    <option value="Desarrollo">Desarrollo</option>
+                    <option value="Diseño">Diseño</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
             { inputText("Puesto", "text") }
-            { inputText("Disponibilidad", "text") }
+            <div className=" px-5 cuadro w-72 rounded-full text-xs pr-4 mb-5" >
+                <select className="w-full cuadro py-3" id="opcionesDisponibi" name="opcionesDisponi" >
+                    <option className="text-neutral-500" value="none">Disponibilidad</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Full-time">Full-time</option>
+                </select>
+            </div>
 
         </div>
     )

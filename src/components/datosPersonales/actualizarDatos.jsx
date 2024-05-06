@@ -19,11 +19,12 @@ export default function ActualizarDatos(props){
     let [ nombreReal, setNombreReal ] = useState("");    
     const [ edad, setEdad ] = useState("");
     const [ ubicacion, setUbicacion ] = useState("");
+
+    // esta variable contendra el conjunto de nuevo datos para subir
     const [ datosMongo, setDatosMongo ] = useState({});
     let encontrado;
 
     // controlo que se actualicen los datos antes de subir, para que no se suba un objeto vacio
-
     useEffect(()=>{
         let datos;
         let encon;
@@ -39,6 +40,7 @@ export default function ActualizarDatos(props){
 
     },[session?.user, datosGet])
 
+    // guardo los datos modificados en la variable de conjunto
     useEffect(()=>{
         if(session?.user){
             setDatosMongo({
@@ -54,7 +56,7 @@ export default function ActualizarDatos(props){
     // Esta funcion sube los datos a mongo
     const prueba = async(e)=>{
         e.preventDefault();
-        
+    
         encontrado = datosGet.some(item => item.correo === session.user.email);
         
         // Crear o Actualizar
@@ -84,11 +86,11 @@ export default function ActualizarDatos(props){
                 })
                 router.refresh();
             }
-
         }    
     }
 
     // obtengo los cambios y modifico la variable base para ser subida luego
+    // le paso la funcion como props al componente corresponiente para recolectar la info
     const get_nombre_real = (e)=>{setNombreReal(e.target.value)}
     const get_edad = (e)=>{setEdad(e.target.value)}
     const get_ubicacion = (e)=>{setUbicacion(e.target.value)}
