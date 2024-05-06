@@ -1,19 +1,17 @@
 import { GET } from "../../../../../api/usuarioGoogle/[id]/route"
+import { useSession } from "next-auth/react";
+
 
 export default async function IdUsuario({params}){
-    
     const datosDB = await GET(); 
     
     // obtengo el id y el numero de indexacion del usuario
     const filtro = datosDB[params.id[1]]
-
-    //await new Promise((resolve) => setTimeout(resolve, 25000) )
-
-    return (
+    
+    return(
         <div>
             <h3>Informacion del usuario</h3>
             <br />
-
             <p>Nombre: {filtro.nombre} </p>
             <br />
             <p>Correo: {filtro.correo} </p>

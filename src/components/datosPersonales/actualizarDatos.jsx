@@ -82,7 +82,9 @@ export default function ActualizarDatos(props){
             }
             if(herramientas === ""){
                 setDatosMongo({
+                    nombre_google: session.user.name,
                     correo: session.user.email,
+                    imagen: session.user.image,
                     nombre_real: nombreReal,
                     edad: edad,
                     ubicacion: ubicacion,
@@ -99,12 +101,17 @@ export default function ActualizarDatos(props){
                     social_uno: social_uno,
                     social_dos: social_dos,
                     social_tres: social_tres,
-                    biografia: biografia
-                    // Crear espacions adicionales para un futuro campo/input
+                    biografia: biografia,
+                    extra_uno: "",
+                    extra_dos: "",
+                    extra_tres: 0,
+                    extra_cuatro: []
                 })
             } else {
                 setDatosMongo({
+                    nombre_google: session.user.name,
                     correo: session.user.email,
+                    imagen: session.user.image,
                     nombre_real: nombreReal,
                     edad: edad,
                     ubicacion: ubicacion,
@@ -122,8 +129,11 @@ export default function ActualizarDatos(props){
                     social_uno: social_uno,
                     social_dos: social_dos,
                     social_tres: social_tres,
-                    biografia: biografia
-                    // Crear espacions adicionales para un futuro campo/input
+                    biografia: biografia,
+                    extra_uno: "",
+                    extra_dos: "",
+                    extra_tres: 0,
+                    extra_cuatro: []
                 })
             }
             }
@@ -192,7 +202,7 @@ export default function ActualizarDatos(props){
     const get_social_uno = (e)=>{setSocialUno(e.target.value)}
     const get_social_dos = (e)=>{setSocialDos(e.target.value)}
     const get_social_tres = (e)=>{setSocialTres(e.target.value)}
-    const get_biografia = (e)=>{setBiografia(e.target.value); console.log(e.target.value)}
+    const get_biografia = (e)=>{setBiografia(e.target.value)}
     const get_herramientas = (e)=>{setHerramientas(e.target.value)}
 
     return(

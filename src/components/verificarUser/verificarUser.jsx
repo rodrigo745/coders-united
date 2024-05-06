@@ -13,7 +13,7 @@ export default function VerificarUser(props){
             let encontrado = false;
             encontrado = datos.some(item => item.correo === session.user.email);
             if(!encontrado){
-                const objetos = {
+                const objetosGoogle = {
                     nombre: session.user.name,
                     correo: session.user.email,
                     imagen: session.user.image
@@ -22,7 +22,20 @@ export default function VerificarUser(props){
                 const subir = fetch("/api/usuarioGoogle/as", 
                 {
                     method: "POST",
-                    body: JSON.stringify(objetos),
+                    body: JSON.stringify(objetosGoogle),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                const objetosBase = {
+                    nombre_google: session.user.name,
+                    correo: session.user.email,
+                    imagen: session.user.image
+                }
+                const subirBase = fetch("/api/datosPerfil/as", 
+                {
+                    method: "POST",
+                    body: JSON.stringify(objetosBase),
                     headers: {
                         "Content-Type": "application/json"
                     }
