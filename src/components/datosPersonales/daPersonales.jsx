@@ -2,7 +2,12 @@ import { BiHelpCircle } from "react-icons/bi"
 import { useState } from "react"
 import { useRouter } from "next/navigation" 
 
+
 export function DaPersonales(props){
+
+    const [ tootip, setTooltip ] = useState("");
+    
+
     return(
         <div className="flex flex-col content-center justify-center items-center mt-4 md:mt-10">
             <h4 className="mt-4 mb-4 mr-28">Datos Personales</h4>
@@ -131,10 +136,19 @@ export function DaSegundaColumna(props){
 
 
 function inputText(texto, tipo, cambios, valor){
+    
+    console.log(valor)
+    console.log(valor !== undefined)
     return (
-        <div className="flex mb-5">
+        <div className="flex mb-5 ">
             <input onChange={cambios} value={valor} className="p-3 px-5 cuadro w-72 placeholder:text-neutral-500 rounded-full text-xs pr-12" placeholder={texto} type={tipo}/>
-            <BiHelpCircle color="#CDD589" className="absolute scale-150 ml-[255px] mt-3"/>
+            {
+                (valor == undefined) &&
+                    <div className="tooltip">
+                        <BiHelpCircle color="#CDD589" className="absolute scale-150 ml-[-35px] mt-3"/>
+                        <div class="tooltiptext text-sm p-2 font-bold ">Campo sin completar</div>
+                    </div>
+            }
         </div>
     )
 }
