@@ -31,46 +31,46 @@ export function DaPersonales(props){
     )
 }
 
-export function DaBio(){
+export function DaBio(props){
     return (
         <div className="flex flex-col content-center justify-center items-center mt-4 md:mt-0 md:mr-24">
-            <textarea placeholder="Biografía"  className="resize-none h-40 p-4 placeholder:text-neutral-500 text-sm cuadro md:w-[800px] w-72 rounded-xl min-w-36 pr-8"/>
+            <textarea value={props.valor_biografia} onChange={props.biografia}
+            placeholder="Biografía"  className="resize-none h-40 p-4 placeholder:text-neutral-500 text-sm cuadro md:w-[800px] w-72 rounded-xl min-w-36 pr-8"/>
             <BiHelpCircle color="#CDD589" className="absolute scale-150 md:ml-[750px] md:mb-28 ml-[245px] mb-28"/>
         </div>
     )
 }
 
 
-export function DaSegundaColumna(){
+export function DaSegundaColumna(props){
     return(
         <div className="flex flex-col md:flex md:flex-row justify-center md:justify-start mb-10">
 
         <div className="flex flex-col md:w-fit justify-center items-center md:ml-12 md:mt-[105px] mt-10">
-            {inputText("Url del portafólio personal", "texto")}
+            {inputText("Url del portafólio personal", "texto", props.portafolio, props.valor_portafolio)}
 
-            { inputText("Dato adicional", "text") }
+            { inputText("Dato adicional", "text", props.dato_adicional, props.valor_dato_dicional) }
 
-            <h4 className="md:mt-[102px] mb-4 mr-24 mt-4">Datos académicos</h4>
-            { inputText("Nivel de estudios", "text") }
+            <h4 className="md:mt-[102px] mb-4 mr-24 mt-4">Habilidades técnicas</h4>
+            { inputText("Herramientas", "text") }
             { inputText("Carrera", "text") }
             { inputText("Institución académica", "text") }
         </div>
         <div className="flex justify-center mt-4 md:mt-0">
             <div className="md:mt-[330px] md:ml-12">
                 <h4 className="mb-3 ml-5">Datos de contacto</h4>
-                { inputText("Teléfono", "number") }
-                { inputText("Linkedin", "text") }
-                { inputText("GitHub", "text") }
+                { inputText("Teléfono", "number", props.telefono, props.valor_telefono) }
+                { inputText("Linkedin", "text", props.linkedin, props.valor_linkedin) }
+                { inputText("GitHub", "text", props.github, props.valor_github) }
 
             </div>
         </div>
         <div className="flex justify-center mt-4 md:mt-0">
             <div className="md:mt-[330px] md:ml-12">
                 <h4 className="mb-3 ml-5">Redes sociales</h4>
-                { inputText("Ej: Facebook", "text") }
-                { inputText("Ej: Instagram", "text") }
-                { inputText("Ej: X", "text") }
-
+                { inputText("Ej: Facebook", "text", props.social_uno, props.valor_social_uno) }
+                { inputText("Ej: Instagram", "text", props.social_dos, props.valor_social_dos) }
+                { inputText("Ej: X", "text", props.social_tres, props.valor_social_tres) }
             </div>
         </div>
         </div>

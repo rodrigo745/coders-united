@@ -22,6 +22,19 @@ export default function ActualizarDatos(props){
     const [ rama, setRama ] = useState("Diseño");
     const [ puesto, setPuesto ] = useState("");
     const [ disponibilidad, setDisponibilidad ] = useState("");
+    const [ portafolio, setPortafolio ] = useState("");
+    const [ datoAdicional, setDatoAdicional ] = useState("");
+    //const [ rama, setRama ] = useState("Diseño"); ESPACIO PARA HABILIDADES TECNICAS
+    //const [ rama, setRama ] = useState("Diseño"); ESPACIO PARA HABILIDADES TECNICAS
+    //const [ rama, setRama ] = useState("Diseño"); ESPACIO PARA HABILIDADES TECNICAS
+    const [ telefono, setTelefono ] = useState("");
+    const [ linkedin, setLinkedin ] = useState("");
+    const [ github, setGitHub ] = useState("");
+    const [ social_uno, setSocialUno ] = useState("");
+    const [ social_dos, setSocialDos ] = useState("");
+    const [ social_tres, setSocialTres ] = useState("");
+    const [ biografia, setBiografia ] = useState("");
+    
 
     // esta variable contendra el conjunto de nuevo datos para subir
     const [ datosMongo, setDatosMongo ] = useState({});
@@ -41,6 +54,18 @@ export default function ActualizarDatos(props){
                 setRama(datos.rama);
                 setPuesto(datos.puesto);
                 setDisponibilidad(datos.disponibilidad);
+                setPortafolio(datos.portafolio);
+                setDatoAdicional(datos.datos_adicionales);
+                // ESPACIO PARA HABILIDADES TECNICAS
+                // ESPACIO PARA HABILIDADES TECNICAS
+                // ESPACIO PARA HABILIDADES TECNICAS
+                setTelefono(datos.telefono);
+                setLinkedin(datos.linkedin);
+                setGitHub(datos.github);
+                setSocialUno(datos.social_uno);
+                setSocialDos(datos.social_dos);
+                setSocialTres(datos.social_tres);
+                setBiografia(datos.biografia);
             }
         }
 
@@ -56,10 +81,26 @@ export default function ActualizarDatos(props){
                 ubicacion: ubicacion,
                 rama: rama,
                 puesto: puesto,
-                disponibilidad: disponibilidad
+                disponibilidad: disponibilidad,
+                portafolio: portafolio,
+                dato_adicional: datoAdicional,
+                // ESPACIO PARA HABILIDADES TECNICAS
+                // ESPACIO PARA HABILIDADES TECNICAS
+                // ESPACIO PARA HABILIDADES TECNICAS
+                telefono: telefono,
+                linkedin: linkedin,
+                github: github,
+                social_uno: social_uno,
+                social_dos: social_dos,
+                social_tres: social_tres,
+                biografia: biografia
+                // Crear espacions adicionales para un futuro campo/input
             })
         }
-    },[edad, nombreReal, ubicacion, rama, puesto, disponibilidad])
+    },[
+        edad, nombreReal, ubicacion, rama, puesto, disponibilidad, portafolio, datoAdicional,
+        telefono, linkedin, github, social_uno, social_dos, social_tres, session?.user, biografia
+    ])
 
 
     // Esta funcion sube los datos a mongo
@@ -106,6 +147,19 @@ export default function ActualizarDatos(props){
     const get_rama = (e)=>{setRama(e.target.value)}
     const get_puesto = (e)=>{setPuesto(e.target.value)}
     const get_disponibilidad = (e)=>{setDisponibilidad(e.target.value)}
+    const get_portafolio = (e)=>{setPortafolio(e.target.value)}
+    const get_datoAdicional = (e)=>{setDatoAdicional(e.target.value)}
+    // ESPACIO PARA HABILIDADES TECNICAS
+    // ESPACIO PARA HABILIDADES TECNICAS
+    // ESPACIO PARA HABILIDADES TECNICAS
+    const get_telefono = (e)=>{setTelefono(e.target.value)}
+    const get_linkedin = (e)=>{setLinkedin(e.target.value)}
+    const get_github = (e)=>{setGitHub(e.target.value)}
+    const get_social_uno = (e)=>{setSocialUno(e.target.value)}
+    const get_social_dos = (e)=>{setSocialDos(e.target.value)}
+    const get_social_tres = (e)=>{setSocialTres(e.target.value)}
+    const get_biografia = (e)=>{setBiografia(e.target.value); console.log(e.target.value)}
+
 
 
 
@@ -143,7 +197,6 @@ export default function ActualizarDatos(props){
                 rama={get_rama}   valor_rama={rama}
                 puesto={get_puesto}  valor_puesto={puesto}
                 disponibilidad={get_disponibilidad} valor_disponibilidad={disponibilidad}
-
             />
   
             <div className="hidden md:block">
@@ -151,8 +204,21 @@ export default function ActualizarDatos(props){
             </div>
             </div>
             <div >
-                <DaBio/>
-                <DaSegundaColumna/>
+                <DaBio biografia={get_biografia} valor_biografia={biografia} />
+                <DaSegundaColumna
+                    portafolio={get_portafolio} valor_portafolio={portafolio}
+                    dato_adicional={get_datoAdicional} valor_dato_adicional={datoAdicional}
+                    /* ESPACIO PARA HABILIDADES TECNICAS */
+                    /* ESPACIO PARA HABILIDADES TECNICAS */ 
+                    /* ESPACIO PARA HABILIDADES TECNICAS */ 
+                    telefono={get_telefono} valor_telefono={telefono}
+                    linkedin={get_linkedin} valor_linkedin={linkedin}
+                    github={get_github} valor_github={github}
+                    social_uno={get_social_uno} valor_social_uno={social_uno}
+                    social_dos={get_social_dos} valor_social_dos={social_dos}
+                    social_tres={get_social_tres} valor_social_tres={social_tres}
+
+                />
             </div>
             <div className="md:hidden mb-20 flex justify-center">
                 <button onSubmit={prueba} className="amarilloBack px-4 py-2 text-black font-bold rounded-full w-72">Guardar cambios</button>
