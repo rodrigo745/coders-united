@@ -59,12 +59,12 @@ export function DaSegundaColumna(props){
             { inputText("Adicional", "text") }
         </div>
 
-        <div className="flex flex-col justify-center mt-4 md:mt-0">
+        <div className="flex flex-col items-center md:items-start justify-center mt-4 md:mt-0">
 
             {/* Tablero de habilidades */}
-        <div className="ml-14 p-3 pb-7 cuadro rounded-md h-44 absolute mb-40 w-[32%]">
-            <h4 className="text-sm">Tablero de habilidades técnicas</h4>
-            <div className="text-sm h-full overflow-auto">
+        <div className="md:ml-14  p-3 pb-7 cuadro rounded-md h-44 absolute mb-64 w-72 md:mb-40 md:w-[32%]">
+            <h4 className="text-sm mb-1">Tablero de habilidades técnicas</h4>
+            <div className="text-sm h-full overflow-auto ">
                 <div className="w-full h-fit p-1 space-x-5 flex flex-wrap justify-around">
 
                     {   props.tablero_herramientas &&
@@ -88,7 +88,7 @@ export function DaSegundaColumna(props){
             </div>
         </div>
 
-            <div className="md:mt-[330px] md:ml-12">
+            <div className="md:mt-[330px] mt-56 md:ml-12">
                 <h4 className="mb-3 ml-5">Datos de contacto</h4>
                 { inputText("Teléfono", "number", props.telefono, props.valor_telefono) }
                 { inputText("Linkedin", "text", props.linkedin, props.valor_linkedin) }
