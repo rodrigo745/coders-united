@@ -65,17 +65,17 @@ export function DaSegundaColumna(props){
         <div className="md:ml-14  p-3 pb-7 cuadro rounded-md h-44 absolute mb-64 w-72 md:mb-40 md:w-[32%]">
             <h4 className="text-sm mb-1">Tablero de habilidades técnicas</h4>
             <div className="text-sm h-full overflow-auto ">
-                <div className="w-full h-fit p-1 space-x-5 flex flex-wrap justify-around">
+                <div className="w-full h-fit p-1 space-x-5  flex flex-wrap justify-around px-2">
 
                     {   props.tablero_herramientas &&
                         props.tablero_herramientas.herramientas.map((e, index) => 
                             (e != "" &&
-                            <div key={index} className="block">
+                            <div key={index} className="block mb-2">
                                 <div className="relative">
 
-                                <p className="absolute rojoBack rounded-full font-bold text-center text-xs h-4 w-4 ml-[-10%] mt-4 z-10">x</p>
+                                <p className="absolute rojoBack rounded-full font-bold text-center text-xs h-4 w-4 ml-[-8px] mt-1 z-10">x</p>
                                 </div>
-                                <div className="mt-4 pt-2">
+                                <div className="pt-2">
                                     <div className="amarilloBack rounded-md px-2 py-1 w-fit text-black font-bold">
                                         <p>{e}</p>
                                     </div>
