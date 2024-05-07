@@ -1,14 +1,32 @@
-import { GET } from "../../../../../api/usuarioGoogle/[id]/route"
-
+import { GET } from "../../../../../api/datosPerfil/[id]/route"
+import Image from "next/image";
 
 export default async function IdUsuario({params}){
     const datosDB = await GET(); 
     
     // obtengo el id y el numero de indexacion del usuario
     const filtro = datosDB[params.id[1]]
-    if(datosDB){
-        return(
-            <div>
+    
+    return(
+        <div>
+            <div className="flex justify-center">
+                <div className="w-fit cuadro py-6 px-10 flex flex-col justify-center items-center rounded-lg">
+                    <Image className="rounded-full border-2 border-yellow-300" 
+                    src={filtro.imagen} width={60} height={60} alt="foto de perfil" />
+                    <div className="mt-4">
+
+                    <p className="font-bold text-center text-md md:text-md amarillo">
+                        {filtro.nombre_google}    
+                    </p>
+                    <p className=" text-center text-neutral-500 text-xs scale-100 mt-2">
+                        {filtro.correo}    
+                    </p>
+                    </div>
+                </div>
+
+                </div>
+
+
             <h3>Informacion del usuario</h3>
             <br />
             <p>Nombre: {filtro.nombre} </p>
@@ -22,12 +40,5 @@ export default async function IdUsuario({params}){
             <br />
             <p>Modificar luego</p>
         </div>
-        )
-    } else {
-        return(
-            <div className="2xl:w-[75vw] xl:w-[70vw] lg:w-[66vw] md:w-[57vw] h-[80vh] md:h-full flex justify-center  items-center">
-           <div className="loader"></div>
-        </div>
-        )
-    }
+    )
 }

@@ -9,7 +9,12 @@ export async function POST(request){
 
     return NextResponse.json(data);
 }
-
+export async function GET(){
+    connectDB();
+    const res = await datosPerfil.find();
+    const datos = await JSON.parse(JSON.stringify(res));
+    return datos;
+}
 
 export async function PUT(request, { params }) {
     await connectDB();
