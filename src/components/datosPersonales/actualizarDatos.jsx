@@ -215,7 +215,7 @@ export default function ActualizarDatos(props){
             {
                 session?.user ?
                 <div className="flex justify-center">
-                <div className="w-fit cuadro py-6 px-10 flex flex-col justify-center items-center rounded-lg">
+                <div className="w-[280px] cuadro py-6 flex flex-col justify-center items-center rounded-lg">
                     <Image className="rounded-full border-2 border-yellow-300" 
                     src={session.user.image} width={60} height={60} alt="foto de perfil" />
                     <div className="mt-4">

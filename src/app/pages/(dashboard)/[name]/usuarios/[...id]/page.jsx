@@ -10,9 +10,9 @@ export default async function IdUsuario({params}){
     const filtro = datosDB.filter((correo)=> correo.correo  === correoReemplazo)
     
     return(
-        <div className="w-full">
-            <div className="flex justify-between ">
-                <div className="w-fit cuadro py-6 px-10 flex flex-col justify-center items-center rounded-lg">
+        <div className="w-full ml-1">
+            <div className="flex flex-col items-center md:flex md:flex-row md:justify-between ">
+                <div className="w-[280px] cuadro py-6  flex flex-col justify-center items-center rounded-lg">
                     <Image className="rounded-full border-2 border-yellow-300" 
                     src={filtro[0].imagen} width={60} height={60} alt="foto de perfil" />
                     <div className="mt-4">
