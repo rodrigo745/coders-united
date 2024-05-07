@@ -34,7 +34,7 @@ export default async function Usuarios(){
                         </Link>
                     ))
                 }
-                <div className=" amarilloBack rounded-full h-11 w-[320px] cursor-pointer">
+                <div className="mb-10 amarilloBack rounded-full h-11 w-[320px] cursor-pointer">
                     <p className="text-black font-bold text-center mt-3">Ver más usuarios</p>
                 </div>
                 </div>

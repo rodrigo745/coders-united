@@ -10,7 +10,8 @@ export default async function IdUsuario({params}){
     const filtro = datosDB.filter((correo)=> correo.correo  === correoReemplazo)
     
     return(
-        <div className="w-full md:w-[60vw] lg:w-[80vw]  ml-1">
+        <div className=" ml-1">
+            {/* primera fila */}
             <div className="w-full flex flex-col items-center lg:flex lg:flex-row lg:justify-between ">
                 <div className="w-[310px] lg:w-[280px]  cuadro py-6  flex flex-col justify-center items-center rounded-lg">
                     <Image className="rounded-full border-2 border-yellow-300" 
@@ -22,7 +23,7 @@ export default async function IdUsuario({params}){
                         {filtro[0].correo}</p>
                     </div>
                 </div>
-                <div>
+                <div className="lg:ml-10 lg:mr-10">
                     {/* Biografia */}
                     <div className="cuadro xl:basis-1/2 rounded-lg lg:py-2 mt-10 mb-10 lg:mb-0 lg:mt-0">
                         <div className="mt-10 lg:mt-0 mb-10 lg:mb-0  lg:w-[30vw] w-[310px] h-[160px] xl:w-[45vw] p-2 py-3 md:px-4 overflow-auto">
@@ -38,7 +39,7 @@ export default async function IdUsuario({params}){
                 <div className="md:basis-1/4 xl:basis-1/6">
                     {/* Botones */}
                     {
-                        filtro[0].biografia ?
+                        filtro[0].portafolio ?
                         <div>
                             <div className="w-[310px] lg:w-full amarilloBack font-bold text-black p-2 text-center rounded-full lg:mb-4 mb-6">
                                   Ver portafólio
@@ -52,24 +53,24 @@ export default async function IdUsuario({params}){
                             Ver más usuarios
                         </div>
                     }
-                    
                 </div>
-
             </div>
+            {/* Segunda fila */}
+            <div className="flex flex-col items-center lg:flex lg:flex-row lg:justify-between w-full md:w-[60vw] lg:w-[75vw]">
+                    <div>
+                        <h4>Datos personales</h4>
+                    </div>
+                    <div>
+                    <h4>Actividad</h4>
 
+                    </div>
+                    <div>
+                    <h4>Sin datos</h4>
 
-            <h3>Informacion del usuario</h3>
-            <br />
-            <p>Nombre: {filtro.nombre} </p>
-            <br />
-            <p>Correo: {filtro.correo} </p>
-            <br />
-            <p>¿Tiene Imagen?: {filtro.nombre ? "SI" : "No"} </p>
-            <br />
-            <br />
-            <br />
-            <br />
-            <p>Modificar luego</p>
+                    </div>
+            </div>
+            {/* Tercera fila */}
+            
         </div>
     )
 }
