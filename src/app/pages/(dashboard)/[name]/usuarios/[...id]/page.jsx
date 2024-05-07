@@ -56,7 +56,7 @@ export default async function IdUsuario({params}){
                 </div>
             </div>
             {/* Segunda fila */}
-            <div className="flex flex-col items-center lg:flex lg:flex-row lg:justify-between w-full md:w-[60vw] lg:w-[75vw]">
+            <div className=" mt-10 flex flex-col items-center lg:flex lg:flex-row lg:justify-between w-full md:w-[60vw] lg:w-[75vw]">
                     <div>
                         <h4>Datos personales</h4>
                     </div>

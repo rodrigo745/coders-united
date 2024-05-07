@@ -11,7 +11,7 @@ export default async function Usuarios(){
 
 
     return(
-        <div className=" lg:w-[65vw] xl:w-[73vw] 2xl:w-[77vw]">
+        <div className="mb-10 lg:w-[65vw] xl:w-[73vw] 2xl:w-[77vw]">
 
             <div className="w-full flex flex-col lg:block items-center justify-center content-center">
                 <div className="flex flex-col-reverse md:flex md:flex-row md:justify-between mb-3 justify-center  items-center md:ml-4">
@@ -21,20 +21,21 @@ export default async function Usuarios(){
                     </div>
                     <Buscador datos={datosBD}/>
                 </div>
-                <div className="grid xl:gap-x-12 2xl:gap-x-16 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 ">
+                <div className="grid xl:gap-x-12 2xl:gap-x-16 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 h-fit">
                 {
                     datosBD.map((e, index)=> (
-                        <Link href={`./usuarios/${e._id}/${e.correo}`} key={index} className="cuadro p-2 rounded-full flex w-[320px] mb-4 cursor-pointer">
+                        <Link href={`./usuarios/${e._id}/${e.correo}`} key={index} className="cuadro h-fit p-2 rounded-full flex w-[330px] mb-4 cursor-pointer">
 
-                            <Image src={e.imagen} width={30} height={30} alt="imagen" className="rounded-full border-2 border-yellow-300 ml-1" />
-                            <div className="flex justify-between w-full">
-                                <p className="text-sm ml-4 mt-1">{e.nombre}</p>
-                                <RxEyeOpen color="#CDD589" className="scale-150 mt-2 mr-3"/>
+                            <Image src={e.imagen} width={30} height={30} alt="imagen" className="rounded-full border-2 border-yellow-300 ml-1 h-fit" />
+                            <div className="flex justify-between h-fit w-full">
+                                <p className="text-sm ml-4 mt-1 h-fit">{e.nombre}</p>
+                                <RxEyeOpen color="#CDD589" className="scale-150 mt-2 mr-3 h-fit"/>
                             </div>
                         </Link>
                     ))
                 }
-                <div className="mb-10 amarilloBack rounded-full h-11 w-[320px] cursor-pointer">
+               
+                <div className=" amarilloBack rounded-full h-11 w-[320px] cursor-pointer">
                     <p className="text-black font-bold text-center mt-3">Ver más usuarios</p>
                 </div>
                 </div>
