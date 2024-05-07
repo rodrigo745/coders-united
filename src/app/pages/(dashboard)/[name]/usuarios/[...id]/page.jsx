@@ -59,17 +59,78 @@ export default async function IdUsuario({params}){
             <div className=" mt-10 flex flex-col items-center lg:flex lg:flex-row lg:justify-between w-full md:w-[60vw] lg:w-[75vw]">
                     <div>
                         <h4>Datos personales</h4>
-                    </div>
-                    <div>
-                    <h4>Actividad</h4>
+                        <div className="overflow-auto rounded-lg p-3 cuadro w-[310px] lg:w-[330px] h-[160px] text-sm mt-3 space-y-5 py-4">
+                            <p className="amarillo font-bold">Nombre real: 
+                                <span className="text-white font-light ml-1">
+                                    { (filtro[0].nombre_real && filtro[0].nombre_real !== "" ) ? filtro[0].nombre_real : "Sin datos"  }
+                                </span>
+                            </p>
+                            <p className="amarillo font-bold">Edad: 
+                                <span className="text-white font-light ml-1"> 
+                                    {(filtro[0].edad && filtro[0].edad !== "" ) ? filtro[0].edad : "Sin datos" } 
+                                </span>    
+                            </p>
+                            <p className="amarillo font-bold"s>Ubicación:
+                                <span className="text-white font-light ml-1"> 
+                                    {(filtro[0].ubicacion && filtro[0].ubicacion !== "" ) ? filtro[0].ubicacion : "Sin datos" } 
+                                </span>    
+                            </p>
+                        </div>
+
+
 
                     </div>
                     <div>
-                    <h4>Sin datos</h4>
+                        <h4>Actividad</h4>
+
+                    </div>
+                    <div>
+                        <h4>Sin datos</h4>
 
                     </div>
             </div>
             {/* Tercera fila */}
+            <div className=" mt-10 flex flex-col items-center lg:flex lg:flex-row lg:justify-start w-full md:w-[60vw] lg:w-[75vw] lg:space-x-14">
+                    <div>
+                        <h4>Datos personales</h4>
+                        <div className="overflow-auto rounded-lg p-3 cuadro w-[310px] lg:w-[330px] h-[160px] text-sm mt-3 space-y-5 py-4">
+                            <p className="amarillo font-bold">Rama: 
+                                <span className="text-white font-light ml-1 ">
+                                    { (filtro[0].rama && filtro[0].rama !== "" ) ? filtro[0].rama : "Sin datos"  }
+                                </span>
+                            </p>
+                            <p className="amarillo font-bold">Puesto: 
+                                <span className="text-white font-light ml-1 "> 
+                                    {(filtro[0].puesto && filtro[0].puesto !== "" ) ? filtro[0].puesto : "Sin datos"  } 
+                                </span>    
+                            </p>
+                            <p className="amarillo font-bold"s>Disponibilidad:
+                                <span className="text-white font-light ml-1 "> 
+                                    {(filtro[0].disponibilidad && filtro[0].disponibilidad !== "" ) ? filtro[0].disponibilidad : "Sin datos"  } 
+                                </span>    
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div className="mt-10 lg:mt-0">
+                        <h4>Contacto</h4>
+                        <div className="cuadro p-2 rounded-full w-[310px] lg:w-[330px] mb-4 mt-4">
+                            <p className="font-bold amarillo text-sm p-1 px-4"> Teléfono:
+                                <span className="font-light text-white ml-2"> 
+                                    { filtro[0].telefono && filtro[0].telefono !== "" ? filtro[0].telefono : "Sin datos" }
+                                </span>
+                            </p>
+                        </div>
+                        <div className="amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold">Visitar Linkedin</div>
+                        <div className="amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold mt-4">Visitar GitHub</div>
+                    </div>
+                    <div className="space-y-4 mt-10 lg:mt-0">
+                        <h4>Redes sociales</h4>
+                        <div className="amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold">Red Social</div>
+                        <div className="amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold">Red Social</div>
+                        <div className="amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold">Red Social</div>
+                    </div>
+            </div>
             
         </div>
     )
