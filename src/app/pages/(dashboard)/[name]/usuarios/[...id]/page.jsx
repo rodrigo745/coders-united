@@ -10,28 +10,49 @@ export default async function IdUsuario({params}){
     const filtro = datosDB.filter((correo)=> correo.correo  === correoReemplazo)
     
     return(
-        <div className="w-full ml-1">
-            <div className="flex flex-col items-center md:flex md:flex-row md:justify-between ">
-                <div className="w-[280px] cuadro py-6  flex flex-col justify-center items-center rounded-lg">
+        <div className="w-full md:w-[60vw] lg:w-[80vw]  ml-1">
+            <div className="w-full flex flex-col items-center lg:flex lg:flex-row lg:justify-between ">
+                <div className="w-[310px] lg:w-[280px]  cuadro py-6  flex flex-col justify-center items-center rounded-lg">
                     <Image className="rounded-full border-2 border-yellow-300" 
                     src={filtro[0].imagen} width={60} height={60} alt="foto de perfil" />
                     <div className="mt-4">
-
-                    <p className="font-bold text-center text-md md:text-md amarillo">
-                        {filtro[0].nombre_google}    
-                    </p>
-                    <p className=" text-center text-neutral-500 text-xs scale-100 mt-2">
-                        {filtro[0].correo}    
-                    </p>
+                        <p className="font-bold text-center text-md md:text-md amarillo">
+                        {filtro[0].nombre_google}</p>
+                        <p className=" text-center text-neutral-500 text-xs scale-100 mt-2">
+                        {filtro[0].correo}</p>
                     </div>
                 </div>
                 <div>
                     {/* Biografia */}
-                    B
+                    <div className="cuadro xl:basis-1/2 rounded-lg lg:py-2 mt-10 mb-10 lg:mb-0 lg:mt-0">
+                        <div className="mt-10 lg:mt-0 mb-10 lg:mb-0  lg:w-[30vw] w-[310px] h-[160px] xl:w-[45vw] p-2 py-3 md:px-4 overflow-auto">
+                            {
+                                filtro[0].biografia ?
+                                <p> {filtro[0].biografia} </p>
+                                :
+                                <p className=""> Sin biografía </p> 
+                            }
+                        </div>
+                    </div>
                 </div>
-                <div>
+                <div className="md:basis-1/4 xl:basis-1/6">
                     {/* Botones */}
-                    B
+                    {
+                        filtro[0].biografia ?
+                        <div>
+                            <div className="w-[310px] lg:w-full amarilloBack font-bold text-black p-2 text-center rounded-full lg:mb-4 mb-6">
+                                  Ver portafólio
+                            </div>
+                            <div className="w-[310px] lg:w-full amarilloBack font-bold text-black p-2 text-center rounded-full lg:mb-14">
+                            Ver más usuarios
+                        </div>
+                        </div>
+                        :
+                        <div className="w-[310px] lg:w-full amarilloBack font-bold text-black p-2 text-center rounded-full lg:mb-28">
+                            Ver más usuarios
+                        </div>
+                    }
+                    
                 </div>
 
             </div>
