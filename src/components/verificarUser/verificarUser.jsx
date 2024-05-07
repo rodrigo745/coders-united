@@ -46,7 +46,7 @@ export default function VerificarUser(props){
             }
         }
     },[session?.user, datos])
-    
+    router.refresh();
     return(
         <></>
     )

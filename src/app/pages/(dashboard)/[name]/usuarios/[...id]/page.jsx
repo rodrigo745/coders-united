@@ -1,5 +1,4 @@
 import { GET } from "../../../../../api/usuarioGoogle/[id]/route"
-import { useSession } from "next-auth/react";
 
 
 export default async function IdUsuario({params}){
@@ -7,9 +6,9 @@ export default async function IdUsuario({params}){
     
     // obtengo el id y el numero de indexacion del usuario
     const filtro = datosDB[params.id[1]]
-    
-    return(
-        <div>
+    if(datosDB){
+        return(
+            <div>
             <h3>Informacion del usuario</h3>
             <br />
             <p>Nombre: {filtro.nombre} </p>
@@ -23,5 +22,12 @@ export default async function IdUsuario({params}){
             <br />
             <p>Modificar luego</p>
         </div>
-    )
+        )
+    } else {
+        return(
+            <div className="2xl:w-[75vw] xl:w-[70vw] lg:w-[66vw] md:w-[57vw] h-[80vh] md:h-full flex justify-center  items-center">
+           <div className="loader"></div>
+        </div>
+        )
+    }
 }
