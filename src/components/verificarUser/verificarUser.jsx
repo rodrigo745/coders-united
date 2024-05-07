@@ -1,11 +1,13 @@
 "use client"
 import { useSession } from "next-auth/react"
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function VerificarUser(props){
     
     const { data: session } = useSession();
     const datos = props.datos;
+    const router = useRouter();
 
     // Verifico si el usuario actual ya esta registrado, si no lo esta se registra 
     useEffect(()=>{
@@ -40,7 +42,7 @@ export default function VerificarUser(props){
                         "Content-Type": "application/json"
                     }
                 })
-
+                router.refresh();
             }
         }
     },[session?.user, datos])
