@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Buscador(props){
 
@@ -50,7 +51,8 @@ export default function Buscador(props){
                          <div className="p-3 border rounded-lg shadow-md space-y-2"> 
                              {
                                  listaResultado.map((e, index)=> (
-                                     <p key={index}> {e.nombre} </p>
+                                     <Link href={`./usuarios/${e._id}/${e.correo}`} key={index}
+                                        className="block"> {e.nombre} </Link>
                                     ))
                              }
                          </div>

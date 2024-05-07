@@ -24,7 +24,7 @@ export default async function Usuarios(){
                 <div className="grid xl:gap-x-12 2xl:gap-x-16 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 ">
                 {
                     datosBD.map((e, index)=> (
-                        <Link href={`./usuarios/${e._id}/${index}`} key={index} className="cuadro p-2 rounded-full flex w-[320px] mb-4 cursor-pointer">
+                        <Link href={`./usuarios/${e._id}/${e.correo}`} key={index} className="cuadro p-2 rounded-full flex w-[320px] mb-4 cursor-pointer">
 
                             <Image src={e.imagen} width={30} height={30} alt="imagen" className="rounded-full border-2 border-yellow-300 ml-1" />
                             <div className="flex justify-between w-full">
