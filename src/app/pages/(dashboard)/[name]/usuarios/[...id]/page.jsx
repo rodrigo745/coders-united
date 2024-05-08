@@ -71,7 +71,7 @@ export default async function IdUsuario({params}){
                                     {(filtro[0].edad && filtro[0].edad !== "" ) ? filtro[0].edad : "Sin datos" } 
                                 </span>    
                             </p>
-                            <p className="amarillo font-bold"s>Ubicación:
+                            <p className="amarillo font-bold">Ubicación:
                                 <span className="text-white font-light ml-1"> 
                                     {(filtro[0].ubicacion && filtro[0].ubicacion !== "" ) ? filtro[0].ubicacion : "Sin datos" } 
                                 </span>    
@@ -107,7 +107,7 @@ export default async function IdUsuario({params}){
                         <h4>Tableto de habilidades</h4>
                         <div className="h-40 mt-2 cuadro rounded-lg p-2 flex flex-wrap space-x-4 overflow-auto">
                             {
-                                filtro[0].herramientas &&
+                                filtro[0] &&
                                 filtro[0].herramientas.map((e, index)=> (
                                     <div key={index} className="block mb-2 cursor-pointer">
                                         <div className="pt-2">
@@ -136,7 +136,7 @@ export default async function IdUsuario({params}){
                                     {(filtro[0].puesto && filtro[0].puesto !== "" ) ? filtro[0].puesto : "Sin datos"  } 
                                 </span>    
                             </p>
-                            <p className="amarillo font-bold"s>Disponibilidad:
+                            <p className="amarillo font-bold">Disponibilidad:
                                 <span className="text-white font-light ml-1 "> 
                                     {(filtro[0].disponibilidad && filtro[0].disponibilidad !== "" ) ? filtro[0].disponibilidad : "Sin datos"  } 
                                 </span>    
