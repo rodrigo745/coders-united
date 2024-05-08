@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { TableroHerramientas } from "../../../../../../components/datosPersonales/daPersonales";
 import { GET } from "../../../../../api/datosPerfil/[id]/route"
 import Image from "next/image";
@@ -45,13 +46,17 @@ export default async function IdUsuario({params}){
                             <div className="w-[310px] lg:w-full amarilloBack font-bold text-black p-2 text-center rounded-full lg:mb-4 mb-6">
                                   Ver portafólio
                             </div>
-                            <div className="w-[310px] lg:w-full amarilloBack font-bold text-black p-2 text-center rounded-full lg:mb-14">
-                            Ver más usuarios
-                        </div>
+                            <div className="w-full flex ">
+                                <Link href="/pages/3/usuarios" className="w-[310px] lg:w-full amarilloBack font-bold text-black p-2 text-center rounded-full lg:mb-28">
+                                    Ver más usuarios
+                                </Link>
+                            </div>
                         </div>
                         :
-                        <div className="w-[310px] lg:w-full amarilloBack font-bold text-black p-2 text-center rounded-full lg:mb-28">
+                        <div className="w-full flex ">
+                            <Link href="/pages/3/usuarios" className="w-[310px] lg:w-full amarilloBack font-bold text-black p-2 text-center rounded-full lg:mb-28">
                             Ver más usuarios
+                            </Link>
                         </div>
                     }
                 </div>
