@@ -1,3 +1,4 @@
+import { TableroHerramientas } from "../../../../../../components/datosPersonales/daPersonales";
 import { GET } from "../../../../../api/datosPerfil/[id]/route"
 import Image from "next/image";
 
@@ -26,7 +27,7 @@ export default async function IdUsuario({params}){
                 <div className="lg:ml-10 lg:mr-10">
                     {/* Biografia */}
                     <div className="cuadro xl:basis-1/2 rounded-lg lg:py-2 mt-10 mb-10 lg:mb-0 lg:mt-0">
-                        <div className="mt-10 lg:mt-0 mb-10 lg:mb-0  lg:w-[30vw] w-[310px] h-[160px] xl:w-[45vw] p-2 py-3 md:px-4 overflow-auto">
+                        <div className="mt-10 text-sm lg:mt-0 mb-10 lg:mb-0  lg:w-[30vw] w-[310px] h-[160px] xl:w-[45vw] p-2 py-3 md:px-4 overflow-auto">
                             {
                                 filtro[0].biografia ?
                                 <p> {filtro[0].biografia} </p>
@@ -76,17 +77,48 @@ export default async function IdUsuario({params}){
                                 </span>    
                             </p>
                         </div>
-
-
-
                     </div>
-                    <div>
+                    <div className="w-[310px] lg:w-[430px] lg:ml-12 mt-10 lg:mt-0">
                         <h4>Actividad</h4>
-
+                        <div className="h-40 mt-2 cuadro rounded-lg p-2 space-y-3 pt-3 pr-4 overflow-auto text-sm">
+                            <p className="amarillo font-bold flex justify-between">Proyectos en los que trabajó:
+                                <span className="text-white font-light ml-1"> 
+                                    Sin datos 
+                                </span>    
+                            </p>
+                            <p className="amarillo font-bold flex justify-between">Proyectos terminados:
+                                <span className="text-white font-light ml-1"> 
+                                    Sin datos
+                                </span>    
+                            </p>
+                            <p className="amarillo font-bold flex justify-between">Ideas aportadas:
+                                <span className="text-white font-light ml-1"> 
+                                    Sin datos
+                                </span>    
+                            </p>
+                            <p className="amarillo font-bold flex justify-between">Compañeros con los que trabajó:
+                                <span className="text-white font-light ml-1"> 
+                                    Sin datos
+                                </span>
+                            </p>
+                        </div>
                     </div>
-                    <div>
-                        <h4>Sin datos</h4>
-
+                    <div className=" w-[310px] lg:w-[580px] lg:ml-12 mt-10 lg:mt-0">
+                        <h4>Tableto de habilidades</h4>
+                        <div className="h-40 mt-2 cuadro rounded-lg p-2 flex flex-wrap space-x-4 overflow-auto">
+                            {
+                                filtro[0].herramientas &&
+                                filtro[0].herramientas.map((e, index)=> (
+                                    <div key={index} className="block mb-2 cursor-pointer">
+                                        <div className="pt-2">
+                                            <div className="amarilloBack rounded-md px-2 py-1 w-fit text-black font-bold">
+                                                <p>{e}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ) ) 
+                            }
+                        </div>
                     </div>
             </div>
             {/* Tercera fila */}

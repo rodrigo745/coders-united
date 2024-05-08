@@ -1,3 +1,4 @@
+"use client"
 import { BiHelpCircle } from "react-icons/bi"
 import { useState } from "react"
 import { useRouter } from "next/navigation" 
@@ -47,6 +48,8 @@ export function DaBio(props){
         </div>
     )
 }
+    
+
 
 export function DaSegundaColumna(props){
     const router = useRouter();
