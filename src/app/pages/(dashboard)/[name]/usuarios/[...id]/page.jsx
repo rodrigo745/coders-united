@@ -43,7 +43,7 @@ export default async function IdUsuario({params}){
                     {
                         filtro[0].portafolio ?
                         <div>
-                            <div className="w-[310px] lg:w-full amarilloBack font-bold text-black p-2 text-center rounded-full lg:mb-4 mb-6">
+                            <div className="w-[310px] lg:w-full amarilloBack font-bold text-black p-2 text-center rounded-full lg:mb-4 mt-4 mb-6">
                                   Ver portafólio
                             </div>
                             <div className="w-full flex ">

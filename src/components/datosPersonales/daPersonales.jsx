@@ -147,7 +147,7 @@ function inputText(texto, tipo, cambios, valor){
                 (valor == undefined) &&
                     <div className="tooltip">
                         <BiHelpCircle color="#CDD589" className="absolute scale-150 ml-[-35px] mt-3"/>
-                        <div class="tooltiptext text-sm p-2 font-bold ">Campo sin completar</div>
+                        <div className="tooltiptext text-sm p-2 font-bold ">Campo sin completar</div>
                     </div>
             }
         </div>
