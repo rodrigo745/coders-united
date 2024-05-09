@@ -113,3 +113,28 @@ body{
   border-color: #CDD589 transparent transparent transparent;
 }
 
+/* Modal Proyectos */
+.modalContenedor{
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000054;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.modalContenido{
+  position: fixed;
+  height: 500px;
+  background-color: #2C333A;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 100;
+}
+
+
