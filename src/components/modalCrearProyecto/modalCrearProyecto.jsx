@@ -24,7 +24,7 @@ export default function ModalCrearProyecto(){
                 mostrar && 
                     <div  className="modalContenedor z-30">
                         <div onClick={mostrarModal} className="w-screen h-screen"></div>
-                        <div className="modalContenido rounded-lg w-[350px] md:w-[400px] lg:w-[600px] z-50 p-4">
+                        <div className="modalContenido rounded-lg w-[350px] md:w-[400px] lg:w-[600px] z-50 p-4 h-fit pb-7">
                             <div className="flex flex-col">
                                 <div className="flex justify-between">
                                     <p className="text-xl ml-2 font-bold mt-2">Nuevo proyecto</p>

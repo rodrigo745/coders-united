@@ -127,7 +127,6 @@ body{
 }
 .modalContenido{
   position: fixed;
-  height: 500px;
   background-color: #2C333A;
   top: 0;
   bottom: 0;
