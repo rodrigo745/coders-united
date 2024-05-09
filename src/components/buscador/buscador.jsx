@@ -18,11 +18,14 @@ export default function Buscador(props){
             // hacer el algoritmo de busqueda aqui
             // Filtrar los nombres que coinciden con "Rodrigo"
             const nombres = datosDB.filter(nombre => nombre.nombre.toLowerCase().includes(textoCambiante.toLowerCase()));
-
-
+            
             // Ordenar alfabéticamente los nombres de los Rodrigos
-            const nombresOrdenados = nombres.sort();
-
+            const nombresOrdenados = nombres.sort((a,b)=> {
+                const nomA = a.nombre.toLowerCase();
+                const nomB = b.nombre.toLowerCase();
+                return nomA.localeCompare(nomB)
+            });
+            
             // // Mostrar solo los primeros 5 nombres de Rodrigos
             const primerosCincoNombres = nombresOrdenados.slice(0, 5);
 

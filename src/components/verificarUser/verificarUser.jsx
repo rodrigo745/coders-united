@@ -46,41 +46,38 @@ export default function VerificarUser(props){
                 router.refresh();
             }
             // Eliminacion de los registros repetidos
-// encuantro los registros repetidos y los guardo en un array
-const usuarioRepetido = datosGoogle.filter((a, index, array)=> {
-    return (
-        array.findIndex( (b)=> b.correo === a.correo && b.nombre === a.nombre ) !== index
-    )
-} )
+            // encuantro los registros repetidos y los guardo en un array
+            const usuarioRepetido = datosGoogle.filter((a, index, array)=> {
+                return (
+                    array.findIndex( (b)=> b.correo === a.correo && b.nombre === a.nombre ) !== index
+                )
+            } )
 
-// elimino los registros repetidos
-usuarioRepetido.forEach((e)=> {
-    return(
-        fetch(`/api/usuarioGoogle/${e._id}`,{
-            method: "DELETE"
-        })
-    )
-} )
+            // elimino los registros repetidos
+            usuarioRepetido.forEach((e)=> {
+                return(
+                    fetch(`/api/usuarioGoogle/${e._id}`,{
+                        method: "DELETE"
+                    })
+                )
+            } )
 
-// junto los registros de perfil repetidos
-const perfilRepetido = datosPerfil.filter((a, index, array)=> {
-    return (
-        array.findIndex((b)=> b.correo === a.correo && b.nombre_google === a.nombre_google ) !== index 
-    )
-} )
-// elimino los registros
-perfilRepetido.forEach((e)=> {
-    return(
-        fetch(`/api/datosPerfil/${e._id}`, {
-            method: "DELETE"
-        })
-    )
-} )
+            // junto los registros de perfil repetidos
+            const perfilRepetido = datosPerfil.filter((a, index, array)=> {
+                return (
+                    array.findIndex((b)=> b.correo === a.correo && b.nombre_google === a.nombre_google ) !== index 
+                )
+            } )
+            // elimino los registros
+            perfilRepetido.forEach((e)=> {
+                return(
+                    fetch(`/api/datosPerfil/${e._id}`, {
+                        method: "DELETE"
+                    })
+                )
+            } )
 
         }
-
-
-
 
     },[session?.user, datosGoogle])
 

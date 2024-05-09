@@ -16,7 +16,7 @@ export default async function RootLayout({ children, params}) {
             <div className="block md:hidden">
                 <DashboardMovil ruta={params.name}/>
             </div>
-            <div className="md:p-10 md:py-20 mt-8 md:mt-0 ml-60">
+            <div className="md:p-10 md:py-20 mt-8 md:mt-0 md:ml-72">
                 {children}
             </div>
         </div>
