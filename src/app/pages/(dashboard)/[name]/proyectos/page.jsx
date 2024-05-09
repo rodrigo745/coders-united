@@ -1,5 +1,7 @@
 import Image from "next/image"
 import { PiNotePencilBold } from "react-icons/pi";
+import ModalCrearProyecto from "../../../../../components/modalCrearProyecto/modalCrearProyecto";
+
 
 export default function Proyectos(){
     return(
@@ -17,6 +19,11 @@ export default function Proyectos(){
                     <Image src="/logo_proyectos.svg" width={240} height={240} alt="Logo de proyectos" className="scale-75 lg:scale-100" />
                 </div>
             </div>
+
+
+
+            <ModalCrearProyecto/>
+
         </div>
     )
 }
