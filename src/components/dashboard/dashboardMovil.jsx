@@ -1,8 +1,9 @@
 
 "use client";
 import { IhuracanAmarillo } from "../../../public/iconos"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { BiHomeAlt2 , BiFolder, BiCodeAlt, BiUser,  BiHelpCircle, BiLogOut } from "react-icons/bi";
 import { PiCubeFocusLight } from "react-icons/pi";
@@ -10,7 +11,7 @@ import { PiCubeFocusLight } from "react-icons/pi";
 
 export default function DashboardMovil(props){
     const ruta = props.ruta;
-
+    const router = useRouter();
     const [ mostrar, setMostrar ] = useState(true);
     const mostrarMenu = ()=>{
         mostrar ? setMostrar(false) : setMostrar(true);
@@ -18,6 +19,11 @@ export default function DashboardMovil(props){
     const titulos = [ "Inicio", "Proyectos", "Ideas", "Usuarios", "Perfil", "Ayuda"];
     const enlaces = [ "inicio", "proyectos", "ideas", "usuarios", "perfil", "ayuda"];
     const imagenes = [ <BiHomeAlt2 key="home"/>, <BiFolder key="Folder"/>,<PiCubeFocusLight key="FocusLight"/>, <BiCodeAlt key="CodeAlt"/>, <BiUser key="User"/>,  <BiHelpCircle key="HelpCircle"/>, <BiCodeAlt key="CodeAlt"/>];
+
+    useEffect(()=> {
+        router.refresh();
+    },{mostrar})
+
     return(
         <div className={`${mostrar ? "menuActivo" : "menuOff" }`}>
             <div className="mt-2 flex justify-between ">
@@ -41,7 +47,7 @@ export default function DashboardMovil(props){
 
             {
                 titulos.map((e, index)=> (
-                    <Link key={index} href={`/pages/${index}/${enlaces[index]}`} className={`flex p-2 space-x-3 text-slate-600 ${ruta == index && "fondo liston"}`}>
+                    <Link onClick={mostrarMenu} key={index} href={`/pages/${index}/${enlaces[index]}`} className={`flex p-2 space-x-3 text-slate-600 ${ruta == index && "fondo liston"}`}>
                         <div className="scale-150 mt-2 ml-4 mr-3">
                             {imagenes[index]}     
                         </div>
