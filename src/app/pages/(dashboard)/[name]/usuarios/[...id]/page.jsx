@@ -160,14 +160,24 @@ export default async function IdUsuario({params}){
                                 </span>
                             </p>
                         </div>
-                        <div className="amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold">Visitar Linkedin</div>
-                        <div className="amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold mt-4">Visitar GitHub</div>
+                        <div className="flex w-full">
+                            <a target="_blank" href={filtro[0].linkedin} className="amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold">Visitar Linkedin</a>
+                        </div>
+                        <div className="flex w-full">
+                            <a target="_blank" href={filtro[0].github} className="amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold mt-4">Visitar GitHub</a>
+                        </div>
                     </div>
                     <div className="space-y-4 mt-10 lg:mt-0">
                         <h4>Redes sociales</h4>
-                        <div className="amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold">Red Social</div>
-                        <div className="amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold">Red Social</div>
-                        <div className="amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold">Red Social</div>
+                        <div className="flex w-full">
+                            <a target="_blank" href={filtro[0].social_uno} className={`amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold ${!filtro[0].social_uno && "cursor-not-allowed" }`}>Red Social</a>
+                        </div>
+                        <div className="flex w-full">
+                            <a target="_blank" href={filtro[0].social_dos} className={`amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold ${!filtro[0].social_dos && "cursor-not-allowed" }`}>Red Social</a>
+                        </div>
+                        <div className="flex w-full">
+                            <a target="_blank" href={filtro[0].social_tres} className={`amarilloBack p-2 rounded-full text-black w-[310px] lg:w-[330px] text-center font-bold ${!filtro[0].social_tres && "cursor-not-allowed" }`}>Red Social</a>
+                        </div>
                     </div>
             </div>
             
