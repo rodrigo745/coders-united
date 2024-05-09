@@ -43,8 +43,10 @@ export default async function IdUsuario({params}){
                     {
                         filtro[0].portafolio ?
                         <div>
-                            <div className="w-[310px] lg:w-full amarilloBack font-bold text-black p-2 text-center rounded-full lg:mb-4 mt-4 mb-6">
+                            <div className="flex w-full">
+                                <a target="_blank" href={filtro[0].portafolio} className="w-[310px] lg:w-full amarilloBack font-bold text-black p-2 text-center rounded-full lg:mb-4 mt-4 mb-6">
                                   Ver portafólio
+                                </a>
                             </div>
                             <div className="w-full flex ">
                                 <Link href="/pages/3/usuarios" className="w-[310px] lg:w-full amarilloBack font-bold text-black p-2 text-center rounded-full lg:mb-28">
@@ -129,7 +131,7 @@ export default async function IdUsuario({params}){
             {/* Tercera fila */}
             <div className=" mt-10 flex flex-col items-center lg:flex lg:flex-row lg:justify-start w-full md:w-[60vw] lg:w-[75vw] lg:space-x-14">
                     <div>
-                        <h4>Datos personales</h4>
+                        <h4>Datos profesionales</h4>
                         <div className="overflow-auto rounded-lg p-3 cuadro w-[310px] lg:w-[330px] h-[160px] text-sm mt-3 space-y-5 py-4">
                             <p className="amarillo font-bold">Rama: 
                                 <span className="text-white font-light ml-1 ">

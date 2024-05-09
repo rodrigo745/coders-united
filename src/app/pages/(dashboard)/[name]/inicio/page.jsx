@@ -8,7 +8,7 @@ export default async function Inicio() {
     return (
         <div>
             <VerificarUser datos={datos} />
-            Inicio
+            <p>Inicio</p>
         </div>
     );
 }
