@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { PiNotePencilBold } from "react-icons/pi";
 import BuscadorModalProyecto from "../../components/buscador/buscadorModalProyecto";
+import Link from "next/link";
 
 export default function ModalCrearProyecto(){
 
@@ -12,7 +13,7 @@ export default function ModalCrearProyecto(){
     }
 
     return(
-        <div  className="h-full w-full justify-center  flex content-center items-center ">
+        <div  className=" w-full justify-center  flex content-center items-center ">
             <p onClick={mostrarModal} className="flex justify-center amarilloBack shadow-md w-[250px]  h-fit font-bold text-black text-center p-2 rounded-full mt-5 mb-4 lg:mb-0 lg:mt-0 lg:ml-5 cursor-pointer">
                 <PiNotePencilBold className="mt-1 scale-125 z-10"/>
                 <span className="ml-2">
@@ -37,8 +38,8 @@ export default function ModalCrearProyecto(){
 
                                     
                                     <BuscadorModalProyecto/>
-
-                                    <label className="w-full amarilloBack text-black font-bold text-center p-2 rounded-full mt-5 text-lg">Crear</label>
+                                    {/* Cambiar por una funcion que guarde el proyecto y redirija */}
+                                    <Link href="./proyectos/proyecto_creado/as" className="w-full amarilloBack text-black font-bold text-center p-2 rounded-full mt-5 text-lg">Crear</Link>
 
                                 </div>
                             </div>
