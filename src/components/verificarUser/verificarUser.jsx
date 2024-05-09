@@ -1,6 +1,6 @@
 "use client"
 import { useSession } from "next-auth/react"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function VerificarUser(props){
@@ -8,6 +8,8 @@ export default function VerificarUser(props){
     const { data: session } = useSession();
     const datos = props.datos;
     const router = useRouter();
+    const [ listaUsuarios, setListaUsuarios ] = useState([]);
+
 
     // Verifico si el usuario actual ya esta registrado, si no lo esta se registra 
     useEffect(()=>{
@@ -19,7 +21,6 @@ export default function VerificarUser(props){
                     nombre: session.user.name,
                     correo: session.user.email,
                     imagen: session.user.image
-                    
                 }
                 const subir = fetch("/api/usuarioGoogle/as", 
                 {
@@ -46,6 +47,23 @@ export default function VerificarUser(props){
             }
         }
     },[session?.user, datos])
+
+    // Funcion de eliminacion de registros repetidos
+    useEffect(()=>{
+
+        const usuarioRepetido = datos.filter((a, index, array)=> {
+            return (
+                array.findIndex( (b)=> b.correo === a.correo && b.nombre === a.nombre ) !== index
+            )
+        } )
+
+        console.log(usuarioRepetido)
+
+    },[])
+
+
+
+
     return(
         <></>
     )

@@ -15,3 +15,9 @@ export async function GET(){
     const datos = JSON.parse(JSON.stringify(res));
     return datos;
 }
+
+export async function DELETE(res, {params}){
+    connectDB();
+    const result = await userGoogle.findByIdAndDelete(params.id);
+    return NextResponse.json(params);
+}

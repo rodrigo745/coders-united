@@ -30,7 +30,7 @@ export async function PUT(request, { params }) {
         const actualizado = await datosPerfil.findByIdAndUpdate(
             params.id, // ID del documento que deseas actualizar
             nuevosDatos, // Los nuevos datos que deseas aplicar
-            { new: true } // Para devolver el documento actualizado
+            { new: true }
         );
 
         // Devolver el documento actualizado como respuesta
