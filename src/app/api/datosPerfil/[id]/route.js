@@ -41,3 +41,8 @@ export async function PUT(request, { params }) {
         return NextResponse.error(error);
     }
 }
+export async function DELETE(res, {params}){
+    connectDB();
+    const eliminar = await datosPerfil.findByIdAndDelete(params.id)
+    return NextResponse.json(eliminar);
+}

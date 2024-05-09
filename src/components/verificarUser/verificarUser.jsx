@@ -6,16 +6,16 @@ import { useRouter } from "next/navigation";
 export default function VerificarUser(props){
     
     const { data: session } = useSession();
-    const datos = props.datos;
+    const datosGoogle = props.datosGoogle;
+    const datosPerfil = props.datosPerfil;
     const router = useRouter();
-    const [ listaUsuarios, setListaUsuarios ] = useState([]);
 
 
     // Verifico si el usuario actual ya esta registrado, si no lo esta se registra 
     useEffect(()=>{
         if(session?.user){
             let encontrado = false;
-            encontrado = datos.some(item => item.correo === session.user.email);
+            encontrado = datosGoogle.some(item => item.correo === session.user.email);
             if(!encontrado){
                 const objetosGoogle = {
                     nombre: session.user.name,
@@ -46,19 +46,40 @@ export default function VerificarUser(props){
                 router.refresh();
             }
         }
-    },[session?.user, datos])
+    },[session?.user, datosGoogle])
 
     // Funcion de eliminacion de registros repetidos
     useEffect(()=>{
-
-        const usuarioRepetido = datos.filter((a, index, array)=> {
+        // encuantro los registros repetidos y los guardo en un array
+        const usuarioRepetido = datosGoogle.filter((a, index, array)=> {
             return (
                 array.findIndex( (b)=> b.correo === a.correo && b.nombre === a.nombre ) !== index
             )
         } )
 
-        console.log(usuarioRepetido)
-
+        // elimino los registros repetidos
+        usuarioRepetido.forEach((e)=> {
+            return(
+                fetch(`/api/usuarioGoogle/${e._id}`,{
+                    method: "DELETE"
+                })
+            )
+        } )
+        
+        // junto los registros de perfil repetidos
+        const perfilRepetido = datosPerfil.filter((a, index, array)=> {
+            return (
+                array.findIndex((b)=> b.correo === a.correo && b.nombre_google === a.nombre_google ) !== index 
+            )
+        } )
+        // elimino los registros
+        perfilRepetido.forEach((e)=> {
+            return(
+                fetch(`/api/datosPerfil/${e._id}`, {
+                    method: "DELETE"
+                })
+            )
+        } )
     },[])
 
 
