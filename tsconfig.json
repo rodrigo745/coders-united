@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/api/auth/[...nextauth]/route.ts"  ],
+, "src/app/api/auth/[...nextauth]/route.ts", "src/app/pages/(dashboard)/[name]/proyectos/proyecto_creado/[id]/tareas/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]
