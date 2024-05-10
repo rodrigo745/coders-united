@@ -1,7 +1,11 @@
-export default function IdProyecto(){
+import Link from "next/link";
+
+export default function IdProyecto({params}){
+
     return(
         <div>
-            Proyecto individual
+            <p>Proyecto individual</p><br />
+            <Link href={`./${params.id}/tareas`}>Crear tareas</Link>
         </div>
     )
 }
