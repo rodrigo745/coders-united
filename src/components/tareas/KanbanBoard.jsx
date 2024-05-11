@@ -16,8 +16,8 @@ export default function KanbanBoard(){
             {id: "2", titulo:"wwwwwwwww", tipo: "p"},
             {id: "3", titulo:"aaaaaaaaaaa", tipo: "p"},
             {id: "1001", titulo:"ffffffff", tipo: "w"},
-            {id: "1002", titulo:"zzzzzzzzzz", tipo: "w"},
-            {id: "1003", titulo:"llllll", tipo: "w"},
+            {id: "1003", titulo:"zzzzzzzzzz", tipo: "w"},
+            {id: "1002", titulo:"llllll", tipo: "w"},
         ],
     )
 
@@ -25,7 +25,7 @@ export default function KanbanBoard(){
         const { active, over } = event;
         console.log(active.id)
         console.log(over.id)
-        if (active.id <= 1041 && over.id == "droppable") {
+        if (active.id <= 1041 && (over.id >= 1000 || over.id == "droppable") ) {
             setLista((prevLista) => {
                 return prevLista.map((item) => {
                     if (item.id === active.id && item.tipo === "p") {
@@ -39,7 +39,7 @@ export default function KanbanBoard(){
                 });
             });
         }
-        if(active.id >= 1000 && over.id == "droppable"){
+        if(active.id >= 1000 && (over.id <= 1000 || over.id == "droppable" )){
             setLista((prevLista)=> {
                 return prevLista.map((item)=> {
                     if(item.id === active.id && item.tipo === "w"){
@@ -57,9 +57,10 @@ export default function KanbanBoard(){
     return(
         <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
             <h3 className="text-xl mb-4">Tareas</h3>
-            
             <div className="w-[80vw] flex space-x-20">
+
             <Columna titulo="Pendientes">
+             <SortableContext items={lista} strategy={verticalListSortingStrategy}> 
 
                 {
                     lista.map((e, index)=>(
@@ -67,11 +68,11 @@ export default function KanbanBoard(){
                         <Tarea key={index} id={e.id} titulo={e.titulo} />
                     ))
                 }
-
+                </SortableContext>
             </Columna>
 
-             <SortableContext items={lista} strategy={verticalListSortingStrategy}> 
             <Columna titulo="En progreso">
+             <SortableContext items={lista} strategy={verticalListSortingStrategy}> 
 
                 {
                     lista.map((e, index)=>(
@@ -80,10 +81,9 @@ export default function KanbanBoard(){
                     ))
                 }
 
-            </Columna>
              </SortableContext> 
+            </Columna>
             </div>
-
         </DndContext>
     )
 }

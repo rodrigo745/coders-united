@@ -7,6 +7,7 @@ export default function Tareas(props) {
     const {attributes, listeners, setNodeRef, transform, transition} = useDraggable({
         id: props.id,
       });
+      
       const style = transform ? {
         backgroundColor: "#677483",
         borderColor: "white",
