@@ -29,7 +29,7 @@ export default function KanbanBoard(){
         const { active, over } = event;
         console.log(active.id)
         console.log(over.id)
-        if (active.id <= 1041 && (over.id >= 1000 || over.id == "droppable") ) {
+        if (active.id <= 1041 && (over.id >= 1000 || over.id == "progreso") ) {
             setLista((prevLista) => {
                 return prevLista.map((item) => {
                     if (item.id === active.id && item.tipo === "p") {
@@ -42,7 +42,7 @@ export default function KanbanBoard(){
                 });
             });
         }
-        if(active.id >= 1000 && (over.id <= 1000 || over.id == "droppable" )){
+        if(active.id >= 1000 && (over.id <= 1000 || over.id == "pendiente" )){
             setLista((prevLista)=> {
                 return prevLista.map((item)=> {
                     if(item.id === active.id && item.tipo === "w"){
@@ -50,6 +50,18 @@ export default function KanbanBoard(){
                         const newId = minId - 1;
 
                         return {...item, tipo:"p", id: newId}
+                    }
+                    return item
+                })
+            })
+        }
+        if(active.id >= 1000 && (over.id >= 2000 || over.id == "terminado" )){
+            setLista((prevLista)=> {
+                return prevLista.map((item)=> {
+                    if(item.id === active.id && item.tipo === "w"){
+                        const minId = Math.floor(Math.random() * (3100 - 2040 + 1)) + 2040;
+                        const newId = minId - 1;
+                        return {...item, tipo:"t", id: newId}
                     }
                     return item
                 })
