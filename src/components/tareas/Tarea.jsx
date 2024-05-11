@@ -4,7 +4,7 @@ import { CSS } from '@dnd-kit/utilities';
 
 export default function Tareas(props) {
 
-    const {attributes, listeners, setNodeRef, transform, transition} = useSortable({
+    const {attributes, listeners, setNodeRef, transform, transition} = useDraggable({
         id: props.id,
       });
       const style = transform ? {

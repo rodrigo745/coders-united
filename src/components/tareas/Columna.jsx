@@ -9,7 +9,7 @@ export default function Columna(props){
 
     return(
         <div ref={setNodeRef} className="cuadro w-[20vw] rounded-lg h-[500px] p-4 flex flex-col justify-center items-center">
-            <h4 className="text-lg">hjl</h4>
+            <h4 className="text-lg">{props.titulo}</h4>
             <div className="h-full w-full mt-2">
                     {props.children}
             </div>
