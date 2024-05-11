@@ -8,7 +8,10 @@ export default function Tareas(props) {
         id: props.id,
       });
       const style = transform ? {
-        transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`, transition
+        backgroundColor: "#677483",
+        borderColor: "white",
+        transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`, 
+        transition,
       } : undefined;
 
 

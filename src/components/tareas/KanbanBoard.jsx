@@ -57,7 +57,6 @@ export default function KanbanBoard(){
     return(
         <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
             <h3 className="text-xl mb-4">Tareas</h3>
-            <SortableContext items={lista} strategy={verticalListSortingStrategy}>
             
             <div className="w-[80vw] flex space-x-20">
             <Columna titulo="Pendientes">
@@ -71,6 +70,7 @@ export default function KanbanBoard(){
 
             </Columna>
 
+             <SortableContext items={lista} strategy={verticalListSortingStrategy}> 
             <Columna titulo="En progreso">
 
                 {
@@ -81,8 +81,8 @@ export default function KanbanBoard(){
                 }
 
             </Columna>
+             </SortableContext> 
             </div>
-            </SortableContext>
 
         </DndContext>
     )
