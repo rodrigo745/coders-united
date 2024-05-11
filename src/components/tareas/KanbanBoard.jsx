@@ -18,6 +18,10 @@ export default function KanbanBoard(){
             {id: "1001", titulo:"ffffffff", tipo: "w"},
             {id: "1003", titulo:"zzzzzzzzzz", tipo: "w"},
             {id: "1002", titulo:"llllll", tipo: "w"},
+            {id: "2001", titulo:"88888", tipo: "t"},
+            {id: "2002", titulo:"2222222", tipo: "t"},
+            {id: "2003", titulo:"555555555", tipo: "t"},
+
         ],
     )
 
@@ -31,7 +35,6 @@ export default function KanbanBoard(){
                     if (item.id === active.id && item.tipo === "p") {
                         // Encontramos el máximo ID en la lista actual
                         const maxId =   Math.floor(Math.random() * (2000 - 1100 + 1)) + 1100;
-                        // Asignamos un nuevo ID único (mayor que el máximo actual + 1)
                         const newId = maxId + 1;
                         return { ...item, tipo: "w", id: newId };
                     }
@@ -59,7 +62,7 @@ export default function KanbanBoard(){
             <h3 className="text-xl mb-4">Tareas</h3>
             <div className="w-[80vw] flex space-x-20">
 
-            <Columna titulo="Pendientes">
+            <Columna titulo="Pendientes" tablero="pendiente">
              <SortableContext items={lista} strategy={verticalListSortingStrategy}> 
 
                 {
@@ -72,13 +75,26 @@ export default function KanbanBoard(){
                 </SortableContext>
             </Columna>
 
-            <Columna titulo="En progreso">
+            <Columna titulo="En progreso" tablero="progreso">
              <SortableContext items={lista} strategy={verticalListSortingStrategy}> 
 
                 {
                     lista.map((e, index)=>(
                         e.tipo === "w" &&
                         <Tarea key={index} id={e.id} titulo={e.titulo} borde="border-yellow-400" />
+                    ))
+                }
+
+             </SortableContext> 
+            </Columna>
+
+            <Columna titulo="Terminado" tablero="terminado">
+             <SortableContext items={lista} strategy={verticalListSortingStrategy}> 
+
+                {
+                    lista.map((e, index)=>(
+                        e.tipo === "t" &&
+                        <Tarea key={index} id={e.id} titulo={e.titulo} borde="border-red-400" />
                     ))
                 }
 
