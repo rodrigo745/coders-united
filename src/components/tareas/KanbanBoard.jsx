@@ -29,6 +29,7 @@ export default function KanbanBoard(){
         const { active, over } = event;
         console.log(active.id)
         console.log(over.id)
+        // de pendiente a progreso
         if (active.id <= 1041 && (over.id >= 1000 || over.id == "progreso") ) {
             setLista((prevLista) => {
                 return prevLista.map((item) => {
@@ -42,6 +43,7 @@ export default function KanbanBoard(){
                 });
             });
         }
+        // de progreso a pendiente
         if(active.id >= 1000 && (over.id <= 1000 || over.id == "pendiente" )){
             setLista((prevLista)=> {
                 return prevLista.map((item)=> {
@@ -55,6 +57,7 @@ export default function KanbanBoard(){
                 })
             })
         }
+        // de progreso a terminado
         if(active.id >= 1000 && (over.id >= 2000 || over.id == "terminado" )){
             setLista((prevLista)=> {
                 return prevLista.map((item)=> {
@@ -62,6 +65,19 @@ export default function KanbanBoard(){
                         const minId = Math.floor(Math.random() * (3100 - 2040 + 1)) + 2040;
                         const newId = minId - 1;
                         return {...item, tipo:"t", id: newId}
+                    }
+                    return item
+                })
+            })
+        }
+        // de terminado a progreso
+        if(active.id >= 2000 && (over.id <= 2000 || over.id == "progreso" )){
+            setLista((prevLista)=> {
+                return prevLista.map((item)=> {
+                    if(item.id === active.id && item.tipo === "t"){
+                        const minId = Math.floor(Math.random() * (2000 - 1100 + 1)) + 1100;
+                        const newId = minId - 1;
+                        return {...item, tipo:"w", id: newId}
                     }
                     return item
                 })
