@@ -65,7 +65,8 @@ export default function KanbanBoard(){
                 {
                     lista.map((e, index)=>(
                         e.tipo === "p" &&
-                        <Tarea key={index} id={e.id} titulo={e.titulo} />
+
+                        <Tarea key={index} id={e.id} titulo={e.titulo} borde="border-green-400 "/>
                     ))
                 }
                 </SortableContext>
@@ -77,7 +78,7 @@ export default function KanbanBoard(){
                 {
                     lista.map((e, index)=>(
                         e.tipo === "w" &&
-                        <Tarea key={index} id={e.id} titulo={e.titulo} />
+                        <Tarea key={index} id={e.id} titulo={e.titulo} borde="border-yellow-400" />
                     ))
                 }
 
