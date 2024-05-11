@@ -1,6 +1,4 @@
 import {useDraggable} from '@dnd-kit/core';
-import { useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
 
 export default function Tareas(props) {
 
@@ -18,7 +16,7 @@ export default function Tareas(props) {
 
 
     return(
-        <div ref={setNodeRef} style={style} {...listeners} {...attributes}  className={`bg-black p-3 text-sm border-l-8 mb-3 focus:fixed ${props.borde}`}>
+        <div ref={setNodeRef} style={style} {...listeners} {...attributes}  className={`bg-black p-3 text-sm border-l-8 mb-3 ${props.borde}`}>
             {/* Tareas */}
             {props.titulo}
             {/* Cambiar el contendor que oculta los items */}
