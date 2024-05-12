@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function BuscadorModalProyecto(props){
 
@@ -34,25 +35,43 @@ export default function BuscadorModalProyecto(props){
                 <p className="text-slate-600">|</p>
                 <p onClick={cambiarPestaña} className="cursor-pointer">Integrantes (0)</p>
             </div>
-            <div className="w-full p-2 flex flex-wrap space-x-4 h-40 bg-slate-400 overflow-auto rounded-lg">
+            <div className="border-collapse w-full p-2 flex flex-wrap space-x-4 h-40 bg-slate-400 overflow-auto rounded-lg">
                 
                 {
                     pestaña ?
-                    <div className="w-full flex text-sm text-neutral-800">
-                        <div className="flex flex-col w-14">
-                            <p>Foto</p>
+                    <table className="border-collapse w-full h-fit text-neutral-800">
 
-                        </div>
-                        <div className="flex flex-col w-[40%]">
-                            <p>Nombre</p>
+                        <thead >
+                            <tr>
+                            <th class="border border-neutral-800 px-1">Foto</th>
+                            <th class="border border-neutral-800">Nombre</th>
+                            <th class="border border-neutral-800 ">Correo</th>
+                            </tr>
+                        </thead>
+                        <tbody className="text-sm">
+                            {
+                                integranteBool &&
+                                buscador.map((e, index)=> (
+                                <tr key={index} className="cursor-pointer hover:bg-slate-300 transition">
+                                <td class="border border-neutral-800 w-5 pl-3 pb-2">
+                                    <Image key={index} src={e.imagen} 
+                                    className="text-xs mt-2 rounded-full" 
+                                    width={20} height={20} alt="asd" />
+                                </td>
+                                <td class="border border-neutral-800 px-2">
+                                    {e.nombre}
+                                </td>
+                                <td class="border border-neutral-800 px-2">
+                                    {e.correo}
+                                </td>
+                                </tr>
 
-                        </div>
-                        <div className="flex flex-col w-[40%]">
-                            <p>Correo</p>
+                                ))
+                            }
+                        </tbody>
+                    </table>
 
-                        </div>
-                        
-                    </div>
+                   
                     :
                     <div>
                             asd
