@@ -41,14 +41,14 @@ export default function BuscadorModalProyecto(props){
                     pestaña ?
                     <table className="border-collapse w-full h-fit text-neutral-800">
 
-                        <thead >
+                        <thead className="text-sm">
                             <tr>
                             <th class="border border-neutral-800 px-1">Foto</th>
                             <th class="border border-neutral-800">Nombre</th>
                             <th class="border border-neutral-800 ">Correo</th>
                             </tr>
                         </thead>
-                        <tbody className="text-sm">
+                        <tbody className="text-xs lg:text-sm">
                             {
                                 integranteBool &&
                                 buscador.map((e, index)=> (
