@@ -1,4 +1,7 @@
-export default function VerMisProyectos(){
+
+export default async function VerMisProyectos(){
+
+    
     return(
         <div>
             Ver mis proyectos

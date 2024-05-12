@@ -6,8 +6,9 @@ import Link from "next/link";
 import { IoSearch } from "react-icons/io5";
 
 
-export default function ModalCrearProyecto(){
+export default function ModalCrearProyecto(props){
 
+    const usuarios = props.usuarios;
     const [ mostrar, setMostrar ] = useState(false);
 
     const mostrarModal = ()=> {
@@ -51,7 +52,7 @@ export default function ModalCrearProyecto(){
 
 
                                     </div>
-                                    <BuscadorModalProyecto/>
+                                    <BuscadorModalProyecto usuarios={usuarios}/>
                                     {/* Cambiar por una funcion que guarde el proyecto y redirija */}
                                     <Link href="./proyectos/proyecto_creado/as" className="w-full amarilloBack text-black font-bold text-center p-2 rounded-full mt-5 text-lg">Crear</Link>
 
