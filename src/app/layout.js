@@ -1,3 +1,5 @@
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 import { Provider } from "./Providers";
 import { Poppins } from "next/font/google";
 import "./globals.css";
@@ -17,6 +19,7 @@ export default function RootLayout({ children }) {
       <body className={`w-screen h-screen ${poppins.className}`}>
         <Provider>
           {children}
+          <SpeedInsights/>
         </Provider>
       </body>
     </html>

@@ -103,7 +103,7 @@ export default function KanbanBoard(){
     return(
         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
             <h3 className="text-xl mb-4 ml-8">Tareas</h3>
-            <div className="w-[99vw] lg:w-[80vw] flex flex-col lg:flex lg:flex-row lg:space-x-20 space-y-10 mb-10">
+            <div className="w-[99vw] lg:w-[80vw] flex flex-col lg:flex lg:flex-row lg:space-x-20 space-y-10 lg:space-y-0 mb-10">
 
             <Columna titulo="Pendientes" tablero="pendiente">
 
