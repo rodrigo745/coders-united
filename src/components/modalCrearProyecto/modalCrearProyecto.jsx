@@ -3,6 +3,8 @@ import { useState } from "react";
 import { PiNotePencilBold } from "react-icons/pi";
 import BuscadorModalProyecto from "../../components/buscador/buscadorModalProyecto";
 import Link from "next/link";
+import { IoSearch } from "react-icons/io5";
+
 
 export default function ModalCrearProyecto(){
 
@@ -32,11 +34,23 @@ export default function ModalCrearProyecto(){
                                     <p onClick={mostrarModal} className="h-9 w-14 text-2xl text-center font-bold bg-red-400 rounded-lg cursor-pointer">x</p>
                                 </div>
                                 <div className="mt-6 text-md flex flex-col">
-                                    <input className="px-5 bg-slate-300 placeholder:text-neutral-700 text-black py-3 rounded-full w-full" placeholder="Nombre del proyecto" />
+                                    <input className="px-5 bg-slate-300 placeholder:text-neutral-700 text-black py-3 rounded-full w-full" placeholder="Nombre del proyecto *" />
 
-                                    <input className="px-5 bg-slate-300 placeholder:text-neutral-700 text-black py-3 rounded-full w-full mt-5" placeholder="Campo adicional" />
-
+                                    <input className="px-5 bg-slate-300 placeholder:text-neutral-700 text-black py-3 rounded-full w-full mt-5" placeholder="Descripción" />
                                     
+                                    <div className="flex space-x-6">
+                                        <div className="mt-3 w-[45%]">
+                                            <label className="ml-3 text-sm">Inicio estimado</label>
+                                            <input type="date" className="px-5 bg-slate-300 placeholder:text-neutral-700 text-black py-3  text-sm rounded-full w-full mt-1"/>
+
+                                        </div>
+                                        <div className="mt-3 w-[45%]">
+                                            <label className="ml-3 text-sm">Fin estimado</label>
+                                            <input type="date" className="px-5 bg-slate-300 placeholder:text-neutral-700 text-black py-3 text-sm rounded-full w-full mt-1"/>
+                                        </div>
+
+
+                                    </div>
                                     <BuscadorModalProyecto/>
                                     {/* Cambiar por una funcion que guarde el proyecto y redirija */}
                                     <Link href="./proyectos/proyecto_creado/as" className="w-full amarilloBack text-black font-bold text-center p-2 rounded-full mt-5 text-lg">Crear</Link>

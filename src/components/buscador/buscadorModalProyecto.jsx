@@ -1,6 +1,10 @@
 export default function BuscadorModalProyecto(){
     return(
         <div className="w-full">
+
+            {/* Crear el buscador de integrantes aqui */}
+
+
             <input type="search" placeholder="Agregar integrantes..." 
                 className="px-5 bg-slate-300 placeholder:text-neutral-700 text-black py-3 rounded-full w-full mt-5"/>
             <div className="w-full mt-5 p-2 flex flex-wrap space-x-4 h-40 bg-slate-400 overflow-auto rounded-lg">
