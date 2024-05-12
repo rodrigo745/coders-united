@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function BuscadorModalProyecto(props){
@@ -21,24 +21,20 @@ export default function BuscadorModalProyecto(props){
         setBuscador( usuarios.filter((nombre)=> 
             nombre.nombre.toLowerCase().includes(valor.toLowerCase())));
         valor.length >= 1 ? setIntegranteBool(true) : setIntegranteBool(false);
+
+        
     }
+
     const agregarIntegrante = (valor)=>{
-        console.log(integrantes)
         setIntegrantes((guardado)=> { 
             const repetido = guardado.some((repetido)=> repetido.correo === valor.correo );
-
-            console.log(repetido);
+            
             if(repetido){
                 return [...guardado];
             } else {
                 return [...guardado, valor];
             }
         });
-        const coincide = buscador.some((coincide)=> coincide.correo === integrantes.correo );
-
-        if(coincide){
-            setEstiloSeleccion("bg-green-200")
-        }
     }
 
     const integranteMarcado = ()=>{
@@ -75,7 +71,9 @@ export default function BuscadorModalProyecto(props){
                             {
                                 integranteBool &&
                                 buscador.map((e, index)=> (
-                                <tr onClick={()=> agregarIntegrante(e)} key={index} className={`cursor-pointer hover:bg-slate-300 transition ${estiloSeleccion}`}>
+                                <tr onClick={()=> agregarIntegrante(e)} key={index} className={`cursor-pointer hover:bg-slate-300 transition ${
+                                    integrantes.some((coincide)=> coincide.correo === e.correo ) ? "bg-green-800 text-white hover:bg-green-800 cursor-no-drop" : ""
+                                }`}>
                                 <td class="border  border-neutral-800 w-5 pl-2 pb-1">
                                     <Image key={index} src={e.imagen} 
                                     className="text-xs mt-2 rounded-full" 
