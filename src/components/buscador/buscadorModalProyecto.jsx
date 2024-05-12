@@ -53,12 +53,12 @@ export default function BuscadorModalProyecto(props){
                                 integranteBool &&
                                 buscador.map((e, index)=> (
                                 <tr key={index} className="cursor-pointer hover:bg-slate-300 transition">
-                                <td class="border border-neutral-800 w-5 pl-3 pb-2">
+                                <td class="border  border-neutral-800 w-5 pl-2 pb-1">
                                     <Image key={index} src={e.imagen} 
                                     className="text-xs mt-2 rounded-full" 
-                                    width={20} height={20} alt="asd" />
+                                    width={25} height={20} alt="asd" />
                                 </td>
-                                <td class="border border-neutral-800 px-2">
+                                <td class="border border-neutral-800 px-2 min-w-40">
                                     {e.nombre}
                                 </td>
                                 <td class="border border-neutral-800 px-2">
