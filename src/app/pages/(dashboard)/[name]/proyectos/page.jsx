@@ -21,7 +21,7 @@ export default async function Proyectos(){
                     </Link>
                 </div>
                 <div className="flex justify-center w-full"> { /* imagen */ }
-                    <Image src="/logo_proyectos.svg" width={240} height={240} alt="Logo de proyectos" className="scale-75 lg:scale-100" />
+                    <Image priority src="/logo_proyectos.svg" width={240} height={240} alt="Logo de proyectos" className="scale-75 lg:scale-100" />
                 </div>
             </div>
             
