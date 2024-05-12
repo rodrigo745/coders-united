@@ -4,7 +4,6 @@ import Columna from "./Columna";
 import Tarea from "./Tarea"
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { useState } from 'react';
-import { horizontalListSortingStrategy, arrayMove } from '@dnd-kit/sortable';
 
 
 export default function KanbanBoard(){    
@@ -91,16 +90,13 @@ export default function KanbanBoard(){
             <div className="w-[80vw] flex space-x-20">
 
             <Columna titulo="Pendientes" tablero="pendiente">
-             <SortableContext items={lista} strategy={verticalListSortingStrategy}> 
 
                 {
                     lista.map((e, index)=>(
                         e.tipo === "p" &&
-
-                        <Tarea key={index} id={e.id} titulo={e.titulo} borde="border-green-400 "/>
+                            <Tarea  key={index} id={e.id} titulo={e.titulo}  borde="border-green-400 "/>
                     ))
                 }
-                </SortableContext>
             </Columna>
 
             <Columna titulo="En progreso" tablero="progreso">
