@@ -15,7 +15,7 @@ export default function Columna(props){
     });
 
     return(
-        <div ref={setNodeRef} className="cuadro w-[20vw] rounded-lg h-[500px] p-4 flex flex-col items-center">
+        <div ref={setNodeRef} className="cuadro mx-7 lg:mx-0 lg:w-[20vw] rounded-lg h-[500px] p-4 flex flex-col items-center">
             <h4 className="text-lg">{props.titulo}</h4>
             <div className='w-full flex flex-col h-[92%] justify-between space-y-2'>
                 <div className='overflow-auto h-full'>

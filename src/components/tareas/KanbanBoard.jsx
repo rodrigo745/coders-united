@@ -4,7 +4,14 @@ import Columna from "./Columna";
 import Tarea from "./Tarea"
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { useState } from 'react';
-
+import {
+    KeyboardSensor,
+    MouseSensor,
+    TouchSensor,
+    useSensor,
+    useSensors,
+  } from '@dnd-kit/core';
+  
 
 export default function KanbanBoard(){    
     
@@ -22,7 +29,16 @@ export default function KanbanBoard(){
             {id: "2003", titulo:"555555555", tipo: "t"},
 
         ],
-    )
+    );
+    const mouseSensor = useSensor(MouseSensor);
+    const touchSensor = useSensor(TouchSensor);
+    const keyboardSensor = useSensor(KeyboardSensor);
+    
+    const sensors = useSensors(
+      mouseSensor,
+      touchSensor,
+      keyboardSensor,
+    );
 
     const handleDragEnd = (event)=>{
         const { active, over } = event;
@@ -85,9 +101,9 @@ export default function KanbanBoard(){
     }
 
     return(
-        <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
             <h3 className="text-xl mb-4">Tareas</h3>
-            <div className="w-[80vw] flex space-x-20">
+            <div className="w-[99vw] lg:w-[80vw] flex flex-col lg:flex lg:flex-row lg:space-x-20 space-y-10 mb-10">
 
             <Columna titulo="Pendientes" tablero="pendiente">
 
