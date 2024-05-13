@@ -9,7 +9,6 @@ export default function BuscadorModalProyecto(props){
     const [ integranteBool, setIntegranteBool ] = useState(false);
     const [ pestaña, setPestaña ] = useState(true); 
     const [ integrantes, setIntegrantes ] = useState([]);
-    const [ estiloSeleccion, setEstiloSeleccion ] = useState("");
 
     const cambiarPestaña = ()=>{pestaña && setPestaña(false)}
     const cambiarPestañaDos = ()=>{!pestaña && setPestaña(true)}
@@ -20,12 +19,11 @@ export default function BuscadorModalProyecto(props){
         
         setBuscador( usuarios.filter((nombre)=> 
             nombre.nombre.toLowerCase().includes(valor.toLowerCase())));
-        valor.length >= 1 ? setIntegranteBool(true) : setIntegranteBool(false);
-
-        
+            valor.length >= 1 ? setIntegranteBool(true) : setIntegranteBool(false);        
     }
 
     const agregarIntegrante = (valor)=>{
+        // Enviar esto a la base de datos
         setIntegrantes((guardado)=> { 
             const repetido = guardado.some((repetido)=> repetido.correo === valor.correo );
             
@@ -37,8 +35,13 @@ export default function BuscadorModalProyecto(props){
         });
     }
 
-    const integranteMarcado = ()=>{
-        
+    const eliminarIntegrante = (e)=>{
+
+        setIntegrantes((lista)=> {
+            const eliminado = e.target.id;
+            // Enviar esto a la base de datos
+            return lista.filter((correo)=> correo.correo !== eliminado )
+        } );
     }
 
     return(
@@ -91,11 +94,44 @@ export default function BuscadorModalProyecto(props){
                             }
                         </tbody>
                     </table>
+                    : 
+                    <div className="w-full">
+                            {
+                                integrantes.length == 0 ?
+                                <p className="text-neutral-800 text-sm">Aún no hay integrantes</p>
+                                :
+                                <table className="border-collapse w-full h-fit text-neutral-800">
 
-                   
-                    :
-                    <div>
-                            Aun no hay integrantes
+                                <thead className="text-sm">
+                                    <tr>
+                                    <th class="border border-neutral-800 px-1">Foto</th>
+                                    <th class="border border-neutral-800">Nombre</th>
+                                    <th class="border border-neutral-800 "></th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-xs lg:text-sm">
+                                    {
+                                        integranteBool &&
+                                        integrantes.map((e, index)=> (
+                                        <tr key={index} className="transition cursor-default">
+                                        <td class="border  border-neutral-800 w-5 pl-2 pb-1">
+                                            <Image key={index} src={e.imagen} 
+                                            className="text-xs mt-2 rounded-full" 
+                                            width={25} height={25} alt="asd" />
+                                        </td>
+                                        <td class="border border-neutral-800 px-2 min-w-40">
+                                            {e.nombre}
+                                        </td>
+                                        <td class="border border-neutral-800 w-28">
+                                            <button onClick={eliminarIntegrante} id={e.correo} className="p-2  text-red-600 font-bold w-full rounded-lg text-xs lg:text-sm">Eliminar</button>
+                                        </td>
+                                        </tr>
+        
+                                        ))
+                                    }
+                                </tbody>
+                            </table>
+                            }
                     </div>
 
                 }
