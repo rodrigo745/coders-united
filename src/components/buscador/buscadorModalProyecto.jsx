@@ -71,8 +71,8 @@ export default function BuscadorModalProyecto(props){
                             {
                                 integranteBool &&
                                 buscador.map((e, index)=> (
-                                <tr onClick={()=> agregarIntegrante(e)} key={index} className={`cursor-pointer hover:bg-slate-300 transition ${
-                                    integrantes.some((coincide)=> coincide.correo === e.correo ) ? "bg-green-800 text-white hover:bg-green-800 cursor-no-drop" : ""
+                                <tr onClick={()=> agregarIntegrante(e)} key={index} className={`cursor-pointer transition ${
+                                    integrantes.some((coincide)=> coincide.correo === e.correo ) ? "bg-green-800 text-white hover:bg-green-800 cursor-default" : "hover:bg-slate-300 "
                                 }`}>
                                 <td class="border  border-neutral-800 w-5 pl-2 pb-1">
                                     <Image key={index} src={e.imagen} 
