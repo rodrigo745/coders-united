@@ -3,8 +3,8 @@ import Link from "next/link";
 export default function IdProyecto({params}){
 
     return(
-        <div className="">
-            <div className="flex flex-col justify-center w-[100vw] lg:w-[80vw] items-center lg:block">
+        <div className="flex">
+            <div className="flex flex-col  justify-center w-[100vw] lg:w-[60vw] items-center lg:block">
                 {/* Main */}
                 <div className="cuadro w-[90vw] lg:w-[60vw] h-[600px] lg:h-[300px] rounded-lg shadow-md p-4">
                     {/* Tablero info general */}
@@ -31,11 +31,11 @@ export default function IdProyecto({params}){
                             </p>
                         </div>
                         <div className="flex justify-center items-center w-[60%] h-56 ml-20">
-                            <p className="text-6xl font-bold rotate-1">Gráficos</p>
+                            <p className="text-6xl font-bold rotate-12">Gráficos</p>
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="flex">
                     {/* navegacion del proyecto */}
                     <div className="cuadro space-y-4 w-[270px] h-fit p-3 py-5 mt-6 rounded-lg">
                         <button className="amarilloBack w-full text-black p-2 rounded-full font-bold">Requerimientos</button>
@@ -46,10 +46,17 @@ export default function IdProyecto({params}){
                         <button className="amarilloBack w-full text-black p-2 rounded-full font-bold">Evaluación</button>
                         <button className="amarilloBack w-full text-black p-2 rounded-full font-bold">Reuniones</button>
                     </div>
-                    <div></div>
+                    <div className="cuadro w-full ml-7 mt-6 rounded-lg p-2">
+                        <div className="flex justify-between">
+                            <button className="amarilloBack w-[200px] text-black p-1.5 rounded-full font-bold">Notas</button>
+                            <button className="amarilloBack w-[200px] text-black p-1.5 rounded-full font-bold">Chat</button>
+                        </div>
+                        
+                        {/* Contenido */}
+                    </div>
                 </div>
             </div>
-            <div>{/* Columna izquierda */}</div>
+            <div>{/* Columna izquierda */} asaa</div>
         </div>
         
     )
