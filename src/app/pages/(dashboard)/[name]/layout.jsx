@@ -6,7 +6,7 @@ import DashboardMovil from "../../../../components/dashboard/dashboardMovil";
 export default async function RootLayout({ children, params}) {
 
     return (
-        <div className="flex flex-col md:flex md:flex-row">
+        <div className="flex flex-col md:flex md:flex-row w-full h-full">
             <div className="hidden md:block fixed">
                 <div className="relative">
                     <Dashboard ruta={params.name}/>
