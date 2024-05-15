@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function IdProyecto({params}){
+export default function IdProyecto(){
 
     return(
         <div className="flex flex-col lg:flex lg:flex-row">
@@ -56,7 +56,16 @@ export default function IdProyecto({params}){
                     </div>
                 </div>
             </div>
-            <div>{/* Columna izquierda */} asaa</div>
+            <div className="lg:w-[320px] mx-7 lg:mx-10 mt-10 lg:mt-0 mb-10">
+                {/* Columna izquierda */} 
+                
+                <div className="cuadro w-full h-[420px]  rounded-lg p-2">
+                    tareas
+                </div>
+                <div className="cuadro mt-6 h-52 rounded-lg p-2">
+                    Integrantes
+                </div>
+            </div>
         </div>
         
     )
