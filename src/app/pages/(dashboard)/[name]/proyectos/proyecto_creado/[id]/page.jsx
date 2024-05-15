@@ -4,12 +4,12 @@ export default function IdProyecto({params}){
 
     return(
         <div className="">
-            <div>
+            <div className="flex flex-col justify-center w-[100vw] lg:w-[80vw] items-center lg:block">
                 {/* Main */}
-                <div className="cuadro w-[60vw] h-[300px] rounded-lg shadow-md p-4">
+                <div className="cuadro w-[90vw] lg:w-[60vw] h-[600px] lg:h-[300px] rounded-lg shadow-md p-4">
                     {/* Tablero info general */}
                     <h2 className="rounded-full w-[260px] text-center fondo shadow-sm  p-2">Nombre del proyecto</h2>
-                    <div className="flex">
+                    <div className="flex flex-col lg:flex lg:flex-row">
                         <div className="mt-4 ml-2">
                             <p className="font-bold amarillo"> Usuario:
                                 <span className="text-white font-normal"> Rodrigo javier Quinteros</span>
@@ -37,7 +37,16 @@ export default function IdProyecto({params}){
                 </div>
                 <div>
                     {/* navegacion del proyecto */}
-
+                    <div className="cuadro space-y-4 w-[270px] h-fit p-3 py-5 mt-6 rounded-lg">
+                        <button className="amarilloBack w-full text-black p-2 rounded-full font-bold">Requerimientos</button>
+                        <button className="amarilloBack w-full text-black p-2 rounded-full font-bold">Repositorio</button>
+                        <button className="amarilloBack w-full text-black p-2 rounded-full font-bold">Contabilidad</button>
+                        <button className="amarilloBack w-full text-black p-2 rounded-full font-bold">Diagramas</button>
+                        <button className="amarilloBack w-full text-black p-2 rounded-full font-bold">Enlaces</button>
+                        <button className="amarilloBack w-full text-black p-2 rounded-full font-bold">Evaluación</button>
+                        <button className="amarilloBack w-full text-black p-2 rounded-full font-bold">Reuniones</button>
+                    </div>
+                    <div></div>
                 </div>
             </div>
             <div>{/* Columna izquierda */}</div>
