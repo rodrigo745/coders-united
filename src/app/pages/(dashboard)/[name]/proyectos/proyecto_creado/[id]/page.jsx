@@ -35,18 +35,18 @@ export default function IdProyecto(){
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col lg:flex lg:flex-row">
+                <div className="flex flex-col lg:flex lg:flex-row w-[90vw] lg:w-[60vw]">
                     {/* navegacion del proyecto */}
-                    <div className="cuadro space-y-4 lg:w-[270px] h-fit p-3 py-5 mt-6 rounded-lg mx-7 lg:mx-0">
-                        <button className="amarilloBack h-fit w-[180px] lg:w-full text-black p-2 rounded-full font-bold ">Requerimientos</button>
-                        <button className="amarilloBack h-fit w-[180px] lg:w-full text-black p-2 rounded-full font-bold ml-3 lg:ml-0">Repositorio</button>
-                        <button className="amarilloBack w-[180px] lg:w-full text-black p-2 rounded-full font-bold">Contabilidad</button>
-                        <button className="amarilloBack w-[180px] lg:w-full text-black p-2 rounded-full font-bold ml-3 lg:ml-0">Diagramas</button>
-                        <button className="amarilloBack w-[180px] lg:w-full text-black p-2 rounded-full font-bold">Enlaces</button>
-                        <button className="amarilloBack w-[180px] lg:w-full text-black p-2 rounded-full font-bold ml-3 lg:ml-0">Evaluación</button>
-                        <button className="amarilloBack w-[180px] lg:w-full text-black p-2 rounded-full font-bold">Reuniones</button>
+                    <div className="cuadro space-y-4 lg:w-[270px] h-fit p-2 py-5 mt-6 rounded-lg text-sm">
+                        <button className="amarilloBack h-fit w-[140px] lg:w-full text-black p-2 rounded-full font-bold ">Requerimientos</button>
+                        <button className="amarilloBack h-fit w-[140px] lg:w-full text-black p-2 rounded-full font-bold ml-3 lg:ml-0">Repositorio</button>
+                        <button className="amarilloBack w-[140px] lg:w-full text-black p-2 rounded-full font-bold">Contabilidad</button>
+                        <button className="amarilloBack w-[140px] lg:w-full text-black p-2 rounded-full font-bold ml-3 lg:ml-0">Diagramas</button>
+                        <button className="amarilloBack w-[140px] lg:w-full text-black p-2 rounded-full font-bold">Enlaces</button>
+                        <button className="amarilloBack w-[140px] lg:w-full text-black p-2 rounded-full font-bold ml-3 lg:ml-0">Evaluación</button>
+                        <button className="amarilloBack w-[140px] lg:w-full text-black p-2 rounded-full font-bold">Reuniones</button>
                     </div>
-                    <div className="cuadro w-[89vw] min-h-36 lg:w-full ml-7 mt-6 rounded-lg p-2">
+                    <div className="cuadro min-h-36 lg:w-full lg:ml-7 mt-6 rounded-lg p-2">
                         <div className="flex justify-between">
                             <button className="amarilloBack w-[100px] lg:w-[200px] text-black p-1.5 rounded-full font-bold">Notas</button>
                             <button className="amarilloBack w-[100px] lg:w-[200px] text-black p-1.5 rounded-full font-bold">Chat</button>
@@ -56,7 +56,7 @@ export default function IdProyecto(){
                     </div>
                 </div>
             </div>
-            <div className="lg:w-[320px] mx-7 lg:mx-10 mt-10 lg:mt-0 mb-10">
+            <div className="lg:w-[320px] mx-5 lg:mx-10 mt-10 lg:mt-0 mb-10">
                 {/* Columna izquierda */} 
                 
                 <div className="cuadro w-full h-[420px]  rounded-lg p-2">
