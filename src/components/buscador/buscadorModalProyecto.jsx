@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 
 export default function BuscadorModalProyecto(props){
 
     const usuarios = props.usuarios;
+    const { data: session } = useSession();
     const [ buscador, setBuscador ] = useState([]);
     const [ integranteBool, setIntegranteBool ] = useState(false);
     const [ pestaña, setPestaña ] = useState(true); 
@@ -12,6 +14,19 @@ export default function BuscadorModalProyecto(props){
 
     const cambiarPestaña = ()=>{pestaña && setPestaña(false)}
     const cambiarPestañaDos = ()=>{!pestaña && setPestaña(true)}
+    
+    useEffect(()=>{
+        if(session?.user){
+            const usuarioLider = {    
+                nombre: session.user.name,
+                correo: session.user.email,
+                imagen: session.user.image
+            }
+            setIntegrantes([usuarioLider]);
+        }
+    },[session?.user])
+    
+
 
     const obtenerNombre = (e)=>{
         e.preventDefault();
@@ -111,7 +126,7 @@ export default function BuscadorModalProyecto(props){
                                 </thead>
                                 <tbody className="text-xs lg:text-sm">
                                     {
-                                        integranteBool &&
+                                        session?.user &&
                                         integrantes.map((e, index)=> (
                                         <tr key={index} className="transition cursor-default">
                                         <td class="border  border-neutral-800 w-5 pl-2 pb-1">
@@ -123,7 +138,10 @@ export default function BuscadorModalProyecto(props){
                                             {e.nombre}
                                         </td>
                                         <td class="border border-neutral-800 w-28">
-                                            <button onClick={eliminarIntegrante} id={e.correo} className="p-2  text-red-600 font-bold w-full rounded-lg text-xs lg:text-sm">Eliminar</button>
+                                            {
+                                                e.correo !== session.user.email &&
+                                                <button onClick={eliminarIntegrante} id={e.correo} className="p-2  text-red-600 font-bold w-full rounded-lg text-xs lg:text-sm">Eliminar</button>
+                                            }
                                         </td>
                                         </tr>
         
