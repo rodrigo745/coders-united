@@ -8,3 +8,9 @@ export async function POST(request){
     const agregar = await proyecto.create(datos);
     return NextResponse.json(agregar);
 }
+export async function GET(){
+    await connectDB();
+    const obtener = await proyecto.find();
+    const trans = await JSON.parse(JSON.stringify(obtener));
+    return NextResponse.json(trans);
+}

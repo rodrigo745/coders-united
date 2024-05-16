@@ -18,8 +18,8 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body className={`w-screen h-screen ${poppins.className}`}>
         <Provider>
-          {children}
           <SpeedInsights/>
+          {children}
         </Provider>
       </body>
     </html>
