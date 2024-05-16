@@ -41,6 +41,11 @@ export default function ModalCrearProyecto(props){
     // enviar los datos aqui
 
     const crearProyecto = async(e)=>{
+
+        // CREAR LA VERIFICACION DE CAMPO PARA EL NOMBRE
+        // AGREGAR UNA NOTIFICACION PARA EL USUARIO (CREADO / LLENAR CAMPO)
+        
+
         e.preventDefault();
         
         const subir = await fetch(`/api/datosProyecto/asd`,{
