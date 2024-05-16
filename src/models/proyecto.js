@@ -4,7 +4,7 @@ import { Schema } from "mongoose";
 const proyecto = new Schema({
     titulo: String,
     estado: String,      
-    descripción: String,
+    descripcion: String,
     tareas: Array,   
     integrantes: Array,
     inicio_proyecto: Date,
@@ -16,11 +16,14 @@ const proyecto = new Schema({
     notas: Array,
     repositorio: Array,         
     contabilidad:  Array,
-    evaluación: Array,
+    evaluacion: Array,
     enlaces: Array,      
     reuniones: Array,  
-    protección: Boolean,
-    chat: Array
+    proteccion: Boolean,
+    chat: Array,
+    adicional_uno: Array,
+    adicional_dos: Number,
+    adicional_tres: Array
 })
 export default mongoose.model.Proyecto || mongoose.model("Proyecto", proyecto);
 
