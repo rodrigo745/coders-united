@@ -43,8 +43,10 @@ export default function BuscadorModalProyecto(props){
             const repetido = guardado.some((repetido)=> repetido.correo === valor.correo );
             
             if(repetido){
+                props.obtener_integrante([...integrantes]);
                 return [...guardado];
             } else {
+                props.obtener_integrante([...integrantes, valor]);
                 return [...guardado, valor];
             }
         });
@@ -124,7 +126,7 @@ export default function BuscadorModalProyecto(props){
                                     <th class="border border-neutral-800 "></th>
                                     </tr>
                                 </thead>
-                                <tbody className="text-xs lg:text-sm">
+                                <tbody className="text-xs lg:text-sm" >
                                     {
                                         session?.user &&
                                         integrantes.map((e, index)=> (
@@ -154,16 +156,7 @@ export default function BuscadorModalProyecto(props){
 
                 }
             </div>
-            <div className="flex space-x-5 mt-4 ml-2">
-                <div className="flex space-x-2 cursor-pointer">
-                    <input defaultChecked className="w-4" name="proteccion" id="radio1" type="radio"/>
-                    <label for="radio1" className="cursor-pointer">Público</label>
-                </div>
-                <div className="flex space-x-2 cursor-pointer">
-                    <input className="w-4" name="proteccion" id="radio2" type="radio"/>
-                    <label for="radio2" className="cursor-pointer">Privado</label>
-                </div>
-            </div>
+            
         </div>
     )
 }

@@ -17,6 +17,8 @@ export default function ModalCrearProyecto(props){
     const [ descripcion, setDescripcion ] = useState();
     const [ inicio, setInicio ] = useState();
     const [ finalEstimado, setFinalEstimado ] = useState();
+    const [ integrantes, setIntegrantes ] = useState();
+    const [ proteccion, setproteccion ] = useState("false");
     
     const mostrarModal = ()=> {
         mostrar ? setMostrar(false) : setMostrar(true);
@@ -30,9 +32,11 @@ export default function ModalCrearProyecto(props){
             descripcion: descripcion,
             estado: "En desarrollo",
             inicio_proyecto: inicio,
-            final_estimado: finalEstimado
+            final_estimado: finalEstimado,
+            integrantes: integrantes,
+            proteccion: proteccion == "false" ? false : true
         })
-    },[titulo, descripcion, inicio, finalEstimado]);
+    },[titulo, descripcion, inicio, finalEstimado, integrantes, proteccion]);
 
     // enviar los datos aqui
 
@@ -53,7 +57,9 @@ export default function ModalCrearProyecto(props){
     const get_descripcion = (e)=> { setDescripcion(e.target.value) }
     const get_inicio = (e)=> { setInicio(e.target.value) }
     const get_final_estimado = (e)=> { setFinalEstimado(e.target.value)}
-
+    const get_integrantes = (arreglo)=> { setIntegrantes(arreglo); console.log(arreglo) }
+    const get_proteccion = (e)=> { setproteccion(e.target.id); console.log(e.target.id) }
+    
 
     return(
         <div  className=" w-full justify-center  flex content-center items-center ">
@@ -92,7 +98,17 @@ export default function ModalCrearProyecto(props){
 
 
                                     </div>
-                                    <BuscadorModalProyecto usuarios={usuarios}/>
+                                    <BuscadorModalProyecto obtener_integrante={get_integrantes} usuarios={usuarios}/>
+                                    <div className="flex space-x-5 mt-4 ml-2">
+                                        <div className="flex space-x-2 cursor-pointer">
+                                            <input onChange={get_proteccion} defaultChecked className="w-4" name="proteccion" id="false" type="radio"/>
+                                            <label for="radio1" className="cursor-pointer">Público</label>
+                                        </div>
+                                        <div className="flex space-x-2 cursor-pointer">
+                                            <input onChange={get_proteccion} className="w-4" name="proteccion" id="true" type="radio"/>
+                                            <label for="radio2" className="cursor-pointer">Privado</label>
+                                        </div>
+                                    </div>
                                     {/* Cambiar por una funcion que guarde el proyecto y redirija */}
                                     <button onClick={crearProyecto} className="w-full amarilloBack text-black font-bold text-center p-2 rounded-full mt-5 text-lg">Crear</button>
 
