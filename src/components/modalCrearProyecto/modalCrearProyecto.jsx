@@ -15,8 +15,8 @@ export default function ModalCrearProyecto(props){
     // campos para los datos de mongo
     const [ titulo, setTitulo ] = useState();
     const [ descripcion, setDescripcion ] = useState();
-    const [ estado, setEstado ] = useState();
-
+    const [ inicio, setInicio ] = useState();
+    const [ finalEstimado, setFinalEstimado ] = useState();
     
     const mostrarModal = ()=> {
         mostrar ? setMostrar(false) : setMostrar(true);
@@ -27,10 +27,12 @@ export default function ModalCrearProyecto(props){
     useEffect(()=> {
         setValorMongo({
             titulo: titulo,
-            estado: "En desarrollo22",
-            descripcion: "asdasd"
+            descripcion: descripcion,
+            estado: "En desarrollo",
+            inicio_proyecto: inicio,
+            final_estimado: finalEstimado
         })
-    },[titulo])
+    },[titulo, descripcion, inicio, finalEstimado]);
 
     // enviar los datos aqui
 
@@ -47,7 +49,11 @@ export default function ModalCrearProyecto(props){
         // router.push("./proyectos/proyecto_creado/as")
     }
 
-    const get_titulo = (e)=> { setTitulo(e.target.value); console.log(e.target.value) }
+    const get_titulo = (e)=> { setTitulo(e.target.value) }
+    const get_descripcion = (e)=> { setDescripcion(e.target.value) }
+    const get_inicio = (e)=> { setInicio(e.target.value) }
+    const get_final_estimado = (e)=> { setFinalEstimado(e.target.value)}
+
 
     return(
         <div  className=" w-full justify-center  flex content-center items-center ">
@@ -71,17 +77,17 @@ export default function ModalCrearProyecto(props){
                                 <div className="mt-6 text-md flex flex-col">
                                     <input onChange={get_titulo} className="px-5 bg-slate-300 placeholder:text-neutral-700 text-black py-3 rounded-full w-full" placeholder="Nombre del proyecto *" />
 
-                                    <input className="px-5 bg-slate-300 placeholder:text-neutral-700 text-black py-3 rounded-full w-full mt-5" placeholder="Descripción" />
+                                    <input onChange={get_descripcion} className="px-5 bg-slate-300 placeholder:text-neutral-700 text-black py-3 rounded-full w-full mt-5" placeholder="Descripción" />
                                     
                                     <div className="flex space-x-6">
                                         <div className="mt-3 w-[45%]">
                                             <label className="ml-3 text-sm">Inicio estimado</label>
-                                            <input type="date" className="px-5 bg-slate-300 placeholder:text-neutral-700 text-black py-3  text-sm rounded-full w-full mt-1"/>
+                                            <input onChange={get_inicio} type="date" className="px-5 bg-slate-300 placeholder:text-neutral-700 text-black py-3  text-sm rounded-full w-full mt-1"/>
 
                                         </div>
                                         <div className="mt-3 w-[45%]">
                                             <label className="ml-3 text-sm">Fin estimado</label>
-                                            <input type="date" className="px-5 bg-slate-300 placeholder:text-neutral-700 text-black py-3 text-sm rounded-full w-full mt-1"/>
+                                            <input onChange={get_final_estimado} type="date" className="px-5 bg-slate-300 placeholder:text-neutral-700 text-black py-3 text-sm rounded-full w-full mt-1"/>
                                         </div>
 
 
