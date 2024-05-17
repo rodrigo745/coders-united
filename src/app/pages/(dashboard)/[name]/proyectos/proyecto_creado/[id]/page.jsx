@@ -1,13 +1,12 @@
 import InfoGeneral from "../../../../../../../components/proyectoGeneral/infoGeneral";
 import CuadroVisual from "../../../../../../../components/proyectoGeneral/cuadroVisual";
 import SideBar from "../../../../../../../components/proyectoGeneral/sideBar";
-import { GET } from "../../../../../../api/datosProyecto/[id]/[individual]/route";
 // para acceder a los datos de mongo
 import proyecto from "../../../../../../../models/proyecto";
 import connectDB from "../../../../../../../libs/mongoose";
 
 async function LoadDatos(id){
-    await connectDB;
+    connectDB;
     const datos = await proyecto.findById(id);
     const res = await JSON.parse(JSON.stringify(datos));
     return res;

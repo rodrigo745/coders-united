@@ -1,8 +1,11 @@
-
+"use client";
+import { useSession } from "next-auth/react";
 
 export default function InfoGeneral(props){
 
     const datos = props.datos;
+    const { data: session } = useSession();
+
 
     return(
         <div className="cuadro w-[90vw] lg:w-[60vw] h-[600px] lg:h-[300px] rounded-lg shadow-md p-4">
@@ -10,20 +13,30 @@ export default function InfoGeneral(props){
                     <div className="flex flex-col lg:flex lg:flex-row">
                         <div className="mt-4 ml-2">
                             <p className="font-bold amarillo"> Usuario:
-                                <span className="text-white font-normal"> {datos.integrantes[0].nombre} </span>
+                                <span className="text-white font-normal pl-2"> 
+                                {
+                                    session?.user &&
+                                    <span>{session.user.name}</span>
+                                }
+                                </span>
                             </p>
                             <p className="font-bold amarillo mt-3"> Nivel:
-                                <span className="text-white font-normal"> 
+                                <span className="text-white font-normal pl-2"> 
                                     {
-                                        
+                                        session?.user ?
+                                            session.user.email === datos.integrantes[0].correo &&
+                                                <span>Administrador</span>
+                                        :
+                                            <p>Sin definir</p>
                                     }
                                 </span>
                             </p>
                             <p className="font-bold amarillo mt-3"> Estado del proyecto:
-                                <span className="text-white font-normal"> En desarrollo</span>
-                            </p>
-                            <p className="font-bold amarillo mt-3"> Estado del proyecto:
-                                <span className="text-white font-normal"> En desarrollo</span>
+                                <span className="text-white font-normal pl-2">
+                                    {
+                                        datos.estado
+                                    }
+                                </span>
                             </p>
                             <p className="font-bold amarillo mt-3"> Estado del proyecto:
                                 <span className="text-white font-normal"> En desarrollo</span>
