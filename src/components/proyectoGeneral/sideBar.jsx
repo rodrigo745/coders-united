@@ -15,9 +15,9 @@ export default function SideBar(props){
             <Link href={`./${props.enlace}/tareas`} className="rounded-full text-center amarilloBack p-2 text-black font-bold">Editar tareas</Link>
         </div>
 
-        <div className="cuadro mt-6 h-64 rounded-lg p-2 flex flex-col justify-between py-4 px-4">
-            <p className="text-center text-xl">Integrantes</p>
-            <div>
+        <div className="cuadro mt-6 min-h-64 max-h-80 rounded-lg p-2 flex flex-col justify-between py-4 px-4 pt-3">
+            <p className="text-center text-xl pb-2">Integrantes</p>
+            <div className="overflow-auto mb-2">
                     {
                         props.datos.integrantes.map((e, index)=> (
                             <div key={index} className="flex mb-2">
@@ -30,7 +30,7 @@ export default function SideBar(props){
 
 
 
-            <Link href={`./${props.enlace}/tareas`} className="rounded-full text-center amarilloBack p-2 text-black font-bold">Editar integrantes</Link>
+            <Link href={`./${props.enlace}/tareas`} className="rounded-full text-center amarilloBack p-2 text-black font-bold ">Editar integrantes</Link>
         </div>
     </div>
     )
