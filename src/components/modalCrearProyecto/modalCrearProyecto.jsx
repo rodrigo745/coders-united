@@ -22,7 +22,7 @@ export default function ModalCrearProyecto(props){
     
     // notificacion de creacion
     const [ notificacion, setNotificacion ] = useState(false);
-
+    const [ datos, setDatos ] = useState([]);
     const mostrarModal = ()=> {
         mostrar ? setMostrar(false) : setMostrar(true);
     }
@@ -47,7 +47,7 @@ export default function ModalCrearProyecto(props){
 
         // CREAR LA VERIFICACION DE CAMPO PARA EL NOMBRE
         e.preventDefault();
-        
+
         setNotificacion(true);
         const subir = await fetch(`/api/datosProyecto/asd`,{
             method: "POST",
@@ -55,15 +55,17 @@ export default function ModalCrearProyecto(props){
             headers: {
                 "Content-Type": "application/json"
             }
-        })
-        const obtener = await fetch("/api/datosProyecto/asd");
-        console.log(obtener);
-        await new Promise((resolve)=> setTimeout(resolve, 4000) )
-        console.log(obtener);
-        console.log(obtener);
+        }).then(response => {
+            return response.json();
+        }).then(datosDevueltos => {
+            new Promise((resolve)=> setTimeout(resolve, 2000) )
+            setNotificacion(false);
+            // le paso el id del objeto creado como ruta
+            router.push(`./proyectos/proyecto_creado/${datosDevueltos._id}`)
+        }).catch(error => {
+            console.error('Error:', error);
+        });
 
-        setNotificacion(false);
-        //router.push("./proyectos/proyecto_creado/as")
     }
 
     const get_titulo = (e)=> { setTitulo(e.target.value) }
