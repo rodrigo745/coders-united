@@ -18,7 +18,7 @@ export default async function IdProyecto({params}){
     
     const datosProyecto = await LoadDatos(params.id);
 
-    
+
     return(
         <div className="flex flex-col lg:flex lg:flex-row">
             <div className="flex flex-col  justify-center w-[100vw] lg:w-[60vw] items-center lg:block">
@@ -31,7 +31,7 @@ export default async function IdProyecto({params}){
                 <CuadroVisual/>
                 
             </div>
-            <SideBar enlace={params.id}/>
+            <SideBar datos={datosProyecto} enlace={params.id}/>
 
         </div>
         
