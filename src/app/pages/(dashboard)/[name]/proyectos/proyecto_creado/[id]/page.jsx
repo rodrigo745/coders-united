@@ -10,7 +10,7 @@ async function LoadDatos(id){
     await connectDB;
     const datos = await proyecto.findById(id);
     const res = await JSON.parse(JSON.stringify(datos));
-    return datos;
+    return res;
 }
 
 export default async function IdProyecto({params}){
