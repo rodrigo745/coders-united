@@ -20,6 +20,9 @@ export default function ModalCrearProyecto(props){
     const [ integrantes, setIntegrantes ] = useState();
     const [ proteccion, setproteccion ] = useState("false");
     
+    // notificacion de creacion
+    const [ notificacion, setNotificacion ] = useState(false);
+
     const mostrarModal = ()=> {
         mostrar ? setMostrar(false) : setMostrar(true);
     }
@@ -43,11 +46,9 @@ export default function ModalCrearProyecto(props){
     const crearProyecto = async(e)=>{
 
         // CREAR LA VERIFICACION DE CAMPO PARA EL NOMBRE
-        // AGREGAR UNA NOTIFICACION PARA EL USUARIO (CREADO / LLENAR CAMPO)
-        
-
         e.preventDefault();
         
+        setNotificacion(true);
         const subir = await fetch(`/api/datosProyecto/asd`,{
             method: "POST",
             body: JSON.stringify(valorMongo),
@@ -55,7 +56,14 @@ export default function ModalCrearProyecto(props){
                 "Content-Type": "application/json"
             }
         })
-        // router.push("./proyectos/proyecto_creado/as")
+        const obtener = await fetch("/api/datosProyecto/asd");
+        console.log(obtener);
+        await new Promise((resolve)=> setTimeout(resolve, 4000) )
+        console.log(obtener);
+        console.log(obtener);
+
+        setNotificacion(false);
+        //router.push("./proyectos/proyecto_creado/as")
     }
 
     const get_titulo = (e)=> { setTitulo(e.target.value) }
@@ -114,12 +122,16 @@ export default function ModalCrearProyecto(props){
                                             <label for="radio2" className="cursor-pointer">Privado</label>
                                         </div>
                                     </div>
-                                    {/* Cambiar por una funcion que guarde el proyecto y redirija */}
                                     <button onClick={crearProyecto} className="w-full amarilloBack text-black font-bold text-center p-2 rounded-full mt-5 text-lg">Crear</button>
-
                                 </div>
                             </div>
                         </div>
+                        {
+                            notificacion &&
+                            
+                                <p className="absolute bottom-20 right-20 w-52 p-2 bg-green-700 rounded-lg font-bold text-center shadow-md animate-pulse">Proyecto creado</p>
+                        
+                        }
                     </div>
             }
         </div> 

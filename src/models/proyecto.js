@@ -25,5 +25,5 @@ const proyecto = new Schema({
     adicional_dos: Number,
     adicional_tres: Array
 })
-export default mongoose.model.Proyecto || mongoose.model("Proyecto", proyecto);
+export default mongoose.models.Proyecto || mongoose.model("Proyecto", proyecto);
 
