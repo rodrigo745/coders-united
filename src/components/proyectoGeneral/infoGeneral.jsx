@@ -31,10 +31,10 @@ export default function InfoGeneral(props){
                             <p className="font-bold amarillo mt-3"> Nivel:
                                 <span className="text-white font-normal pl-2"> 
                                     {
-                                        session?.user ?
-                                            session.user.email === datos.integrantes[0].correo &&
+                                        session?.user &&
+                                            session.user.email === datos.integrantes[0].correo ?
                                                 <span>Administrador</span>
-                                        :
+                                            :
                                             <p>Sin definir</p>
                                     }
                                 </span>
