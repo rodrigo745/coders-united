@@ -1,7 +1,10 @@
-export default function InfoGeneral(){
+export default function InfoGeneral(props){
+
+    const datos = props.datos;
+
     return(
         <div className="cuadro w-[90vw] lg:w-[60vw] h-[600px] lg:h-[300px] rounded-lg shadow-md p-4">
-             <h2 className="rounded-r-full border-l-8 border-yellow-200 w-[220px] fondo shadow-sm p-2">Nombre del proyecto</h2>
+             <h2 className="rounded-r-full border-l-8 border-yellow-200 w-[220px] fondo shadow-sm p-2">{datos.titulo}</h2>
                     <div className="flex flex-col lg:flex lg:flex-row">
                         <div className="mt-4 ml-2">
                             <p className="font-bold amarillo"> Usuario:

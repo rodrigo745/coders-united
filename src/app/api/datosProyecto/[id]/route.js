@@ -12,5 +12,5 @@ export async function GET(){
     await connectDB();
     const obtener = await proyecto.find();
     const trans = await JSON.parse(JSON.stringify(obtener));
-    return NextResponse.json(trans);
+    return trans;
 }

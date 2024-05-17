@@ -7,6 +7,7 @@ import Link from "next/link";
 export default async function Proyectos(){
     
     const usuarios = await GET();
+    
 
     return(
         <div className="flex lg:flex lg:flex-col items-center w-full justify-center">

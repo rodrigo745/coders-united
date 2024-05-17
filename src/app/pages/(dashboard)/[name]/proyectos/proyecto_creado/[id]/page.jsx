@@ -25,7 +25,7 @@ export default async function IdProyecto({params}){
                 {/* Main */}
                 
                 {/* Tablero info general */}
-                <InfoGeneral/>
+                <InfoGeneral datos={datosProyecto}/>
                 
                 {/* navegacion del proyecto */}
                 <CuadroVisual/>
