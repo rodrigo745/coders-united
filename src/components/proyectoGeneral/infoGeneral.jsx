@@ -35,7 +35,7 @@ export default function InfoGeneral(props){
                                             session.user.email === datos.integrantes[0].correo ?
                                                 <span>Administrador</span>
                                             :
-                                            <p>Sin definir</p>
+                                            <span>Sin definir</span>
                                     }
                                 </span>
                             </p>
