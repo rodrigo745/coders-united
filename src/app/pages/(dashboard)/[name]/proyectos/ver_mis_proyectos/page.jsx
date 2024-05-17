@@ -1,12 +1,24 @@
 import { GET } from "../../../../../api/datosProyecto/[id]/route";
 import Link from "next/link";
 import { MdOutlineLock } from "react-icons/md";
-
+import { useSession } from "next-auth/react";
 
 export default async function VerMisProyectos(){
 
     const datos = await GET();
-    
+    // const DatosUsuario = ()=>{
+        
+        // Cambiar esto para que solo pueda acceder al proyecto un miembro
+    //     const { data: session } = useSession();
+    //     if(session?.user){
+    //         return session?.user.email;
+    //     }
+    // }
+    // const dd = <DatosUsuario/>;
+    // console.log(dd);
+
+
+
     return(
         <div>
             <h3 className="text-lg">Todos los proyectos ( {datos.length} )</h3>
@@ -22,6 +34,7 @@ export default async function VerMisProyectos(){
                                 }
                                 
                             </div>
+                            
                             <Link href={`./proyecto_creado/${e._id}`} className=" ml-1">{e.titulo} {` -->`} </Link>
                         </div>
                     ))
