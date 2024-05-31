@@ -50,7 +50,7 @@ export default async function VerMisProyectos({params}){
                                 e.integrantes.some((item)=> item.correo === correo ) ?
                                     <Link href={`./proyecto_creado/${e._id}`} className=" ml-1">{e.titulo} {` -->`} </Link>
                                 :
-                                    <p>No Perteneces</p>
+                                    <p>{e.titulo}</p>
                             }
                         </div>
                     ))
