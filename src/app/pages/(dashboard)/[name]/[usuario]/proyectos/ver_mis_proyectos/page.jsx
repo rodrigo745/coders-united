@@ -7,7 +7,29 @@ export default async function VerMisProyectos({params}){
 
     const datos = await GET();
 
-    const correo = params.usuario.replace("%40", "@");
+    const reemplazoInvertido = {
+        "0": "a", "1": "b", "2": "c", "3": "d", "4": "e",
+        "5": "f", "6": "g", "7": "h", "8": "i", "9": "j",
+        "a": "k", "b": "l", "c": "m", "d": "n", "e": "ñ",
+        "f": "o", "g": "p", "h": "q", "i": "r", "j": "s",
+        "k": "t", "l": "u", "m": "v", "n": "w", "ñ": "x",
+        "o": "y", "p": "z", "_": ".", "-": "@"
+    };
+    
+    // Función para decodificar la cadena cifrada
+    function decodificar(cadena) {
+        const cadenaDecodificada = cadena.split('').map(caracter => reemplazoInvertido[caracter] || caracter).join('');
+        return cadenaDecodificada;
+    }
+    
+    // Cadena cifrada
+    const cadenaCifrada = params.usuario;
+    
+    // Decodificar la cadena cifrada
+    const cadenaDecodificada = decodificar(cadenaCifrada);
+
+
+    const correo = cadenaDecodificada;
 
     return(
         <div className="w-full">

@@ -12,9 +12,24 @@ export default function RootLayout({ children, params}) {
     let usuario = useRef();
     useEffect(()=>{
         usuario.current = session?.user.email;
+        console.log(usuario.current);
+        
+        const reemplazo = {
+            "a": "0", "b": "1", "c": "2", "d": "3", "e": "4", 
+            "f": "5", "g": "6", "h": "7", "i": "8", "j": "9", 
+            "k": "a", "l": "b", "m": "c", "n": "d", "ñ": "e", 
+            "o": "f", "p": "g", "q": "h", "r": "i", "s": "j", 
+            "t": "k", "u": "l", "v": "m", "w": "n", "x": "ñ", 
+            "y": "o", "z": "p", ".": "_", "@": "-"
+        };
+        
+        if (session?.user) {
+            usuario.current = usuario.current.replace(/[aeioubcdfghjklmnñpqrstuvwxyz.@]/g, match => reemplazo[match]);
+        }
     },[session?.user])
 
     
+
     return (
         <div className="flex flex-col md:flex md:flex-row w-full h-full">
             <div className="hidden md:block fixed">
