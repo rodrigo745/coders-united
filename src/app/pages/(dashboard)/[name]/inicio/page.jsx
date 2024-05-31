@@ -8,10 +8,9 @@ export default async function Inicio() {
     const datosPerfil = await GET_PERFIL();
     
     return (
-        <div>
+        <div >
             <VerificarUser datosGoogle={datosGoogle} datosPerfil={datosPerfil} />
             <p>Inicio</p>
         </div>
     );
 }
-
