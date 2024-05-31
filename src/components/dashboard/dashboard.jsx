@@ -1,5 +1,4 @@
 
-"use client";
 import Link from "next/link"
 import "./dash.css";
 import { IhuracanAmarillo } from "../../../public/iconos";
@@ -7,14 +6,13 @@ import { BiHomeAlt2 , BiFolder, BiCodeAlt, BiUser,  BiHelpCircle, BiLogOut } fro
 import { PiCubeFocusLight } from "react-icons/pi";
 import { signOut } from "next-auth/react";
 
+
 export default function Dashboard(props, {params}){
 
     const titulos = [ "Inicio", "Proyectos", "Ideas", "Usuarios", "Perfil", "Ayuda"];
     const enlaces = [ "inicio", "proyectos", "ideas", "usuarios", "perfil", "ayuda"];
     const imagenes = [ <BiHomeAlt2 key="home"/>, <BiFolder key="Folder"/>,<PiCubeFocusLight key="FocusLight"/>, <BiCodeAlt key="CodeAlt"/>, <BiUser key="User"/>,  <BiHelpCircle key="HelpCircle"/>, <BiCodeAlt key="CodeAlt"/>];
     const ruta = props.ruta;
-
-    
 
     return(
         <div className="ml-10  mt-6 h-[85vh] text-sm">
