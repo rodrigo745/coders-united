@@ -13,7 +13,8 @@ export default function RootLayout({ children, params}) {
     useEffect(()=>{
         usuario.current = session?.user.email;
     },[session?.user])
-    console.log(params)
+
+    
     return (
         <div className="flex flex-col md:flex md:flex-row w-full h-full">
             <div className="hidden md:block fixed">

@@ -24,8 +24,6 @@ export default function ActualizarDatos(props){
     const [ portafolio, setPortafolio ] = useState("");
     const [ datoAdicional, setDatoAdicional ] = useState("");
     const [ herramientas, setHerramientas ] = useState(""); 
-    //const [ rama, setRama ] = useState("Diseño"); ESPACIO PARA HABILIDADES TECNICAS
-    //const [ rama, setRama ] = useState("Diseño"); ESPACIO PARA HABILIDADES TECNICAS
     const [ telefono, setTelefono ] = useState("");
     const [ linkedin, setLinkedin ] = useState("");
     const [ github, setGitHub ] = useState("");
@@ -169,6 +167,7 @@ export default function ActualizarDatos(props){
             const idEncontrada = datosFind._id;
 
             if(encontrado){
+                setDatosGuardadosPop(true);
                 const actualizar = await fetch(`/api/datosPerfil/${idEncontrada}`, 
                 {
                     method: "PUT",
@@ -177,11 +176,10 @@ export default function ActualizarDatos(props){
                         "Content-Type": "application/json"
                     }
                 })
+                await new Promise((resolve)=> setTimeout(resolve, 1000) )
+                setDatosGuardadosPop(false);
                 setHerramientas("");
                 router.refresh();
-                setDatosGuardadosPop(true);
-                await new Promise((resolve)=> setTimeout(resolve, 2000) )
-                setDatosGuardadosPop(false);
             }
         }    
     }

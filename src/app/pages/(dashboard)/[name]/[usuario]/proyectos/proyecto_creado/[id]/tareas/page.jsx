@@ -1,4 +1,4 @@
-import KanbanBoard from "../../../../../../../../components/tareas/KanbanBoard"
+import KanbanBoard from "../../../../../../../../../components/tareas/KanbanBoard"
 export default function Tareas() {
     
     return (

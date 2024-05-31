@@ -13,6 +13,7 @@ export default function Dashboard(props, {params}){
     const enlaces = [ "inicio", "proyectos", "ideas", "usuarios", "perfil", "ayuda"];
     const imagenes = [ <BiHomeAlt2 key="home"/>, <BiFolder key="Folder"/>,<PiCubeFocusLight key="FocusLight"/>, <BiCodeAlt key="CodeAlt"/>, <BiUser key="User"/>,  <BiHelpCircle key="HelpCircle"/>, <BiCodeAlt key="CodeAlt"/>];
     const ruta = props.ruta;
+
     
     return(
         <div className="ml-10  mt-6 h-[85vh] text-sm">

@@ -24,8 +24,12 @@ export default async function VerMisProyectos({params}){
                                 }
                                 
                             </div>
-                            
-                            <Link href={`./proyecto_creado/${e._id}`} className=" ml-1">{e.titulo} {` -->`} </Link>
+                            {
+                                e.integrantes.some((item)=> item.correo === correo ) ?
+                                    <Link href={`./proyecto_creado/${e._id}`} className=" ml-1">{e.titulo} {` -->`} </Link>
+                                :
+                                    <p>No Perteneces</p>
+                            }
                         </div>
                     ))
                 }

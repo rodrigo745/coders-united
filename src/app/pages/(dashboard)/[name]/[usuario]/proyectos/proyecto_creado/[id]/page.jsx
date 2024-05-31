@@ -1,9 +1,9 @@
-import InfoGeneral from "../../../../../../../components/proyectoGeneral/infoGeneral";
-import CuadroVisual from "../../../../../../../components/proyectoGeneral/cuadroVisual";
-import SideBar from "../../../../../../../components/proyectoGeneral/sideBar";
+import InfoGeneral from "../../../../../../../../components/proyectoGeneral/infoGeneral";
+import CuadroVisual from "../../../../../../../../components/proyectoGeneral/cuadroVisual";
+import SideBar from "../../../../../../../../components/proyectoGeneral/sideBar";
 // para acceder a los datos de mongo
-import proyecto from "../../../../../../../models/proyecto";
-import connectDB from "../../../../../../../libs/mongoose";
+import proyecto from "../../../../../../../../models/proyecto";
+import connectDB from "../../../../../../../../libs/mongoose";
 
 async function LoadDatos(id){
     connectDB;

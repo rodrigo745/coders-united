@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { TableroHerramientas } from "../../../../../../components/datosPersonales/daPersonales";
-import { GET } from "../../../../../api/datosPerfil/[id]/route"
+import { TableroHerramientas } from "../../../../../../../components/datosPersonales/daPersonales";
+import { GET } from "../../../../../../api/datosPerfil/[id]/route"
 import Image from "next/image";
 
 export default async function IdUsuario({params}){
