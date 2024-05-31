@@ -1,6 +1,6 @@
-import ActualizarDatos from "../../../../../components/datosPersonales/actualizarDatos";
-import connectDB from "../../../../../libs/mongoose";
-import datosPerfil from "../../../../../models/datosPerfil";
+import ActualizarDatos from "../../../../../../components/datosPersonales/actualizarDatos";
+import connectDB from "../../../../../../libs/mongoose";
+import datosPerfil from "../../../../../../models/datosPerfil";
 
 async function LoadDatos(){
     await connectDB();

@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { GET as DaPerfil } from "../../../../api/datosPerfil/[id]/route";
+import { GET as DaPerfil } from "../../../../../api/datosPerfil/[id]/route";
 import { BiHelpCircle } from "react-icons/bi"
 import { RxEyeOpen } from "react-icons/rx";
 import Link from "next/link";
-import Buscador from "../../../../../components/buscador/buscador";
+import Buscador from "../../../../../../components/buscador/buscador";
 
 export default async function Usuarios(){
 

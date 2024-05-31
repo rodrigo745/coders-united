@@ -14,7 +14,7 @@ export default function SignIn(){
 
   return(
     <div className="flex justify-center w-screen h-screen">
-       <button onClick={() => signIn("google",{callbackUrl:"/pages/0/inicio"})}>
+       <button onClick={() => signIn("google",{callbackUrl:"/pages/0/3/inicio"})}>
             <p className="border rounded-md boder-2 border-yellow-300 p-2 px-4 hover:bg-yellow-300 hover:text-black transition">Ingresar con Google</p>
           </button>
     </div>

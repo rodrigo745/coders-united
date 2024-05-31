@@ -1,12 +1,13 @@
-import { GET } from "../../../../../api/datosProyecto/[id]/route";
+import { GET } from "../../../../../../api/datosProyecto/[id]/route";
 import Link from "next/link";
 import { MdOutlineLock } from "react-icons/md";
 
-export default async function VerMisProyectos(){
+
+export default async function VerMisProyectos({params}){
 
     const datos = await GET();
 
-
+    const correo = params.usuario.replace("%40", "@");
 
     return(
         <div>

@@ -7,14 +7,13 @@ import { BiHomeAlt2 , BiFolder, BiCodeAlt, BiUser,  BiHelpCircle, BiLogOut } fro
 import { PiCubeFocusLight } from "react-icons/pi";
 import { signOut } from "next-auth/react";
 
-export default function Dashboard(props){
+export default function Dashboard(props, {params}){
 
     const titulos = [ "Inicio", "Proyectos", "Ideas", "Usuarios", "Perfil", "Ayuda"];
     const enlaces = [ "inicio", "proyectos", "ideas", "usuarios", "perfil", "ayuda"];
     const imagenes = [ <BiHomeAlt2 key="home"/>, <BiFolder key="Folder"/>,<PiCubeFocusLight key="FocusLight"/>, <BiCodeAlt key="CodeAlt"/>, <BiUser key="User"/>,  <BiHelpCircle key="HelpCircle"/>, <BiCodeAlt key="CodeAlt"/>];
-
     const ruta = props.ruta;
-
+    
     return(
         <div className="ml-10  mt-6 h-[85vh] text-sm">
             <div className="flex mb-2 scale-100">
@@ -26,7 +25,7 @@ export default function Dashboard(props){
             <div className="flex flex-col h-full  cuadro rounded-3xl py-7 w-56 shadow-md shadow-neutral-900">
             {
                 titulos.map((e, index)=> (
-                    <Link key={index} href={`/pages/${index}/${enlaces[index]}`} className={`flex p-3 space-x-4 text-neutral-500 ${ruta == index && "fondo liston"}`}>
+                    <Link key={index} href={`/pages/${index}/${props.usuario}/${enlaces[index]}`} className={`flex p-3 space-x-4 text-neutral-500 ${ruta == index && "fondo liston"}`}>
                         <div className="scale-125 mt-2 ml-2">
                             {imagenes[index]}     
                         </div>

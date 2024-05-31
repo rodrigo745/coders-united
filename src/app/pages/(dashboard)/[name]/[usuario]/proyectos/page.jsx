@@ -1,6 +1,6 @@
-import { GET } from "../../../../api/usuarioGoogle/[id]/route";
+import { GET } from "../../../../../api/usuarioGoogle/[id]/route";
 import Image from "next/image"
-import ModalCrearProyecto from "../../../../../components/modalCrearProyecto/modalCrearProyecto";
+import ModalCrearProyecto from "../../../../../../components/modalCrearProyecto/modalCrearProyecto";
 import { TiFolderOpen } from "react-icons/ti";
 import Link from "next/link";
 
