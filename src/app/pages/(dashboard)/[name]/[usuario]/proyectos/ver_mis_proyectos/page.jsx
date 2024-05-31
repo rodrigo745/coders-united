@@ -10,9 +10,9 @@ export default async function VerMisProyectos({params}){
     const correo = params.usuario.replace("%40", "@");
 
     return(
-        <div>
+        <div className="w-full">
             <h3 className="text-lg">Todos los proyectos ( {datos.length} )</h3>
-            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 justify-center place-content-center place-items-center  lg:gap-20 xl:gap-16 2xl:gap-20">
                 {
                     datos.map((e, index)=> (
                         <div key={index} className="p-2 mt-4 w-[300px] h-[200px] cuadro rounded-lg">

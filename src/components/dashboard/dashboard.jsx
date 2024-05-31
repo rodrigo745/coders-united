@@ -15,6 +15,7 @@ export default function Dashboard(props, {params}){
     const ruta = props.ruta;
 
     
+
     return(
         <div className="ml-10  mt-6 h-[85vh] text-sm">
             <div className="flex mb-2 scale-100">
