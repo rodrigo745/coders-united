@@ -18,11 +18,14 @@ export default async function IdProyecto({params}){
 
     
     const datosProyecto = await LoadDatos(params.id);
+    let integrantes = false;
 
     function Contenido(color){
         const Ncolor = color;
         return Ncolor;
     }
+
+    console.log(integrantes)
 
     return(
         <div className="flex flex-col lg:flex lg:flex-row">
@@ -39,7 +42,7 @@ export default async function IdProyecto({params}){
             <div className="lg:w-[320px] mx-5 lg:mx-10 mt-10 lg:mt-0 mb-10">
                 <SideBar datos={datosProyecto} enlace={params.id}/>
                 <div className="cuadro pb-4 rounded-b-lg px-3">
-                    <p  className="rounded-full text-center amarilloBack cursor-pointer p-2 text-black font-bold ">Editar integrantes</p>
+                    <p className="rounded-full text-center amarilloBack cursor-pointer p-2 text-black font-bold ">Editar integrantes</p>
 
                 </div>
 
