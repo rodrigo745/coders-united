@@ -14,7 +14,7 @@ async function LoadDatos(id){
     return res;
 }
 
-export default async function IdProyecto({params, Children}){
+export default async function IdProyecto({params}){
 
     
     const datosProyecto = await LoadDatos(params.id);
