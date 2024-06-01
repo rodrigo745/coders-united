@@ -1,6 +1,5 @@
-export default function CuadroVisual(){
+export default function CuadroVisual(props){
 
-    
 
 
     return(
@@ -21,6 +20,8 @@ export default function CuadroVisual(){
                         </div>
                         
                         {/* Contenido */}
+                        {props.editarIntegrantes}
+
                     </div>
         </div>
     )

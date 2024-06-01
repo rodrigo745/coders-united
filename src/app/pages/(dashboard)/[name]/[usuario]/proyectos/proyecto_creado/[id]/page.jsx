@@ -1,6 +1,8 @@
 import InfoGeneral from "../../../../../../../../components/proyectoGeneral/infoGeneral";
 import CuadroVisual from "../../../../../../../../components/proyectoGeneral/cuadroVisual";
 import SideBar from "../../../../../../../../components/proyectoGeneral/sideBar";
+import EditarIntegrantes from "../../../../../../../../components/proyectoGeneral/cuadro/editarIntegrantes";
+
 // para acceder a los datos de mongo
 import proyecto from "../../../../../../../../models/proyecto";
 import connectDB from "../../../../../../../../libs/mongoose";
@@ -31,14 +33,14 @@ export default async function IdProyecto({params, Children}){
                 <InfoGeneral datos={datosProyecto}/>
                 
                 {/* navegacion del proyecto */}
-                <CuadroVisual contenido={Contenido()}/>
+                <CuadroVisual editarIntegrantes={<EditarIntegrantes/>}/>
                 
             </div>
             <div className="lg:w-[320px] mx-5 lg:mx-10 mt-10 lg:mt-0 mb-10">
                 <SideBar datos={datosProyecto} enlace={params.id}/>
                 <div className="cuadro pb-4 rounded-b-lg px-3">
                     <p  className="rounded-full text-center amarilloBack cursor-pointer p-2 text-black font-bold ">Editar integrantes</p>
-                    
+
                 </div>
 
             </div>
