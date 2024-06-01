@@ -34,7 +34,7 @@ export default async function VerMisProyectos({params}){
     return(
         <div className="w-full">
             <h3 className="text-lg">Todos los proyectos ( {datos.length} )</h3>
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 justify-center place-content-center place-items-center  lg:gap-20 xl:gap-16 2xl:gap-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 justify-center place-content-center place-items-center  lg:gap-x-20 xl:gap-x-16 2xl:gap-x-20 gap-y-10">
                 {
                     datos.map((e, index)=> (
                         <div key={index} className="p-2 mt-4 w-[300px] h-[200px] cuadro rounded-lg">
@@ -48,9 +48,15 @@ export default async function VerMisProyectos({params}){
                             </div>
                             {
                                 e.integrantes.some((item)=> item.correo === correo ) ?
-                                    <Link href={`./proyecto_creado/${e._id}`} className=" ml-1">{e.titulo} {` -->`} </Link>
+                                    <div className="flex justify-between">
+                                        <Link href={`./proyecto_creado/${e._id}`} className=" ml-1 mt-1">{e.titulo} {` -->`} </Link>
+                                        <p className="h-4 w-4 bg-green-700 mt-2 mr-1 rounded-sm"></p>
+                                    </div>
                                 :
-                                    <p>{e.titulo}</p>
+                                <div className="flex justify-between">
+                                        <p>{e.titulo}</p>
+                                        <p className="h-4 w-4 bg-red-500 mt-2 mr-1 rounded-sm"></p>
+                                    </div>
                             }
                         </div>
                     ))

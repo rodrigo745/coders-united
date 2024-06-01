@@ -6,6 +6,7 @@
 body{
   background-color: #181A1E;
   color: #DFDADA;
+  overflow-x: hidden;
 }
 /*  dashboard  */
 .cuadro{
