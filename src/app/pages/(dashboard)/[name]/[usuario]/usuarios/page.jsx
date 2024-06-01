@@ -52,7 +52,7 @@ export default async function Usuarios(){
 
     function Lista(titulo, filtro){
         return(
-            <div className="w-full flex flex-col lg:block items-center justify-center content-center">
+            <div className="w-full mt-7 flex flex-col lg:block items-center justify-center content-center">
                 <div className="flex flex-col-reverse md:flex md:flex-row md:justify-between mb-3 justify-center  items-center md:ml-4">
                     <div className="flex">
                         <h2 className="text-lg mt-2 mb-4 md:mb-0">{titulo}</h2>
