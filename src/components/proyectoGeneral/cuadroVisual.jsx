@@ -1,4 +1,8 @@
 export default function CuadroVisual(){
+
+    
+
+
     return(
         <div className="flex flex-col lg:flex lg:flex-row w-[90vw] lg:w-[60vw]">
              <div className="cuadro space-y-5 lg:w-[270px] h-fit p-2 lg:px-4 py-5 mt-6 rounded-lg text-sm lg:mb-14">

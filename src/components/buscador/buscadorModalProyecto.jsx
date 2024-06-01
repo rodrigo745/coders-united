@@ -23,6 +23,7 @@ export default function BuscadorModalProyecto(props){
                 imagen: session.user.image
             }
             setIntegrantes([usuarioLider]);
+            props.obtener_integrante([usuarioLider]);
         }
     },[session?.user])
     
