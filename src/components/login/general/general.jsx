@@ -22,4 +22,4 @@ export default function LoginGeneral(props){
     )
 }
 
-const estiloBtn = "w-full mt-8 border rounded-full boder-2 border-[#CDD589] p-3 hover:bg-[#CDD589] font-bold text-lg hover:text-black transition"
+const estiloBtn = "w-full mt-8 border rounded-full boder-2 border-[#CDD589] p-3 hover:bg-[#CDD589] font-bold text-md md:text-lg hover:text-black transition"
