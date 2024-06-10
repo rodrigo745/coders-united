@@ -47,7 +47,7 @@ export default function DashboardMovil(props){
 
             {
                 titulos.map((e, index)=> (
-                    <Link onClick={mostrarMenu} key={index} href={`/pages/${index}/${enlaces[index]}`} className={`flex p-2 space-x-3 text-slate-600 ${ruta == index && "fondo liston"}`}>
+                    <Link onClick={mostrarMenu} key={index} href={`/pages/${index}/${props.usuario}/${enlaces[index]}`} className={`flex p-2 space-x-3 text-slate-600 ${ruta == index && "fondo liston"}`}>
                         <div className="scale-150 mt-2 ml-4 mr-3">
                             {imagenes[index]}     
                         </div>

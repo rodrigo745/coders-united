@@ -39,7 +39,7 @@ export default function RootLayout({ children, params}) {
                 </div>
             </div>
             <div className="block md:hidden">
-                <DashboardMovil ruta={params.name}/>
+                <DashboardMovil usuario={usuario.current} ruta={params.name}/>
             </div>
             <div className="md:p-10 md:py-20 mt-8 md:mt-0 md:ml-72">
                 {children}
