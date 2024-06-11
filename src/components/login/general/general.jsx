@@ -12,8 +12,8 @@ export default function LoginGeneral(props){
 
             <div className="w-full">
                 {props.botonGoogle}
-                <button className={estiloBtn}>Ingresar con GitHub</button>
-                <button className={estiloBtn}>Ingresar con mi Correo</button>
+                <button className={`${estiloBtn} cursor-not-allowed`}>Ingresar con GitHub</button>
+                <button className={`${estiloBtn} cursor-not-allowed`}>Ingresar con mi Correo</button>
 
             </div>
 

@@ -15,14 +15,12 @@ export default function Buscador(props){
     useEffect(()=>{
         
         if(textoCambiante != ""){
-            // hacer el algoritmo de busqueda aqui
-            // Filtrar los nombres que coinciden con "Rodrigo"
-            const nombres = datosDB.filter(nombre => nombre.nombre.toLowerCase().includes(textoCambiante.toLowerCase()));
-            
+            const nombres = datosDB.filter(nombres => nombres.nombre_google.toLowerCase().includes(textoCambiante.toLowerCase()));
+
             // Ordenar alfabéticamente los nombres de los Rodrigos
             const nombresOrdenados = nombres.sort((a,b)=> {
-                const nomA = a.nombre.toLowerCase();
-                const nomB = b.nombre.toLowerCase();
+                const nomA = a.nombre_google.toLowerCase();
+                const nomB = b.nombre_google.toLowerCase();
                 return nomA.localeCompare(nomB)
             });
             
@@ -45,17 +43,13 @@ export default function Buscador(props){
                 placeholder="Buscar usuario"/>
                 
                 <div className="cuadro w-[320px]  h-fit absolute z-50 rounded-md ">
-                
-                    {
-
-                        
+                    {                        
                         textoCambiante != "" &&
-                        
                          <div className="p-3 border rounded-lg shadow-md space-y-2"> 
                              {
                                  listaResultado.map((e, index)=> (
                                      <Link href={`./usuarios/${e._id}/${e.correo}`} key={index}
-                                        className="block"> {e.nombre} </Link>
+                                        className="block"> {e.nombre_google} </Link>
                                     ))
                              }
                          </div>
