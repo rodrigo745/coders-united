@@ -12,7 +12,6 @@ export default function RootLayout({ children, params}) {
     let usuario = useRef();
     useEffect(()=>{
         usuario.current = session?.user.email;
-        console.log(usuario.current);
         
         const reemplazo = {
             "a": "0", "b": "1", "c": "2", "d": "3", "e": "4", 
